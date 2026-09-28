@@ -74,28 +74,8 @@ export default function ContactPage() {
   });
 
   useEffect(() => {
-    document.title = 'Contact Kriyon Group | Start a Project';
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute('content', "Get in touch with Kriyon Group Private Limited. Start a project across brand, technology, creative production and digital presence.");
-    }
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) {
-      canonical.setAttribute('href', 'https://www.kriyongroup.com/contact');
-    }
-
     if (window.__lenis) window.__lenis.scrollTo(0, { immediate: true });
     else window.scrollTo({ top: 0, behavior: 'instant' });
-
-    return () => {
-      document.title = 'Kriyon Group Private Limited | Creative Technology Group';
-      if (metaDesc) {
-        metaDesc.setAttribute('content', 'Kriyon Group Private Limited is an India-based creative technology group bringing together RepixelX, Kriyon Media and OneLink across brand, technology, creative production and digital presence.');
-      }
-      if (canonical) {
-        canonical.setAttribute('href', 'https://www.kriyongroup.com/');
-      }
-    };
   }, []);
 
   const updateField = (field) => (event) => {

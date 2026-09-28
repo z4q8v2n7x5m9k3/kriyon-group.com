@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import PixelatedIcon from './PixelatedIcon';
 
-export default function Hero({ onContact }) {
+export default function Hero({ onContact, isLoaded = true }) {
   const [isBtnHovered, setIsBtnHovered] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -30,14 +30,6 @@ export default function Hero({ onContact }) {
       image: '/assets/onelink-mockup-new.jpg',
     },
   ];
-
-  // Preload all venture slide images immediately so slide transition has zero lag
-  useEffect(() => {
-    ventures.forEach((v) => {
-      const img = new Image();
-      img.src = v.image;
-    });
-  }, []);
 
   // Auto-shift venture slides every 5.0 seconds with smooth crossfade
   useEffect(() => {
@@ -119,26 +111,27 @@ export default function Hero({ onContact }) {
         
         {/* Background Layer: Real Image Colours with 100% FULL OPACITY */}
         <div className="absolute inset-x-0 bottom-0 pointer-events-none z-0 overflow-hidden flex items-end justify-center w-full h-[460px] sm:h-auto" aria-hidden="true">
-          <img
+          <motion.img
             src="/assets/kriyon-hill-render.png"
             alt=""
-            className="w-full h-full sm:h-auto object-cover md:object-contain object-bottom pointer-events-none block scale-135 sm:scale-100 origin-bottom transition-transform duration-1000 ease-out"
+            initial={{ opacity: 0, y: 45, scale: 1.05 }}
+            animate={isLoaded ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 45, scale: 1.05 }}
+            transition={{ duration: 1.25, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full h-full sm:h-auto object-cover md:object-contain object-bottom pointer-events-none block scale-135 sm:scale-100 origin-bottom"
           />
         </div>
 
         {/* Hero Content Grid (Left Text & Right Rotating Venture Card) */}
-        <div className="relative z-10 w-full max-w-[1540px] mx-auto flex flex-col lg:flex-row items-start justify-between gap-8 sm:gap-10 lg:gap-12 min-w-0">
+        <div className="relative z-10 w-full max-w-[1600px] mx-auto flex flex-col lg:flex-row items-start justify-between gap-8 sm:gap-10 lg:gap-14 min-w-0">
           
           {/* Left Column: Parent Brand Headline, Copy & Action Group */}
-          <div className="flex flex-col items-start text-left max-w-[640px] sm:max-w-[740px] w-full min-w-0">
+          <div className="flex flex-col items-start text-left max-w-[640px] sm:max-w-[760px] xl:max-w-[820px] w-full min-w-0">
             
-
-
             {/* Main Headline: Dominant Parent Brand Presence */}
             <motion.div
-              initial={{ opacity: 0, y: 28, filter: 'blur(4px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, y: 16 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+              transition={{ duration: 0.7, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
               className="w-full min-w-0"
             >
               <h1 className="font-sans text-left tracking-tight min-w-0">
@@ -153,20 +146,20 @@ export default function Hero({ onContact }) {
 
             {/* Supporting Copy */}
             <motion.p
-              initial={{ opacity: 0, y: 22, filter: 'blur(3px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{ duration: 0.85, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[14px] min-[390px]:text-[14.5px] sm:text-[15.5px] text-[#555555] font-normal tracking-[-0.01em] leading-[1.55] max-w-[490px] sm:max-w-[540px] mt-3 sm:mt-4 text-left font-sans"
+              initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
+              animate={isLoaded ? { opacity: 1, y: 0, filter: 'blur(0px)' } : { opacity: 0, y: 20, filter: 'blur(4px)' }}
+              transition={{ duration: 0.85, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
+              className="text-[14.5px] min-[390px]:text-[15px] sm:text-[16px] xl:text-[17px] text-[#444444] font-normal tracking-[-0.015em] leading-[1.6] max-w-[500px] sm:max-w-[560px] xl:max-w-[620px] mt-4 sm:mt-5 text-left font-sans"
             >
               Bringing brand, technology, creative production and digital experience into one connected force for businesses ready to build bigger, move faster and grow further.
             </motion.p>
 
             {/* CTA Buttons: Explore Capabilities & Start a Project */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-5 sm:mt-7 flex items-center gap-2.5 sm:gap-3.5 w-full sm:w-auto min-w-0"
+              initial={{ opacity: 0, y: 18 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
+              transition={{ duration: 0.8, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-6 sm:mt-8 flex items-center gap-3 sm:gap-4 w-full sm:w-auto min-w-0"
             >
               {/* Primary Button: Explore Capabilities */}
               <button
@@ -202,9 +195,9 @@ export default function Hero({ onContact }) {
           {/* Right Column: Controlled Floating Venture Card */}
           <div className="w-full lg:w-auto flex justify-center lg:justify-end pt-3 lg:pt-0">
             <motion.div
-              initial={{ opacity: 0, x: 28, scale: 0.96, filter: 'blur(6px)' }}
-              animate={{ opacity: 1, x: 0, scale: 1, filter: 'blur(0px)' }}
-              transition={{ duration: 0.95, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, x: 20 }}
+              animate={isLoaded ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               onClick={nextSlide}
               className="relative bg-white/[0.86] backdrop-blur-2xl rounded-[18px] sm:rounded-[20px] p-1.5 shadow-[0_12px_34px_rgba(0,0,0,0.07),inset_0_1px_0_rgba(255,255,255,0.95)] border border-white w-full max-w-[350px] mx-auto lg:mx-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_rgba(0,0,0,0.1)] group cursor-pointer overflow-hidden"
             >
@@ -215,13 +208,10 @@ export default function Hero({ onContact }) {
                     key={currentVenture.id}
                     src={currentVenture.image}
                     alt={currentVenture.name}
-                    loading="eager"
-                    fetchPriority="high"
-                    decoding="async"
                     initial={{ opacity: 0, scale: 1.02 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.35, ease: 'easeOut' }}
+                    transition={{ duration: 0.45, ease: 'easeOut' }}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 select-none"
                   />
                 </AnimatePresence>
@@ -258,7 +248,7 @@ export default function Hero({ onContact }) {
         {/* Bottom Area: Real Company Proof & Client Logo Bar */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
           transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="relative z-10 w-full max-w-[1540px] mx-auto pt-10 sm:pt-12 mt-auto flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-12 pb-2 min-w-0"
         >
@@ -291,7 +281,6 @@ export default function Hero({ onContact }) {
                   key={idx}
                   src={logo.src}
                   alt={logo.alt}
-                  decoding="async"
                   className={`${
                     logo.className || 'h-[24px] sm:h-[28px] md:h-[30px]'
                   } w-auto max-w-[130px] object-contain opacity-95 hover:opacity-100 transition-opacity duration-300 filter brightness-0 invert drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] flex-shrink-0`}

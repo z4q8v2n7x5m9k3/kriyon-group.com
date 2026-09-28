@@ -60,7 +60,7 @@ export default function Footer({ onStartConversation, onOpenLegal }) {
 
       <div className="kriyon-footer-container">
         <div className="kriyon-footer-bg-wrap" aria-hidden="true">
-          <img src="/assets/kriyon-hill-render.png" alt="" loading="lazy" decoding="async" className="kriyon-footer-bg-img" />
+          <img src="/assets/kriyon-hill-render.png" alt="" className="kriyon-footer-bg-img" />
           <div className="kriyon-footer-bg-overlay" />
         </div>
 
@@ -81,7 +81,8 @@ export default function Footer({ onStartConversation, onOpenLegal }) {
             <p className="kriyon-footer-nav-title">Registered Office &amp; Contact</p>
             <a href="tel:+919622121100" className="kriyon-footer-text transition-colors hover:text-[#88EA15]">+91 96221 21100</a>
             <a href="mailto:kriyon@repixelx.tech" className="kriyon-footer-text break-all transition-colors hover:text-[#88EA15]">kriyon@repixelx.tech</a>
-            <p className="kriyon-footer-address">Room No. 2, First Floor, Tawi Enclave, Vill Nandini, Gol Gujral, Jammu 180002, J&amp;K</p>
+            <p className="kriyon-footer-address hidden sm:block">Room No. 2, First Floor, Tawi Enclave, Vill Nandini, Gol Gujral, Jammu 180002, J&amp;K</p>
+            <p className="kriyon-footer-address sm:hidden">Jammu 180002, J&amp;K, India</p>
           </div>
 
           <div className="kriyon-footer-col col-explore">
@@ -90,24 +91,26 @@ export default function Footer({ onStartConversation, onOpenLegal }) {
               <a href="/">Home</a>
               <a href="/#expertise">Capabilities</a>
               <a href="/#ventures">Ventures</a>
-              <a href="/#why-kriyon">Company</a>
               <a href="/contact">Contact</a>
-              <a href="https://repixelx.com/" target="_blank" rel="noopener noreferrer">Explore RepixelX ↗</a>
-              <a href="https://www.kriyonmedia.com/" target="_blank" rel="noopener noreferrer">Visit Kriyon Media ↗</a>
-              <a href="https://onelink.cards/" target="_blank" rel="noopener noreferrer">Explore OneLink ↗</a>
+              <a href="https://repixelx.com/" target="_blank" rel="noopener noreferrer" className="hidden sm:inline-block">Explore RepixelX ↗</a>
+              <a href="https://www.kriyonmedia.com/" target="_blank" rel="noopener noreferrer" className="hidden sm:inline-block">Visit Kriyon Media ↗</a>
+              <a href="https://onelink.cards/" target="_blank" rel="noopener noreferrer" className="hidden sm:inline-block">Explore OneLink ↗</a>
             </nav>
           </div>
 
           <div className="kriyon-footer-col col-legal">
             <div className="kriyon-footer-nav">
               <strong className="kriyon-footer-nav-title">Legal</strong>
-              <a href="/legal" onClick={(e) => { e.preventDefault(); onOpenLegal?.('terms'); }}>Legal Centre Overview</a>
-              <a href="/legal#terms" onClick={(e) => { e.preventDefault(); onOpenLegal?.('terms'); }}>01 · Terms &amp; Conditions</a>
-              <a href="/legal#privacy" onClick={(e) => { e.preventDefault(); onOpenLegal?.('privacy'); }}>02 · Privacy Policy</a>
-              <a href="/legal#refund" onClick={(e) => { e.preventDefault(); onOpenLegal?.('refund'); }}>03 · Refund Policy</a>
-              <a href="/legal#cookies" onClick={(e) => { e.preventDefault(); onOpenLegal?.('cookies'); }}>04 · Cookie Policy</a>
-              <a href="/legal#disclaimer" onClick={(e) => { e.preventDefault(); onOpenLegal?.('disclaimer'); }}>05 · Disclaimer</a>
-              <a href="/legal#grievance" onClick={(e) => { e.preventDefault(); onOpenLegal?.('grievance'); }}>06 · Grievance Officer</a>
+              <button type="button" onClick={() => onOpenLegal?.('terms')}>Legal Centre Overview</button>
+              <button type="button" onClick={() => onOpenLegal?.('terms')} className="sm:hidden">Terms &amp; Privacy Policy</button>
+              <button type="button" onClick={() => onOpenLegal?.('refund')} className="sm:hidden">Refund &amp; Policies</button>
+              
+              <button type="button" onClick={() => onOpenLegal?.('terms')} className="hidden sm:block">01 · Terms &amp; Conditions</button>
+              <button type="button" onClick={() => onOpenLegal?.('privacy')} className="hidden sm:block">02 · Privacy Policy</button>
+              <button type="button" onClick={() => onOpenLegal?.('refund')} className="hidden sm:block">03 · Refund Policy</button>
+              <button type="button" onClick={() => onOpenLegal?.('cookies')} className="hidden sm:block">04 · Cookie Policy</button>
+              <button type="button" onClick={() => onOpenLegal?.('disclaimer')} className="hidden sm:block">05 · Disclaimer</button>
+              <button type="button" onClick={() => onOpenLegal?.('grievance')} className="hidden sm:block">06 · Grievance Officer</button>
             </div>
           </div>
         </div>

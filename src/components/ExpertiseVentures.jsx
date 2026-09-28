@@ -149,12 +149,12 @@ export default function ExpertiseVentures({ onContact }) {
           {cards.map((card, idx) => (
             <motion.article
               key={card.id}
-              initial={{ opacity: 0, y: 32, scale: 0.97, filter: 'blur(6px)' }}
-              whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
-              viewport={{ once: true, margin: '-50px' }}
+              initial={{ opacity: 0, y: 16, scale: 0.985 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: '-60px' }}
               transition={{
-                duration: 0.85,
-                delay: idx * 0.12,
+                duration: 0.65,
+                delay: idx * 0.1,
                 ease: [0.16, 1, 0.3, 1],
               }}
               className="relative w-full rounded-[24px] sm:rounded-[26px] overflow-hidden bg-white/[0.76] backdrop-blur-2xl border border-white/95 shadow-[0_8px_32px_rgba(0,0,0,0.035),inset_0_1px_0_rgba(255,255,255,0.95)] hover:shadow-[0_18px_44px_rgba(0,0,0,0.065)] hover:border-white group transition-all duration-300 flex flex-col justify-between p-3 sm:p-3.5 z-10"

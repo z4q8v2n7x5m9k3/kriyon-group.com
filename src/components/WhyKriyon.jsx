@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import PixelatedIcon from './PixelatedIcon';
 
 const reveal = (delay = 0) => ({
-  initial: { opacity: 0, y: 28, scale: 0.98, filter: 'blur(5px)' },
-  whileInView: { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' },
-  viewport: { once: true, margin: '-60px' },
-  transition: { duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] },
+  initial: { opacity: 0, y: 18, scale: 0.985 },
+  whileInView: { opacity: 1, y: 0, scale: 1 },
+  viewport: { once: true, margin: '-70px' },
+  transition: { duration: 0.65, delay, ease: [0.16, 1, 0.3, 1] },
 });
 
 export default function WhyKriyon() {

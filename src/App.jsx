@@ -22,13 +22,15 @@ export default function App() {
   });
 
   const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
-  const [legalModalState, setLegalModalState] = useState(() => {
+  const [isPageLoaded, setIsPageLoaded] = useState(() => {
     if (typeof window !== 'undefined') {
-      if (window.location.pathname === '/legal' || window.location.hash === '#legal' || window.location.search.includes('view=legal')) {
-        return { isOpen: true, tab: 'terms' };
-      }
+      return !!sessionStorage.getItem('kriyon_visited');
     }
-    return { isOpen: false, tab: 'terms' };
+    return false;
+  });
+  const [legalModalState, setLegalModalState] = useState({
+    isOpen: false,
+    tab: 'terms',
   });
 
   useEffect(() => {
@@ -38,29 +40,11 @@ export default function App() {
       } else {
         setCurrentRoute('/');
       }
-
-      if (window.location.pathname === '/legal' || window.location.hash === '#legal' || window.location.search.includes('view=legal')) {
-        setLegalModalState({ isOpen: true, tab: 'terms' });
-      }
     };
 
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
-
-  useEffect(() => {
-    if (legalModalState.isOpen) {
-      document.title = 'Legal Centre | Kriyon Group Private Limited';
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) {
-        metaDesc.setAttribute('content', 'Statutory legal documentation, Terms & Conditions, Privacy Policy, Refund Policy and compliance for Kriyon Group Private Limited.');
-      }
-      let canonical = document.querySelector('link[rel="canonical"]');
-      if (canonical) {
-        canonical.setAttribute('href', 'https://www.kriyongroup.com/legal');
-      }
-    }
-  }, [legalModalState.isOpen]);
 
   useEffect(() => {
     if (currentRoute === '/') {
@@ -73,8 +57,8 @@ export default function App() {
         }, 50);
       }
 
-      // Support opening legal directly via hash or search or pathname
-      if (window.location.pathname === '/legal' || window.location.hash === '#legal' || window.location.search.includes('view=legal')) {
+      // Support opening legal directly via hash or search
+      if (window.location.hash === '#legal' || window.location.search.includes('view=legal')) {
         setLegalModalState({ isOpen: true, tab: 'terms' });
       }
 
@@ -116,21 +100,10 @@ export default function App() {
   };
 
   const handleOpenLegal = (tab = 'terms') => {
-    try {
-      window.history.pushState({}, '', '/legal');
-    } catch {}
     setLegalModalState({ isOpen: true, tab });
   };
 
   const handleCloseLegal = () => {
-    try {
-      window.history.pushState({}, '', currentRoute === '/contact' ? '/contact' : '/');
-    } catch {}
-    document.title = currentRoute === '/contact' ? 'Contact Kriyon Group | Start a Project' : 'Kriyon Group Private Limited | Creative Technology Group';
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) {
-      canonical.setAttribute('href', currentRoute === '/contact' ? 'https://www.kriyongroup.com/contact' : 'https://www.kriyongroup.com/');
-    }
     setLegalModalState({ isOpen: false, tab: 'terms' });
   };
 
@@ -140,7 +113,7 @@ export default function App() {
     <SmoothScroll isLocked={isProjectModalOpen || legalModalState.isOpen}>
       <div className="relative min-h-screen bg-[#EBEBED] text-[#0A0A0A] font-sans antialiased overflow-x-hidden selection:bg-[#0A0A0A] selection:text-white">
         {/* Fast Minimal Monogram Page Loader */}
-        <PageLoader />
+        <PageLoader onComplete={() => setIsPageLoaded(true)} />
 
         {/* Floating Capsule Header */}
         {!isExpertiseOnly && (
@@ -178,7 +151,7 @@ export default function App() {
               </>
             ) : (
               <>
-                <Hero onContact={handleScrollToContact} />
+                <Hero onContact={handleScrollToContact} isLoaded={isPageLoaded} />
                 <ExpertiseVentures onContact={handleScrollToContact} />
                 <WhyKriyon />
                 <ContactSection onNavigateToFullContact={() => navigateTo('/contact')} />

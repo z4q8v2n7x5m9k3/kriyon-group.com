@@ -75,23 +75,25 @@
 .kriyon-ticker-track-left {
   display: flex;
   gap: 32px;
-  animation: kriyon-scroll-left 72s linear infinite;
+  animation: kriyon-scroll-left 48s linear infinite;
+  will-change: transform;
 }
 
 .kriyon-ticker-track-right {
   display: flex;
   gap: 32px;
-  animation: kriyon-scroll-right 72s linear infinite;
+  animation: kriyon-scroll-right 48s linear infinite;
+  will-change: transform;
 }
 
 @keyframes kriyon-scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 @keyframes kriyon-scroll-right {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
 }
 
 .kriyon-footer-ticker-container:hover .kriyon-ticker-track-left,
@@ -410,16 +412,26 @@
     max-width: 340px;
     font-size: 0.8rem;
   }
-  .kriyon-footer-bg-img {
-    height: 52%;
-    top: auto;
-    bottom: 0;
+  .kriyon-footer-bg-wrap {
     position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
+    overflow: hidden;
+  }
+  .kriyon-footer-bg-img {
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    position: absolute;
+    object-fit: cover;
     object-position: center bottom;
-    opacity: 0.7;
+    opacity: 1;
+    filter: contrast(1.08) brightness(0.9);
   }
   .kriyon-footer-bg-overlay {
-    background: linear-gradient(180deg, rgba(8, 9, 12, 0.97) 0%, rgba(8, 9, 12, 0.9) 58%, rgba(6, 7, 10, 0.72) 100%);
+    background: linear-gradient(180deg, rgba(8, 9, 12, 0.92) 0%, rgba(8, 9, 12, 0.72) 42%, rgba(6, 7, 10, 0.8) 100%);
   }
   .kriyon-footer-bottom {
     flex-direction: column;
