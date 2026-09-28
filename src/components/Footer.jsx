@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PixelatedIcon from './PixelatedIcon';
-import './BragitFooter.css';
+import './Footer.css';
 
 const SocialIcons = {
   instagram: (
@@ -34,7 +34,7 @@ const tickerRow2 = [
   'E-commerce & Digital Systems', 'Customer Experience', 'Technology & Product Strategy',
 ];
 
-export default function BragitFooter({ onStartConversation, onOpenLegal }) {
+export default function Footer({ onStartConversation, onOpenLegal }) {
   const [isHoveredStart, setIsHoveredStart] = useState(false);
 
   const handleStartProject = () => {
@@ -101,13 +101,13 @@ export default function BragitFooter({ onStartConversation, onOpenLegal }) {
           <div className="kriyon-footer-col col-legal">
             <div className="kriyon-footer-nav">
               <strong className="kriyon-footer-nav-title">Legal</strong>
-              <button type="button" onClick={() => onOpenLegal?.('terms')}>Legal Centre Overview</button>
-              <button type="button" onClick={() => onOpenLegal?.('terms')}>01 · Terms &amp; Conditions</button>
-              <button type="button" onClick={() => onOpenLegal?.('privacy')}>02 · Privacy Policy</button>
-              <button type="button" onClick={() => onOpenLegal?.('refund')}>03 · Refund Policy</button>
-              <button type="button" onClick={() => onOpenLegal?.('cookies')}>04 · Cookie Policy</button>
-              <button type="button" onClick={() => onOpenLegal?.('disclaimer')}>05 · Disclaimer</button>
-              <button type="button" onClick={() => onOpenLegal?.('grievance')}>06 · Grievance Officer</button>
+              <a href="/legal" onClick={(e) => { e.preventDefault(); onOpenLegal?.('terms'); }}>Legal Centre Overview</a>
+              <a href="/legal#terms" onClick={(e) => { e.preventDefault(); onOpenLegal?.('terms'); }}>01 · Terms &amp; Conditions</a>
+              <a href="/legal#privacy" onClick={(e) => { e.preventDefault(); onOpenLegal?.('privacy'); }}>02 · Privacy Policy</a>
+              <a href="/legal#refund" onClick={(e) => { e.preventDefault(); onOpenLegal?.('refund'); }}>03 · Refund Policy</a>
+              <a href="/legal#cookies" onClick={(e) => { e.preventDefault(); onOpenLegal?.('cookies'); }}>04 · Cookie Policy</a>
+              <a href="/legal#disclaimer" onClick={(e) => { e.preventDefault(); onOpenLegal?.('disclaimer'); }}>05 · Disclaimer</a>
+              <a href="/legal#grievance" onClick={(e) => { e.preventDefault(); onOpenLegal?.('grievance'); }}>06 · Grievance Officer</a>
             </div>
           </div>
         </div>

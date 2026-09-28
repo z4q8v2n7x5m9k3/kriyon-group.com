@@ -88,8 +88,8 @@ export const projects = [
   },
   {
     id: '04',
-    name: 'BRAGIT',
-    slug: 'bragit',
+    name: 'NOVELLE',
+    slug: 'novelle',
     industry: 'Digital Product & Social Commerce',
     capabilities: ['Digital Product', 'Website', 'Design System'],
     venture: 'RepixelX',
@@ -107,7 +107,7 @@ export const projects = [
       type: 'image',
       src: '/assets/kriyon-top-visual.jpg',
       poster: '/assets/kriyon-top-visual.jpg',
-      alt: 'Bragit Digital Architecture'
+      alt: 'Novelle Digital Architecture'
     },
     gallery: [
       { type: 'image', src: '/assets/pixelone/pixelone-image-080.png', caption: 'Interactive Product Grid' },

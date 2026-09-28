@@ -5,7 +5,7 @@ export default function Clients() {
     'Mera Halwai',
     'Prem Sweets',
     'Rutba Couture',
-    'Bragit Social',
+    'Aura Social',
     'Burger Bazaar',
     'Talla Jewels',
     'Samaira Bridal',
