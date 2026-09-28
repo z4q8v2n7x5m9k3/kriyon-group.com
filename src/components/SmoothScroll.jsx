@@ -9,14 +9,13 @@ export default function SmoothScroll({ children, isLocked = false }) {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
+    // Buttery-smooth, critically-damped lerp configuration (no trackpad jitter)
     const lenis = new Lenis({
-      duration: 0.9,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
+      lerp: 0.085,
+      wheelMultiplier: 0.85,
+      touchMultiplier: 1.0,
       smoothWheel: true,
-      wheelMultiplier: 1.0,
-      touchMultiplier: 1.5,
+      syncTouch: false,
       infinite: false,
     });
 

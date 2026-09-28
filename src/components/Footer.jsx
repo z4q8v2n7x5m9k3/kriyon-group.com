@@ -69,11 +69,11 @@ export default function Footer({ onStartConversation, onOpenLegal }) {
         <div className="kriyon-footer-bg-wrap" aria-hidden="true">
           <img src="/assets/kriyon-hill-render.png" alt="" className="kriyon-footer-bg-img" />
           <div className="kriyon-footer-bg-overlay" />
-          {/* Subtle Ambient Sheen across footer landscape */}
+          {/* Subtle Ambient Sheen across footer landscape (100% GPU accelerated) */}
           <motion.div
             animate={{
               x: ['-120%', '160%'],
-              opacity: [0, 0.25, 0.4, 0.25, 0],
+              opacity: [0, 0.2, 0.35, 0.2, 0],
             }}
             transition={{
               duration: 5,
@@ -81,7 +81,7 @@ export default function Footer({ onStartConversation, onOpenLegal }) {
               repeatDelay: 6,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="absolute inset-y-0 w-[50%] pointer-events-none -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent mix-blend-overlay filter blur-xl"
+            className="absolute inset-y-0 w-[50%] pointer-events-none -skew-x-12 bg-gradient-to-r from-transparent via-white/15 to-transparent"
           />
         </div>
 

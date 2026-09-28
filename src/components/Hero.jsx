@@ -120,38 +120,24 @@ export default function Hero({ onContact, isLoaded = true }) {
             className="w-full h-full sm:h-auto object-cover md:object-contain object-bottom pointer-events-none block scale-135 sm:scale-100 origin-bottom"
           />
 
-          {/* Embedded Moving Gradient Shine / Sheen across the Hero Landscape */}
+          {/* Embedded Moving Gradient Shine / Sheen across the Hero Landscape (100% GPU compositor friendly) */}
           <motion.div
             initial={{ x: '-130%', opacity: 0 }}
             animate={
               isLoaded
                 ? {
                     x: ['-130%', '160%'],
-                    opacity: [0, 0.35, 0.55, 0.35, 0],
+                    opacity: [0, 0.35, 0.5, 0.35, 0],
                   }
                 : { x: '-130%', opacity: 0 }
             }
             transition={{
-              duration: 4.2,
+              duration: 4.5,
               repeat: Infinity,
-              repeatDelay: 5,
+              repeatDelay: 5.5,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="absolute inset-y-0 w-[55%] pointer-events-none z-[1] -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent mix-blend-overlay filter blur-xl"
-          />
-
-          {/* Subtle Ambient Moving Light Glow */}
-          <motion.div
-            animate={{
-              opacity: [0.2, 0.38, 0.2],
-              scale: [1, 1.025, 1],
-            }}
-            transition={{
-              duration: 7,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-            className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_80%,rgba(255,255,255,0.65)_0%,transparent_65%)] pointer-events-none z-[1] mix-blend-soft-light"
+            className="absolute inset-y-0 w-[45%] pointer-events-none z-[1] -skew-x-12 bg-gradient-to-r from-transparent via-white/30 to-transparent"
           />
         </div>
 
