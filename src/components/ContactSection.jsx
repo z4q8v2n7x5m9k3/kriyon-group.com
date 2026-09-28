@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Check, Mail, Phone } from 'lucide-react';
 import PixelatedIcon from './PixelatedIcon';
+import PixelText from './PixelText';
 
 function WhatsAppIcon({ className = 'w-4 h-4' }) {
   return (
@@ -39,11 +40,20 @@ export default function ContactSection({ onNavigateToFullContact }) {
         <motion.div {...reveal} className="mb-10 sm:mb-12">
           <div className="mb-4 inline-flex items-center gap-2.5">
             <PixelatedIcon className="h-[10.5px] w-[20px]" color="#111111" />
-            <span className="text-[12px] font-medium uppercase tracking-[0.18em] sm:text-[13px]">04 // START A CONVERSATION</span>
+            <span className="text-[12px] font-medium uppercase tracking-[0.18em] sm:text-[13px]">
+              <PixelText text="04 // START A CONVERSATION" delay={0.06} />
+            </span>
           </div>
-          <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
-            <h2 className="max-w-[760px] text-[32px] font-medium leading-[1.08] tracking-[-0.035em] sm:text-[42px] lg:text-[48px]">Start a conversation.<br /><span className="text-black/30">We’ll take it from there.</span></h2>
-            <p className="max-w-[500px] text-[14px] leading-[1.65] text-black/50 lg:justify-self-end sm:text-[15px]">Share your details. A Kriyon lead will connect within one working day and guide you to the right team.</p>
+          <div className="flex flex-col mb-2">
+            <h2 className="text-[32px] font-medium leading-[1.08] tracking-[-0.035em] sm:text-[42px] lg:text-[48px]">
+              <PixelText text="Start a conversation." delay={0.1} speed={36} /><br />
+              <span className="text-black/30">
+                <PixelText text="We’ll take it from there." delay={0.28} speed={36} />
+              </span>
+            </h2>
+            <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] leading-[1.55] text-black/50 mt-3 font-sans w-full max-w-none whitespace-normal lg:whitespace-nowrap">
+              Share your details. A Kriyon lead will connect within one working day and guide you to the right team.
+            </p>
           </div>
         </motion.div>
 

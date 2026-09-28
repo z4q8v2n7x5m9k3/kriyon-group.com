@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import PixelatedIcon from './PixelatedIcon';
+import PixelText from './PixelText';
 
 export default function ExpertiseVentures({ onContact }) {
   const [hoveredBtn, setHoveredBtn] = useState(null);
@@ -99,24 +100,24 @@ export default function ExpertiseVentures({ onContact }) {
         
         {/* Top Header Section */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8 mb-10 sm:mb-12">
-          <div className="max-w-[840px]">
+          <div className="max-w-none w-full">
             {/* Clean Section Indicator: Pixel arrow + clean slash text (PP Neue Montreal font-sans) */}
             <div className="inline-flex items-center gap-2.5 mb-4 select-none">
               <div className="flex items-center shrink-0">
                 <PixelatedIcon className="w-[20px] h-[10.5px]" color="#111111" />
               </div>
               <span className="text-[12px] sm:text-[13px] font-sans font-medium tracking-[0.18em] text-[#111111] uppercase">
-                02 // CAPABILITIES &amp; VENTURES
+                <PixelText text="02 // CAPABILITIES & VENTURES" delay={0.06} />
               </span>
             </div>
 
-            {/* Main Headline */}
+            {/* Main Headline with slow, visible, cinematic pixel formation */}
             <h2 className="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans">
-              Specialist capability, connected around you.
+              <PixelText text="Specialist capability, connected around you." delay={0.12} speed={36} />
             </h2>
 
-            {/* Subtitle */}
-            <p className="text-[14.5px] sm:text-[16px] text-[#555555] font-normal leading-[1.55] mt-3 font-sans max-w-[700px]">
+            {/* Subtitle — Full one horizontal line */}
+            <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] text-[#555555] font-normal leading-[1.55] mt-3 font-sans w-full max-w-none whitespace-normal lg:whitespace-nowrap">
               Three focused ventures. One clear route from strategy and identity to production, technology and customer action.
             </p>
           </div>
@@ -194,10 +195,10 @@ export default function ExpertiseVentures({ onContact }) {
                     rel="noopener noreferrer"
                     className="text-[21px] sm:text-[23px] xl:text-[24px] font-medium text-[#0A0A0A] hover:text-[#333333] tracking-[-0.025em] leading-tight font-sans transition-colors cursor-pointer"
                   >
-                    {card.titleRender || card.title}
+                    <PixelText text={card.titleRender || card.title} delay={0.06 * (idx + 1)} />
                   </a>
                   <span className="text-[12px] sm:text-[13px] font-sans text-[#888888] font-medium tracking-wider select-none shrink-0">
-                    {card.ventureNum}
+                    <PixelText text={card.ventureNum} delay={0.04 * (idx + 1)} />
                   </span>
                 </div>
 
@@ -229,7 +230,7 @@ export default function ExpertiseVentures({ onContact }) {
                 {/* 6 & 7. Large action word + Short category + one support line */}
                 <div className="pt-4 flex items-center gap-3 min-h-[44px]">
                   <span className="text-[24px] sm:text-[26px] font-bold text-[#0A0A0A] tracking-tight font-sans shrink-0 w-[110px] sm:w-[120px]">
-                    {card.actionWord}
+                    <PixelText text={card.actionWord} delay={0.1 * (idx + 1)} />
                   </span>
                   <div className="flex flex-col justify-center min-w-0">
                     <span className="text-[13px] sm:text-[13.5px] font-bold text-[#111111] leading-tight font-sans truncate">
