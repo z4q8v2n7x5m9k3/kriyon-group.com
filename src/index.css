@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'PPEditorialOld-Ultralight';
+  src: url('/PPEditorialOld-Ultralight.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Inter Display';
+  src: url('/fonts/InterDisplay-Light.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter Display';
+  src: url('/fonts/InterDisplay-Regular.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter Display';
+  src: url('/fonts/InterDisplay-Medium.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter Display';
+  src: url('/fonts/InterDisplay-SemiBold.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter Display';
+  src: url('/fonts/InterDisplay-Bold.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter Display';
+  src: url('/fonts/InterDisplay-Black.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.font-inter-display {
+  font-family: 'Inter Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-feature-settings: "ss01" 1, "ss07" 1, "cv11" 1, "salt" 1, "cv06" 1;
+  -webkit-font-feature-settings: "ss01" 1, "ss07" 1, "cv11" 1, "salt" 1, "cv06" 1;
+}
+
+@font-face {
+  font-family: 'PPNeueMontreal-Regular';
+  src: url('/PPNeueMontreal-Regular.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'PPNeueMontreal-Medium';
+  src: url('/PPNeueMontreal-Medium.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'PPNeueMontreal-Bold';
+  src: url('/PPNeueMontreal-Bold.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 700;
+}
+
+/* Unified Family: PP Neue Montreal */
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/PPNeueMontreal-Regular.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/PPNeueMontreal-Book.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 450;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/PPNeueMontreal-Medium.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/PPNeueMontreal-Bold.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.font-neue {
+  font-family: 'PP Neue Montreal', 'Inter Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.font-editorial {
+  font-family: 'PPEditorialOld-Ultralight', serif;
+  font-style: italic;
+}
+
+@layer base {
+  html {
+    background-color: #EBEBED;
+    color: #0A0A0A;
+    font-family: 'Inter Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  body {
+    background-color: #EBEBED;
+    color: #0A0A0A;
+    font-family: 'Inter Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F4F4F0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(10, 10, 10, 0.2);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(10, 10, 10, 0.35);
+  }
+}
+
+@layer utilities {
+  .border-hairline {
+    border-color: rgba(10, 10, 10, 0.12);
+  }
+  
+  .border-hairline-subtle {
+    border-color: rgba(10, 10, 10, 0.08);
+  }
+}
+
+/* GLOBAL INTERACTION & HOVER FIX:
+   Decorative layers, film grain, and background glows never block pointer events */
+img[aria-hidden="true"],
+div[aria-hidden="true"],
+.pointer-events-none,
+[data-decorative="true"] {
+  pointer-events: none !important;
+}
+
+/* Ensure interactive elements, cards, and buttons always receive clicks and hovers */
+a,
+button,
+input,
+textarea,
+select,
+[role="button"] {
+  pointer-events: auto;
+}
+
+a,
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+/* Ensure text is freely selectable across all typography elements */
+p, h1, h2, h3, h4, h5, h6, span, label, address, dt, dd {
+  user-select: text;
+  -webkit-user-select: text;
+}
+

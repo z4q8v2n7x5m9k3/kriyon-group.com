@@ -1,0 +1,14 @@
+export const MAIN_WEBSITE_URL = "https://kriyongroup.com";
+export const JURISDICTION_DETAILS_HREF = "#tc-6";
+export const LAST_UPDATED = "11 April 2026";
+export const COMPANY_NAME = "Kriyon Group Private Limited";
+export const COMPANY_CIN = "U74909JK2025PTC017984";
+export const COMPANY_GSTIN = "01AAMCK2092B1Z0";
+export const COMPANY_PAN = "AAMCK2092B";
+export const COMPANY_TAN = "AMRK14910A";
+export const GRIEVANCE_OFFICER = "Krishang Sharma Dhar";
+export const GRIEVANCE_DIN = "11307171";
+export const JURISDICTION = "Jammu, Jammu & Kashmir, India";
+export const CONTACT_EMAIL = "kriyon@repixelx.tech";
+export const CONTACT_PHONE = "+91 9622121100";
+export const REGISTERED_OFFICE = "Room No. 2, First Floor, Tawi Enclave, Vill Nandini, Gol Gujral, Jammu, J&K – 180002";

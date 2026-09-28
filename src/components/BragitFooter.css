@@ -1,0 +1,482 @@
+/* Bragit-Inspired Premium Footer for Kriyon Group */
+.kriyon-footer-section {
+  padding: 60px 16px 20px;
+  background-color: #050608;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.kriyon-footer-container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  background: radial-gradient(120% 120% at 50% 0%, #111318 0%, #08090C 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 32px;
+  padding: 68px 56px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  box-shadow:
+    0 -12px 40px rgba(0, 0, 0, 0.4),
+    0 30px 80px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+/* HERO SECTION BACKGROUND LAYER */
+.kriyon-footer-bg-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.kriyon-footer-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  opacity: 1; /* Full opacity requested */
+  filter: contrast(1.08) brightness(0.92);
+  transform: scale(1.02);
+}
+
+.kriyon-footer-bg-overlay {
+  position: absolute;
+  inset: 0;
+  /* Cinematic obsidian gradient: lets the 3D hill, neon arrow, and wildflowers show richly while keeping text 100% crisp and readable */
+  background: linear-gradient(
+    180deg,
+    rgba(8, 9, 12, 0.88) 0%,
+    rgba(8, 9, 12, 0.66) 38%,
+    rgba(6, 7, 10, 0.78) 100%
+  );
+}
+
+/* TICKER */
+.kriyon-footer-ticker-container {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 16px 0 36px;
+  user-select: none;
+}
+
+.kriyon-footer-ticker-row {
+  display: flex;
+  width: fit-content;
+}
+
+.kriyon-ticker-track-left {
+  display: flex;
+  gap: 32px;
+  animation: kriyon-scroll-left 72s linear infinite;
+}
+
+.kriyon-ticker-track-right {
+  display: flex;
+  gap: 32px;
+  animation: kriyon-scroll-right 72s linear infinite;
+}
+
+@keyframes kriyon-scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes kriyon-scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.kriyon-footer-ticker-container:hover .kriyon-ticker-track-left,
+.kriyon-footer-ticker-container:hover .kriyon-ticker-track-right {
+  animation-play-state: paused;
+}
+
+.kriyon-ticker-item {
+  font-family: 'PP Neue Montreal', 'Inter', sans-serif;
+  font-size: clamp(2rem, 3.6vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  padding: 0 16px;
+  text-transform: uppercase;
+}
+
+.kriyon-ticker-item.solid {
+  color: #FFFFFF;
+}
+
+.kriyon-ticker-item.outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.55);
+}
+
+/* TOP GRID */
+.kriyon-footer-top {
+  display: grid;
+  grid-template-columns: 1.35fr 1.15fr 1fr 1.1fr;
+  gap: clamp(28px, 4.5vw, 72px);
+  position: relative;
+  z-index: 1;
+}
+
+.kriyon-footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.kriyon-footer-text {
+  margin: 0;
+  font-family: 'PP Neue Montreal', 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #FFFFFF;
+}
+
+.kriyon-footer-company {
+  max-width: 280px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+  font-family: monospace;
+}
+
+.kriyon-footer-address {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.kriyon-footer-cin {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+
+.kriyon-btn-footer-start {
+  background-color: #FFFFFF;
+  color: #0A0A0A;
+  padding: 13px 26px;
+  border-radius: 100px;
+  font-family: 'PP Neue Montreal', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  margin-top: auto;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
+.kriyon-btn-footer-start:hover {
+  background-color: #88EA15;
+  color: #000000;
+  transform: translateY(-2px);
+}
+
+.kriyon-footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.kriyon-footer-nav-title {
+  margin-bottom: 4px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: monospace;
+  font-weight: 600;
+}
+
+.kriyon-footer-nav a,
+.kriyon-footer-nav button {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-family: 'PP Neue Montreal', 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.kriyon-footer-nav a:hover,
+.kriyon-footer-nav button:hover {
+  color: #88EA15;
+  transform: translateX(2px);
+}
+
+/* DIVIDER */
+.kriyon-footer-divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+/* BOTTOM SECTION */
+.kriyon-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.kriyon-footer-bottom-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.kriyon-footer-massive-logo {
+  height: clamp(75px, 11vw, 140px);
+  width: auto;
+  max-width: min(100%, 750px);
+  object-fit: contain;
+  object-position: left;
+  opacity: 1;
+  display: block;
+  user-select: none;
+  filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.5));
+}
+
+.kriyon-footer-powered {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  max-width: min(100%, 560px);
+  background: transparent;
+  font-family: 'PP Neue Montreal', 'Inter', sans-serif;
+  font-size: clamp(0.6rem, 0.72vw, 0.72rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.kriyon-footer-repixelx-logo {
+  width: clamp(72px, 6.5vw, 96px);
+  height: auto;
+  object-fit: contain;
+  opacity: 0.85;
+  filter: brightness(0) invert(1);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.kriyon-footer-powered:hover {
+  color: #FFFFFF;
+}
+
+.kriyon-footer-powered:hover .kriyon-footer-repixelx-logo {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.kriyon-footer-powered-arrow {
+  display: inline-block;
+  color: #88EA15;
+  transition: transform 0.2s ease;
+}
+
+.kriyon-footer-powered:hover .kriyon-footer-powered-arrow {
+  transform: translate(3px, -3px);
+}
+
+.kriyon-footer-bottom-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 36px;
+}
+
+.kriyon-footer-hours {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.kriyon-hours-label {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: monospace;
+}
+
+.kriyon-hours-time {
+  font-size: 1.85rem;
+  font-family: 'PP Neue Montreal', 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+
+.kriyon-footer-socials {
+  display: flex;
+  gap: 12px;
+}
+
+.kriyon-social-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.kriyon-social-icon:hover {
+  background-color: #88EA15;
+  color: #000000;
+  border-color: #88EA15;
+  transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .kriyon-footer-container {
+    padding: 56px 36px 36px;
+  }
+  .kriyon-footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .kriyon-footer-section {
+    padding: 30px 8px 10px;
+  }
+  .kriyon-footer-container {
+    padding: 28px 18px 20px;
+    border-radius: 22px;
+    gap: 28px;
+  }
+  .kriyon-footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 20px;
+  }
+  .kriyon-footer-col.col-brand,
+  .kriyon-footer-col.col-contact {
+    grid-column: 1 / -1;
+  }
+  .kriyon-footer-col {
+    gap: 12px;
+  }
+  .kriyon-footer-nav {
+    gap: 10px;
+  }
+  .kriyon-footer-nav a,
+  .kriyon-footer-nav button {
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+  .kriyon-footer-address {
+    max-width: 340px;
+    font-size: 0.8rem;
+  }
+  .kriyon-footer-bg-img {
+    height: 52%;
+    top: auto;
+    bottom: 0;
+    position: absolute;
+    object-position: center bottom;
+    opacity: 0.7;
+  }
+  .kriyon-footer-bg-overlay {
+    background: linear-gradient(180deg, rgba(8, 9, 12, 0.97) 0%, rgba(8, 9, 12, 0.9) 58%, rgba(6, 7, 10, 0.72) 100%);
+  }
+  .kriyon-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+  }
+  .kriyon-footer-bottom-right {
+    width: 100%;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .kriyon-footer-hours {
+    align-items: flex-start;
+  }
+  .kriyon-ticker-item {
+    font-size: 1.3rem;
+    padding: 0 6px;
+  }
+  .kriyon-footer-ticker-container {
+    padding: 8px 0 24px;
+  }
+  .kriyon-ticker-track-left,
+  .kriyon-ticker-track-right {
+    gap: 18px;
+  }
+  .kriyon-footer-massive-logo {
+    height: 48px;
+    max-width: 240px;
+  }
+  .kriyon-footer-powered {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 300px;
+    gap: 6px;
+    font-size: 0.55rem;
+  }
+  .kriyon-footer-repixelx-logo {
+    width: 68px;
+  }
+  .kriyon-hours-time {
+    font-size: 1.35rem;
+  }
+  .kriyon-social-icon {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (max-width: 390px) {
+  .kriyon-footer-container {
+    padding-inline: 15px;
+  }
+  .kriyon-footer-top {
+    gap: 24px 14px;
+  }
+  .kriyon-footer-bottom-right {
+    gap: 18px;
+  }
+}
