@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import PixelatedIcon from './PixelatedIcon';
+import PixelText from './PixelText';
 
 export default function Hero({ onContact, isLoaded = true }) {
   const [isBtnHovered, setIsBtnHovered] = useState(false);
@@ -136,10 +137,10 @@ export default function Hero({ onContact, isLoaded = true }) {
             >
               <h1 className="font-sans text-left tracking-tight min-w-0">
                 <span className="text-[30px] min-[390px]:text-[34px] sm:text-[42px] md:text-[47px] lg:text-[52px] font-medium text-[#111111] tracking-[-0.03em] leading-[1.12] block">
-                  Kriyon Group Pvt. Ltd.
+                  <PixelText text="Kriyon Group Pvt. Ltd." delay={0.12} speed={26} />
                 </span>
                 <span className="text-[27px] min-[390px]:text-[31px] sm:text-[38px] md:text-[43px] lg:text-[47px] font-normal text-[#666666] tracking-[-0.025em] leading-[1.15] block mt-1 sm:mt-1.5">
-                  Built for what comes next.
+                  <PixelText text="Built for what comes next." delay={0.28} speed={26} />
                 </span>
               </h1>
             </motion.div>
