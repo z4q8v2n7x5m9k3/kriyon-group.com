@@ -57,7 +57,12 @@ export default function Navbar({ onContact, onNavigateContact, onNavigateHome })
     : 'bg-white/[0.95] backdrop-blur-xl border-black/[0.055] shadow-[0_4px_20px_rgba(0,0,0,0.04)]';
 
   return (
-    <header className="fixed inset-x-0 top-[14px] z-40 px-3.5 sm:top-[24px] md:top-[28px] sm:px-[28px] md:px-[36px] xl:px-[48px] pointer-events-none">
+    <motion.header
+      initial={{ opacity: 0, y: -16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.75, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+      className="fixed inset-x-0 top-[14px] z-40 px-3.5 sm:top-[24px] md:top-[28px] sm:px-[28px] md:px-[36px] xl:px-[48px] pointer-events-none"
+    >
       <div className="mx-auto w-full max-w-[1600px]">
         
         {/* MOBILE HEADER (Clean, refined, compact height) */}
@@ -134,6 +139,6 @@ export default function Navbar({ onContact, onNavigateContact, onNavigateHome })
         </div>
 
       </div>
-    </header>
+    </motion.header>
   );
 }

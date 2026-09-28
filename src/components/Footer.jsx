@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import PixelatedIcon from './PixelatedIcon';
 import './Footer.css';
 
@@ -58,7 +59,13 @@ export default function Footer({ onStartConversation, onOpenLegal }) {
         </div>
       </div>
 
-      <div className="kriyon-footer-container">
+      <motion.div
+        initial={{ opacity: 0, y: 28 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+        className="kriyon-footer-container"
+      >
         <div className="kriyon-footer-bg-wrap" aria-hidden="true">
           <img src="/assets/kriyon-hill-render.png" alt="" className="kriyon-footer-bg-img" />
           <div className="kriyon-footer-bg-overlay" />
@@ -137,7 +144,7 @@ export default function Footer({ onStartConversation, onOpenLegal }) {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 }
