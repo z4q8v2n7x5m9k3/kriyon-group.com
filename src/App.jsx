@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import ContactPage from './pages/ContactPage';
 import StartProjectModal from './components/StartProjectModal';
 import LegalCentreModal from './components/LegalCentreModal';
+import KrioAssistant from './components/KrioAssistant';
 
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState(() => {
@@ -166,6 +167,9 @@ export default function App() {
           onOpenLegal={handleOpenLegal}
         />
 
+        {/* Krio — Kriyon's animated digital guide */}
+        {!isExpertiseOnly && <KrioAssistant />}
+
         {/* Booking / Contact Modal */}
         <StartProjectModal
           isOpen={isProjectModalOpen}
@@ -182,4 +186,3 @@ export default function App() {
     </SmoothScroll>
   );
 }
-
