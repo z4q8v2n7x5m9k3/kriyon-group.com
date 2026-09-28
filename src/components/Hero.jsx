@@ -136,9 +136,9 @@ export default function Hero({ onContact }) {
 
             {/* Main Headline: Dominant Parent Brand Presence */}
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, y: 28, filter: 'blur(4px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
               className="w-full min-w-0"
             >
               <h1 className="font-sans text-left tracking-tight min-w-0">
@@ -153,9 +153,9 @@ export default function Hero({ onContact }) {
 
             {/* Supporting Copy */}
             <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, y: 22, filter: 'blur(3px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 0.85, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
               className="text-[14px] min-[390px]:text-[14.5px] sm:text-[15.5px] text-[#555555] font-normal tracking-[-0.01em] leading-[1.55] max-w-[490px] sm:max-w-[540px] mt-3 sm:mt-4 text-left font-sans"
             >
               Bringing brand, technology, creative production and digital experience into one connected force for businesses ready to build bigger, move faster and grow further.
@@ -163,9 +163,9 @@ export default function Hero({ onContact }) {
 
             {/* CTA Buttons: Explore Capabilities & Start a Project */}
             <motion.div
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.24, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
               className="mt-5 sm:mt-7 flex items-center gap-2.5 sm:gap-3.5 w-full sm:w-auto min-w-0"
             >
               {/* Primary Button: Explore Capabilities */}
@@ -202,9 +202,9 @@ export default function Hero({ onContact }) {
           {/* Right Column: Controlled Floating Venture Card */}
           <div className="w-full lg:w-auto flex justify-center lg:justify-end pt-3 lg:pt-0">
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, x: 28, scale: 0.96, filter: 'blur(6px)' }}
+              animate={{ opacity: 1, x: 0, scale: 1, filter: 'blur(0px)' }}
+              transition={{ duration: 0.95, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
               onClick={nextSlide}
               className="relative bg-white/[0.86] backdrop-blur-2xl rounded-[18px] sm:rounded-[20px] p-1.5 shadow-[0_12px_34px_rgba(0,0,0,0.07),inset_0_1px_0_rgba(255,255,255,0.95)] border border-white w-full max-w-[350px] mx-auto lg:mx-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_rgba(0,0,0,0.1)] group cursor-pointer overflow-hidden"
             >
