@@ -87,12 +87,14 @@ export default function BragitFooter({ onStartConversation, onOpenLegal }) {
           <div className="kriyon-footer-col col-explore">
             <nav className="kriyon-footer-nav" aria-label="Footer navigation">
               <strong className="kriyon-footer-nav-title">Explore</strong>
-              <a href="#top">Home</a>
-              <a href="https://repixelx.com" target="_blank" rel="noopener noreferrer">RepixelXAI Studio ↗</a>
-              <a href="https://kriyonmedia.com" target="_blank" rel="noopener noreferrer">Kriyon Media ↗</a>
-              <a href="https://onelink.cards" target="_blank" rel="noopener noreferrer">OneLink Cards ↗</a>
-              <a href="#expertise">Capabilities &amp; Ventures</a>
-              <a href="#why-kriyon">Why Kriyon Group</a>
+              <a href="/">Home</a>
+              <a href="/#expertise">Capabilities</a>
+              <a href="/#ventures">Ventures</a>
+              <a href="/#why-kriyon">Company</a>
+              <a href="/contact">Contact</a>
+              <a href="https://repixelx.com/" target="_blank" rel="noopener noreferrer">Explore RepixelX ↗</a>
+              <a href="https://www.kriyonmedia.com/" target="_blank" rel="noopener noreferrer">Visit Kriyon Media ↗</a>
+              <a href="https://onelink.cards/" target="_blank" rel="noopener noreferrer">Explore OneLink ↗</a>
             </nav>
           </div>
 
@@ -128,9 +130,7 @@ export default function BragitFooter({ onStartConversation, onOpenLegal }) {
               <span className="kriyon-hours-time">9am—6pm</span>
             </div>
             <div className="kriyon-footer-socials">
-              <a href="https://www.instagram.com/repixelx" target="_blank" rel="noopener noreferrer" className="kriyon-social-icon" aria-label="Instagram">{SocialIcons.instagram}</a>
-              <a href="https://www.linkedin.com/company/repixelx" target="_blank" rel="noopener noreferrer" className="kriyon-social-icon" aria-label="LinkedIn">{SocialIcons.linkedin}</a>
-              <a href="https://x.com/repixelx" target="_blank" rel="noopener noreferrer" className="kriyon-social-icon" aria-label="Twitter / X">{SocialIcons.twitter}</a>
+              <a href="https://www.linkedin.com/company/kriyon-group" target="_blank" rel="noopener noreferrer" className="kriyon-social-icon" aria-label="LinkedIn">{SocialIcons.linkedin}</a>
             </div>
           </div>
         </div>

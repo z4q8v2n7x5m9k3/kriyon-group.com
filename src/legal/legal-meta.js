@@ -1,4 +1,4 @@
-export const MAIN_WEBSITE_URL = "https://kriyongroup.com";
+export const MAIN_WEBSITE_URL = "https://www.kriyongroup.com";
 export const JURISDICTION_DETAILS_HREF = "#tc-6";
 export const LAST_UPDATED = "11 April 2026";
 export const COMPANY_NAME = "Kriyon Group Private Limited";
