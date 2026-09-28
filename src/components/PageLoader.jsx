@@ -17,14 +17,14 @@ export default function PageLoader({ onComplete }) {
       return;
     }
 
-    // Fast, crisp display: ~800ms total
+            // Fast, crisp display: ~500ms
     const timer = setTimeout(() => {
       setIsDone(true);
       try {
         sessionStorage.setItem('kriyon_visited', 'true');
       } catch {}
       if (onComplete) onComplete();
-    }, 750);
+    }, 450);
 
     return () => clearTimeout(timer);
   }, [isMounted, onComplete]);
@@ -40,7 +40,7 @@ export default function PageLoader({ onComplete }) {
             initial={{ y: 0 }}
             exit={{
               y: '-100%',
-              transition: { duration: 0.65, ease: [0.76, 0, 0.24, 1] },
+              transition: { duration: 0.45, ease: [0.76, 0, 0.24, 1] },
             }}
             className="w-full h-1/2 bg-[#09090B] pointer-events-auto"
           />
@@ -50,7 +50,7 @@ export default function PageLoader({ onComplete }) {
             initial={{ y: 0 }}
             exit={{
               y: '100%',
-              transition: { duration: 0.65, ease: [0.76, 0, 0.24, 1] },
+              transition: { duration: 0.45, ease: [0.76, 0, 0.24, 1] },
             }}
             className="w-full h-1/2 bg-[#09090B] pointer-events-auto"
           />

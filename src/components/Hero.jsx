@@ -31,6 +31,14 @@ export default function Hero({ onContact }) {
     },
   ];
 
+  // Preload all venture slide images immediately so slide transition has zero lag
+  useEffect(() => {
+    ventures.forEach((v) => {
+      const img = new Image();
+      img.src = v.image;
+    });
+  }, []);
+
   // Auto-shift venture slides every 5.0 seconds with smooth crossfade
   useEffect(() => {
     const timer = setInterval(() => {
@@ -207,10 +215,13 @@ export default function Hero({ onContact }) {
                     key={currentVenture.id}
                     src={currentVenture.image}
                     alt={currentVenture.name}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
                     initial={{ opacity: 0, scale: 1.02 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.45, ease: 'easeOut' }}
+                    transition={{ duration: 0.35, ease: 'easeOut' }}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 select-none"
                   />
                 </AnimatePresence>
@@ -280,6 +291,7 @@ export default function Hero({ onContact }) {
                   key={idx}
                   src={logo.src}
                   alt={logo.alt}
+                  decoding="async"
                   className={`${
                     logo.className || 'h-[24px] sm:h-[28px] md:h-[30px]'
                   } w-auto max-w-[130px] object-contain opacity-95 hover:opacity-100 transition-opacity duration-300 filter brightness-0 invert drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] flex-shrink-0`}
