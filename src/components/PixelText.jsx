@@ -1,12 +1,13 @@
 import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 
-// Pure, clean, luxury word entrance animation: ZERO blocks, ONLY clean words, silky smooth
+// Ultra-clean, minimal, luxury text entrance: pure real words, zero blocks, zero flickering
 export default function PixelText({
   text = '',
   className = '',
   delay = 0,
-  stagger = 0.035,
+  stagger = 0.025,
+  mode = 'clean', // 'clean' | 'birth' (soft optical focus reveal)
   children,
   ...props
 }) {
@@ -22,26 +23,37 @@ export default function PixelText({
       aria-label={content}
       {...props}
     >
-      {words.map((word, wordIndex) => (
-        <span
-          key={`${word}-${wordIndex}`}
-          className="inline-block whitespace-nowrap mr-[0.28em] last:mr-0 font-inherit leading-inherit"
-        >
-          <motion.span
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{
-              duration: 0.5,
-              delay: delay + wordIndex * stagger,
-              ease: [0.16, 1, 0.3, 1], // Apple-grade smooth cubic bezier
-            }}
-            className="inline-block font-inherit leading-inherit will-change-[transform,opacity]"
+      {words.map((word, wordIndex) => {
+        const isBirth = mode === 'birth';
+        return (
+          <span
+            key={`${word}-${wordIndex}`}
+            className="inline-block whitespace-nowrap mr-[0.28em] last:mr-0 font-inherit leading-inherit"
           >
-            {word}
-          </motion.span>
-        </span>
-      ))}
+            <motion.span
+              initial={{
+                opacity: 0,
+                y: 8,
+                filter: isBirth ? 'blur(4px)' : 'none',
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                filter: 'blur(0px)',
+              }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{
+                duration: isBirth ? 0.55 : 0.45,
+                delay: delay + wordIndex * stagger,
+                ease: [0.16, 1, 0.3, 1], // Apple-grade cubic-bezier
+              }}
+              className="inline-block font-inherit leading-inherit will-change-[transform,opacity,filter]"
+            >
+              {word}
+            </motion.span>
+          </span>
+        );
+      })}
     </span>
   );
 }

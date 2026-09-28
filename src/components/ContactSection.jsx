@@ -26,18 +26,39 @@ export default function ContactSection({ onNavigateToFullContact }) {
     window.open(`https://wa.me/919622121100?text=${encodeURIComponent(message())}`, '_blank', 'noopener,noreferrer');
   };
 
-  const reveal = {
-    initial: { opacity: 0, y: 16, scale: 0.99 },
+  const headerReveal = {
+    initial: { opacity: 0, y: 22 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: '-50px' },
+    transition: { duration: 0.75, ease: [0.16, 1, 0.3, 1] },
+  };
+
+  const cardContainerReveal = {
+    initial: { opacity: 0, y: 28 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: '-50px' },
+    transition: { duration: 0.85, delay: 0.08, ease: [0.16, 1, 0.3, 1] },
+  };
+
+  const leftColReveal = {
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: '-40px' },
+    transition: { duration: 0.8, delay: 0.16, ease: [0.16, 1, 0.3, 1] },
+  };
+
+  const formCardReveal = {
+    initial: { opacity: 0, y: 24, scale: 0.99 },
     whileInView: { opacity: 1, y: 0, scale: 1 },
-    viewport: { once: true, margin: '-60px' },
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+    viewport: { once: true, margin: '-40px' },
+    transition: { duration: 0.8, delay: 0.24, ease: [0.16, 1, 0.3, 1] },
   };
 
   return (
     <section id="contact" className="relative overflow-hidden bg-white px-4 py-14 text-[#0A0A0A] sm:px-8 sm:py-20 lg:px-12 lg:py-24">
       <div id="start-a-project" className="pointer-events-none absolute -top-12 left-0" />
       <div className="relative z-10 mx-auto w-full max-w-[1460px]">
-        <motion.div {...reveal} className="mb-10 sm:mb-12">
+        <motion.div {...headerReveal} className="mb-10 sm:mb-12">
           <div className="mb-4 inline-flex items-center gap-2.5">
             <PixelatedIcon className="h-[10.5px] w-[20px]" color="#111111" />
             <span className="text-[12px] font-medium uppercase tracking-[0.18em] sm:text-[13px]">
@@ -46,27 +67,27 @@ export default function ContactSection({ onNavigateToFullContact }) {
           </div>
           <div className="flex flex-col mb-2">
             <h2 className="text-[32px] font-medium leading-[1.08] tracking-[-0.035em] sm:text-[42px] lg:text-[48px]">
-              <PixelText text="Start a conversation." delay={0.1} speed={36} /><br />
+              <PixelText text="Start a conversation." delay={0.1} /><br />
               <span className="text-black/30">
-                <PixelText text="We’ll take it from there." delay={0.28} speed={36} />
+                <PixelText text="We’ll take it from there." delay={0.24} />
               </span>
             </h2>
             <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] leading-[1.55] text-black/50 mt-3 font-sans w-full max-w-none whitespace-normal lg:whitespace-nowrap">
               <PixelText
                 text="Share your details. A Kriyon lead will connect within one working day and guide you to the right team."
-                delay={0.34}
+                delay={0.3}
                 stagger={0.02}
               />
             </p>
           </div>
         </motion.div>
 
-        <motion.div {...reveal} className="relative isolate overflow-hidden rounded-[28px] border border-black/[0.06] bg-[#111111] p-3 shadow-[0_18px_55px_rgba(0,0,0,0.12)] sm:p-4 lg:min-h-[540px]">
+        <motion.div {...cardContainerReveal} className="relative isolate overflow-hidden rounded-[28px] border border-black/[0.06] bg-[#111111] p-3 shadow-[0_18px_55px_rgba(0,0,0,0.12)] sm:p-4 lg:min-h-[540px]">
           <img src="/assets/kriyon-og.png" alt="" aria-hidden="true" className="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
           <div className="absolute inset-0 -z-10 bg-black/[0.56]" aria-hidden="true" />
 
           <div className="grid h-full gap-3 lg:grid-cols-12 lg:gap-4">
-            <div className="flex min-h-[360px] flex-col justify-between p-5 text-white lg:col-span-5 lg:min-h-full lg:p-7">
+            <motion.div {...leftColReveal} className="flex min-h-[360px] flex-col justify-between p-5 text-white lg:col-span-5 lg:min-h-full lg:p-7">
               <div>
                 <div className="mb-8 flex items-center justify-between gap-3">
                   <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-[14px] border border-white/15 bg-black/35 backdrop-blur-xl"><PixelatedIcon className="h-[10px] w-[20px]" color="#FFFFFF" /></span>
@@ -93,9 +114,9 @@ export default function ContactSection({ onNavigateToFullContact }) {
                   <span className="w-8" />
                 </button>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="rounded-[22px] border border-white bg-white/[0.94] p-5 backdrop-blur-2xl lg:col-span-7 sm:p-8">
+            <motion.div {...formCardReveal} className="rounded-[22px] border border-white bg-white/[0.94] p-5 backdrop-blur-2xl lg:col-span-7 sm:p-8">
               {submitted ? (
                 <div className="flex min-h-[500px] flex-col items-center justify-center text-center">
                   <span className="flex h-14 w-14 items-center justify-center rounded-full bg-black text-white"><Check className="h-6 w-6" /></span>
@@ -125,7 +146,7 @@ export default function ContactSection({ onNavigateToFullContact }) {
                   </button>
                 </form>
               )}
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

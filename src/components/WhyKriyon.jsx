@@ -4,10 +4,10 @@ import PixelatedIcon from './PixelatedIcon';
 import PixelText from './PixelText';
 
 const reveal = (delay = 0) => ({
-  initial: { opacity: 0, y: 18, scale: 0.985 },
-  whileInView: { opacity: 1, y: 0, scale: 1 },
-  viewport: { once: true, margin: '-60px' },
-  transition: { duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] },
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-50px' },
+  transition: { duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] },
 });
 
 export default function WhyKriyon() {
@@ -23,17 +23,18 @@ export default function WhyKriyon() {
           <div className="inline-flex items-center gap-2.5 mb-4 select-none">
             <PixelatedIcon className="w-[20px] h-[10.5px]" color="#111111" />
             <span className="text-[12px] sm:text-[13px] font-sans font-medium tracking-[0.18em] text-[#111111] uppercase">
-              <PixelText text="03 // WHY KRIYON" delay={0.06} />
+              <PixelText text="03 // WHY KRIYON" delay={0.06} mode="birth" />
             </span>
           </div>
           <h2 className="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans max-w-none">
-            <PixelText text="More capability. Less complexity." delay={0.12} speed={38} />
+            <PixelText text="More capability. Less complexity." delay={0.12} mode="birth" />
           </h2>
           <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] text-[#555555] font-normal leading-[1.55] mt-3 font-sans w-full max-w-none whitespace-normal lg:whitespace-nowrap">
             <PixelText
               text="Work with one group while accessing specialist capabilities across brand, technology, production and digital presence."
               delay={0.22}
               stagger={0.02}
+              mode="birth"
             />
           </p>
         </motion.div>
@@ -50,20 +51,20 @@ export default function WhyKriyon() {
                 <Network className="w-4 h-4 text-[#88EA15] stroke-[2]" />
               </div>
               <span className="text-[11px] font-sans font-medium tracking-[0.14em] text-white/80 uppercase drop-shadow-sm">
-                <PixelText text="ONE RELATIONSHIP" delay={0.06} />
+                <PixelText text="ONE RELATIONSHIP" delay={0.06} mode="birth" />
               </span>
             </div>
 
             <div className="my-auto py-5">
               <span className="text-[46px] sm:text-[54px] font-bold text-white tracking-[-0.045em] leading-none font-sans block drop-shadow-[0_3px_18px_rgba(0,0,0,0.55)]">
-                <PixelText text="1 GROUP" delay={0.1} />
+                <PixelText text="1 GROUP" delay={0.1} mode="birth" />
               </span>
               <p className="text-[13.5px] text-white/90 font-normal leading-[1.55] font-sans mt-3 max-w-[230px] drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)]">
                 One point of accountability across multiple specialist capabilities.
               </p>
             </div>
 
-            <div className="pt-4 border-t border-white/30">
+            <div className="pt-4 border-t border-white/30 flex items-center justify-between">
               <span className="text-[12px] text-white font-semibold font-sans block tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
                 Less coordination. Clearer execution.
               </span>
@@ -81,9 +82,11 @@ export default function WhyKriyon() {
                 loading="lazy"
               />
               <div className="absolute inset-0 -z-10 bg-black/[0.58] backdrop-blur-[1.5px]" aria-hidden="true" />
-              <span className="text-[11px] font-sans font-medium tracking-[0.14em] text-white/65 uppercase block">
-                <PixelText text="SPECIALIST DEPTH" delay={0.08} />
-              </span>
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-sans font-medium tracking-[0.14em] text-white/65 uppercase block">
+                  <PixelText text="SPECIALIST DEPTH" delay={0.08} mode="birth" />
+                </span>
+              </div>
 
               <div className="flex items-center justify-center py-4">
                 <div className="inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-[16px] border border-white/20 bg-black/35 backdrop-blur-xl shadow-lg">
@@ -93,7 +96,7 @@ export default function WhyKriyon() {
 
               <div className="text-center">
                 <span className="text-[30px] sm:text-[34px] font-bold text-white tracking-tight leading-none font-sans block drop-shadow-lg">
-                  <PixelText text="3 VENTURES" delay={0.12} />
+                  <PixelText text="3 VENTURES" delay={0.12} mode="birth" />
                 </span>
                 <span className="text-[12px] text-white/70 font-sans mt-1.5 block">
                   Independent depth. Connected delivery.
@@ -102,7 +105,7 @@ export default function WhyKriyon() {
             </div>
 
             {/* Bottom: text sub-card */}
-            <div className="rounded-[20px] sm:rounded-[22px] bg-white/[0.68] backdrop-blur-xl p-4 sm:p-5 border border-white/90 shadow-[0_8px_24px_rgba(0,0,0,0.035)] flex items-center">
+            <div className="rounded-[20px] sm:rounded-[22px] bg-white/[0.68] backdrop-blur-xl p-4 sm:p-5 border border-white/90 shadow-[0_8px_24px_rgba(0,0,0,0.035)] flex items-center justify-between">
               <p className="text-[13px] sm:text-[13.5px] text-[#1E1E24] font-medium leading-[1.45] font-sans">
                 Focused teams for brand &amp; technology, creative production and digital presence—working as one when the brief demands it.
               </p>
@@ -145,7 +148,7 @@ export default function WhyKriyon() {
 
             <div className="pt-4 border-t border-black/[0.07]">
               <span className="text-[15px] sm:text-[16px] font-bold text-[#0A0A0A] tracking-tight leading-snug font-sans block">
-                BUILD → CREATE → CONNECT
+                <PixelText text="BUILD → CREATE → CONNECT" delay={0.1} mode="birth" />
               </span>
               <p className="text-[12.5px] text-[#555555] font-normal leading-relaxed font-sans mt-1.5">
                 From identity and digital products to campaigns and customer action.
@@ -172,14 +175,14 @@ export default function WhyKriyon() {
 
             <div className="my-auto py-5">
               <span className="text-[36px] sm:text-[42px] font-bold text-[#0A0A0A] tracking-tight leading-none font-sans block">
-                ONE BRIEF
+                <PixelText text="ONE BRIEF" delay={0.1} mode="birth" />
               </span>
               <p className="text-[13.5px] text-[#444444] font-normal leading-[1.55] font-sans mt-3">
                 Bring us the problem. Kriyon brings the right capability to the table.
               </p>
             </div>
 
-            <div className="pt-4 border-t border-black/[0.06]">
+            <div className="pt-4 border-t border-black/[0.06] flex items-center justify-between">
               <span className="text-[12px] text-[#888888] font-normal font-sans leading-relaxed block">
                 You don't need to choose the venture first.
               </span>

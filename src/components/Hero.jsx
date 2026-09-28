@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import PixelatedIcon from './PixelatedIcon';
-import PixelText from './PixelText';
 
 export default function Hero({ onContact, isLoaded = true }) {
   const [isBtnHovered, setIsBtnHovered] = useState(false);
@@ -137,21 +136,17 @@ export default function Hero({ onContact, isLoaded = true }) {
             >
               <h1 className="font-sans text-left tracking-tight min-w-0">
                 <span className="text-[30px] min-[390px]:text-[34px] sm:text-[42px] md:text-[47px] lg:text-[52px] font-medium text-[#111111] tracking-[-0.03em] leading-[1.12] block">
-                  <PixelText text="Kriyon Group Pvt. Ltd." delay={0.12} speed={26} />
+                  Kriyon Group Pvt. Ltd.
                 </span>
                 <span className="text-[27px] min-[390px]:text-[31px] sm:text-[38px] md:text-[43px] lg:text-[47px] font-normal text-[#666666] tracking-[-0.025em] leading-[1.15] block mt-1 sm:mt-1.5">
-                  <PixelText text="Built for what comes next." delay={0.28} speed={26} />
+                  Built for what comes next.
                 </span>
               </h1>
             </motion.div>
 
             {/* Supporting Copy with Frosted Glass Reveal */}
             <p className="text-[14.5px] min-[390px]:text-[15px] sm:text-[16px] xl:text-[17px] text-[#444444] font-normal tracking-[-0.015em] leading-[1.6] max-w-[500px] sm:max-w-[560px] xl:max-w-[620px] mt-4 sm:mt-5 text-left font-sans">
-              <PixelText
-                text="Bringing brand, technology, creative production and digital experience into one connected force for businesses ready to build bigger, move faster and grow further."
-                delay={0.35}
-                stagger={0.02}
-              />
+              Bringing brand, technology, creative production and digital experience into one connected force for businesses ready to build bigger, move faster and grow further.
             </p>
 
             {/* CTA Buttons: Explore Capabilities & Start a Project */}
