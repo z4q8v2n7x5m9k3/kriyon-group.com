@@ -145,15 +145,14 @@ export default function Hero({ onContact, isLoaded = true }) {
               </h1>
             </motion.div>
 
-            {/* Supporting Copy */}
-            <motion.p
-              initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
-              animate={isLoaded ? { opacity: 1, y: 0, filter: 'blur(0px)' } : { opacity: 0, y: 20, filter: 'blur(4px)' }}
-              transition={{ duration: 0.85, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[14.5px] min-[390px]:text-[15px] sm:text-[16px] xl:text-[17px] text-[#444444] font-normal tracking-[-0.015em] leading-[1.6] max-w-[500px] sm:max-w-[560px] xl:max-w-[620px] mt-4 sm:mt-5 text-left font-sans"
-            >
-              Bringing brand, technology, creative production and digital experience into one connected force for businesses ready to build bigger, move faster and grow further.
-            </motion.p>
+            {/* Supporting Copy with Frosted Glass Reveal */}
+            <p className="text-[14.5px] min-[390px]:text-[15px] sm:text-[16px] xl:text-[17px] text-[#444444] font-normal tracking-[-0.015em] leading-[1.6] max-w-[500px] sm:max-w-[560px] xl:max-w-[620px] mt-4 sm:mt-5 text-left font-sans">
+              <PixelText
+                text="Bringing brand, technology, creative production and digital experience into one connected force for businesses ready to build bigger, move faster and grow further."
+                delay={0.35}
+                stagger={0.02}
+              />
+            </p>
 
             {/* CTA Buttons: Explore Capabilities & Start a Project */}
             <motion.div

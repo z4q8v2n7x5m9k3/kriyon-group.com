@@ -29,8 +29,8 @@ export default function ContactSection({ onNavigateToFullContact }) {
   const reveal = {
     initial: { opacity: 0, y: 16, scale: 0.99 },
     whileInView: { opacity: 1, y: 0, scale: 1 },
-    viewport: { once: true, margin: '-70px' },
-    transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] },
+    viewport: { once: true, margin: '-60px' },
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
   };
 
   return (
@@ -52,7 +52,11 @@ export default function ContactSection({ onNavigateToFullContact }) {
               </span>
             </h2>
             <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] leading-[1.55] text-black/50 mt-3 font-sans w-full max-w-none whitespace-normal lg:whitespace-nowrap">
-              Share your details. A Kriyon lead will connect within one working day and guide you to the right team.
+              <PixelText
+                text="Share your details. A Kriyon lead will connect within one working day and guide you to the right team."
+                delay={0.34}
+                stagger={0.02}
+              />
             </p>
           </div>
         </motion.div>

@@ -116,9 +116,13 @@ export default function ExpertiseVentures({ onContact }) {
               <PixelText text="Specialist capability, connected around you." delay={0.12} speed={36} />
             </h2>
 
-            {/* Subtitle — Full one horizontal line */}
+            {/* Subtitle — Full one horizontal line with Frosted Glass Reveal */}
             <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] text-[#555555] font-normal leading-[1.55] mt-3 font-sans w-full max-w-none whitespace-normal lg:whitespace-nowrap">
-              Three focused ventures. One clear route from strategy and identity to production, technology and customer action.
+              <PixelText
+                text="Three focused ventures. One clear route from strategy and identity to production, technology and customer action."
+                delay={0.22}
+                stagger={0.02}
+              />
             </p>
           </div>
 
