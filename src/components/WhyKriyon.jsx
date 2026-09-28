@@ -27,13 +27,13 @@ export default function WhyKriyon() {
             </span>
           </div>
           <h2 className="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans max-w-none">
-            <PixelText text="More capability. Less complexity." delay={0.12} mode="birth" />
+            <PixelText text="More capability. Less complexity." delay={0.12} stagger={0.06} mode="birth" />
           </h2>
           <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] text-[#555555] font-normal leading-[1.55] mt-3 font-sans w-full max-w-none whitespace-normal lg:whitespace-nowrap">
             <PixelText
               text="Work with one group while accessing specialist capabilities across brand, technology, production and digital presence."
-              delay={0.22}
-              stagger={0.02}
+              delay={0.3}
+              stagger={0.04}
               mode="birth"
             />
           </p>

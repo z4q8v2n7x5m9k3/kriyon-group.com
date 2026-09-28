@@ -69,10 +69,30 @@ export default function Footer({ onStartConversation, onOpenLegal }) {
         <div className="kriyon-footer-bg-wrap" aria-hidden="true">
           <img src="/assets/kriyon-hill-render.png" alt="" className="kriyon-footer-bg-img" />
           <div className="kriyon-footer-bg-overlay" />
+          {/* Subtle Ambient Sheen across footer landscape */}
+          <motion.div
+            animate={{
+              x: ['-120%', '160%'],
+              opacity: [0, 0.25, 0.4, 0.25, 0],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              repeatDelay: 6,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            className="absolute inset-y-0 w-[50%] pointer-events-none -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent mix-blend-overlay filter blur-xl"
+          />
         </div>
 
         <div className="kriyon-footer-top">
-          <div className="kriyon-footer-col col-brand">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.7, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            className="kriyon-footer-col col-brand"
+          >
             <p className="kriyon-footer-text font-semibold">©Kriyon 2026</p>
             <p className="kriyon-footer-company">KRIYON GROUP PRIVATE LIMITED</p>
             <p className="text-xs font-sans tracking-wide text-white/60">One group. Specialist capabilities.</p>
@@ -82,17 +102,29 @@ export default function Footer({ onStartConversation, onOpenLegal }) {
               </span>
               <span className="whitespace-nowrap px-3.5 font-sans text-[14px] font-bold tracking-tight">Start a Project</span>
             </button>
-          </div>
+          </motion.div>
 
-          <div className="kriyon-footer-col col-contact">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.7, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
+            className="kriyon-footer-col col-contact"
+          >
             <p className="kriyon-footer-nav-title">Registered Office &amp; Contact</p>
             <a href="tel:+919622121100" className="kriyon-footer-text transition-colors hover:text-[#88EA15]">+91 96221 21100</a>
             <a href="mailto:kriyon@repixelx.tech" className="kriyon-footer-text break-all transition-colors hover:text-[#88EA15]">kriyon@repixelx.tech</a>
             <p className="kriyon-footer-address hidden sm:block">Room No. 2, First Floor, Tawi Enclave, Vill Nandini, Gol Gujral, Jammu 180002, J&amp;K</p>
             <p className="kriyon-footer-address sm:hidden">Jammu 180002, J&amp;K, India</p>
-          </div>
+          </motion.div>
 
-          <div className="kriyon-footer-col col-explore">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.7, delay: 0.24, ease: [0.16, 1, 0.3, 1] }}
+            className="kriyon-footer-col col-explore"
+          >
             <nav className="kriyon-footer-nav" aria-label="Footer navigation">
               <strong className="kriyon-footer-nav-title">Explore</strong>
               <a href="/">Home</a>
@@ -103,9 +135,15 @@ export default function Footer({ onStartConversation, onOpenLegal }) {
               <a href="https://www.kriyonmedia.com/" target="_blank" rel="noopener noreferrer" className="hidden sm:inline-block">Visit Kriyon Media ↗</a>
               <a href="https://onelink.cards/" target="_blank" rel="noopener noreferrer" className="hidden sm:inline-block">Explore OneLink ↗</a>
             </nav>
-          </div>
+          </motion.div>
 
-          <div className="kriyon-footer-col col-legal">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.7, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
+            className="kriyon-footer-col col-legal"
+          >
             <div className="kriyon-footer-nav">
               <strong className="kriyon-footer-nav-title">Legal</strong>
               <button type="button" onClick={() => onOpenLegal?.('terms')}>Legal Centre Overview</button>
@@ -119,22 +157,34 @@ export default function Footer({ onStartConversation, onOpenLegal }) {
               <button type="button" onClick={() => onOpenLegal?.('disclaimer')} className="hidden sm:block">05 · Disclaimer</button>
               <button type="button" onClick={() => onOpenLegal?.('grievance')} className="hidden sm:block">06 · Grievance Officer</button>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         <div className="kriyon-footer-divider" />
 
         <div className="kriyon-footer-bottom">
-          <div className="kriyon-footer-bottom-left">
+          <motion.div
+            initial={{ opacity: 0, y: 22, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.85, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="kriyon-footer-bottom-left"
+          >
             <img src="/assets/kriyon-wordmark-white.png" alt="KRIYON" className="kriyon-footer-massive-logo" />
             <a href="https://repixelx.com" target="_blank" rel="noopener noreferrer" className="kriyon-footer-powered">
               <span>Designed &amp; developed in creative partnership with</span>
               <img src="/repixelx-studio-logo.webp" alt="RepixelX Studio" className="kriyon-footer-repixelx-logo" />
               <span className="kriyon-footer-powered-arrow">↗</span>
             </a>
-          </div>
+          </motion.div>
 
-          <div className="kriyon-footer-bottom-right">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.75, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
+            className="kriyon-footer-bottom-right"
+          >
             <div className="kriyon-footer-hours">
               <span className="kriyon-hours-label">Mo—Fr</span>
               <span className="kriyon-hours-time">9am—6pm</span>
@@ -142,7 +192,7 @@ export default function Footer({ onStartConversation, onOpenLegal }) {
             <div className="kriyon-footer-socials">
               <a href="https://www.linkedin.com/company/kriyon-group" target="_blank" rel="noopener noreferrer" className="kriyon-social-icon" aria-label="LinkedIn">{SocialIcons.linkedin}</a>
             </div>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </footer>

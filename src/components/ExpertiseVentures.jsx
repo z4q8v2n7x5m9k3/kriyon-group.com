@@ -111,17 +111,17 @@ export default function ExpertiseVentures({ onContact }) {
               </span>
             </div>
 
-            {/* Main Headline with slow, visible, cinematic pixel formation */}
+            {/* Main Headline with slow, visible, cinematic word formation */}
             <h2 className="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans">
-              <PixelText text="Specialist capability, connected around you." delay={0.12} speed={36} />
+              <PixelText text="Specialist capability, connected around you." delay={0.12} stagger={0.06} />
             </h2>
 
             {/* Subtitle — Full one horizontal line with Frosted Glass Reveal */}
             <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] text-[#555555] font-normal leading-[1.55] mt-3 font-sans w-full max-w-none whitespace-normal lg:whitespace-nowrap">
               <PixelText
                 text="Three focused ventures. One clear route from strategy and identity to production, technology and customer action."
-                delay={0.22}
-                stagger={0.02}
+                delay={0.3}
+                stagger={0.04}
               />
             </p>
           </div>

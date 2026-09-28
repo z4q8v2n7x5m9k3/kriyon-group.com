@@ -1,12 +1,12 @@
 import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 
-// Ultra-clean, minimal, luxury text entrance: pure real words, zero blocks, zero flickering
+// Calm, slow, luxury text entrance: pure real words, zero blocks, zero flickering
 export default function PixelText({
   text = '',
   className = '',
   delay = 0,
-  stagger = 0.025,
+  stagger = 0.05,
   mode = 'clean', // 'clean' | 'birth' (soft optical focus reveal)
   children,
   ...props
@@ -33,8 +33,8 @@ export default function PixelText({
             <motion.span
               initial={{
                 opacity: 0,
-                y: 8,
-                filter: isBirth ? 'blur(4px)' : 'none',
+                y: 10,
+                filter: isBirth ? 'blur(5px)' : 'none',
               }}
               whileInView={{
                 opacity: 1,
@@ -43,9 +43,9 @@ export default function PixelText({
               }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{
-                duration: isBirth ? 0.55 : 0.45,
+                duration: isBirth ? 0.85 : 0.72,
                 delay: delay + wordIndex * stagger,
-                ease: [0.16, 1, 0.3, 1], // Apple-grade cubic-bezier
+                ease: [0.16, 1, 0.3, 1], // Apple-grade slow luxury cubic bezier
               }}
               className="inline-block font-inherit leading-inherit will-change-[transform,opacity,filter]"
             >

@@ -109,8 +109,8 @@ export default function Hero({ onContact, isLoaded = true }) {
       {/* Outer Rounded Container with clean #EDEFEF and no gradient */}
       <div className="relative w-full max-w-full flex-1 rounded-[20px] sm:rounded-[24px] overflow-hidden bg-[#EDEFEF] flex flex-col justify-between pt-[11vh] sm:pt-[13vh] lg:pt-[15vh] pb-6 sm:pb-8 px-4 sm:px-10 lg:px-[5vw] min-h-[calc(100vh-20px)] shadow-[0_4px_30px_rgba(0,0,0,0.03)] border border-black/[0.04]">
         
-        {/* Background Layer: Real Image Colours with 100% FULL OPACITY */}
-        <div className="absolute inset-x-0 bottom-0 pointer-events-none z-0 overflow-hidden flex items-end justify-center w-full h-[460px] sm:h-auto" aria-hidden="true">
+        {/* Background Layer: Real Image Colours with embedded gradient blend & moving shine */}
+        <div className="absolute inset-x-0 bottom-0 pointer-events-none z-0 overflow-hidden flex items-end justify-center w-full h-[460px] sm:h-auto [mask-image:linear-gradient(to_bottom,transparent_0%,black_16%,black_100%)]" aria-hidden="true">
           <motion.img
             src="/assets/kriyon-hill-render.png"
             alt=""
@@ -118,6 +118,40 @@ export default function Hero({ onContact, isLoaded = true }) {
             animate={isLoaded ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 45, scale: 1.05 }}
             transition={{ duration: 1.25, ease: [0.16, 1, 0.3, 1] }}
             className="w-full h-full sm:h-auto object-cover md:object-contain object-bottom pointer-events-none block scale-135 sm:scale-100 origin-bottom"
+          />
+
+          {/* Embedded Moving Gradient Shine / Sheen across the Hero Landscape */}
+          <motion.div
+            initial={{ x: '-130%', opacity: 0 }}
+            animate={
+              isLoaded
+                ? {
+                    x: ['-130%', '160%'],
+                    opacity: [0, 0.35, 0.55, 0.35, 0],
+                  }
+                : { x: '-130%', opacity: 0 }
+            }
+            transition={{
+              duration: 4.2,
+              repeat: Infinity,
+              repeatDelay: 5,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            className="absolute inset-y-0 w-[55%] pointer-events-none z-[1] -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent mix-blend-overlay filter blur-xl"
+          />
+
+          {/* Subtle Ambient Moving Light Glow */}
+          <motion.div
+            animate={{
+              opacity: [0.2, 0.38, 0.2],
+              scale: [1, 1.025, 1],
+            }}
+            transition={{
+              duration: 7,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_80%,rgba(255,255,255,0.65)_0%,transparent_65%)] pointer-events-none z-[1] mix-blend-soft-light"
           />
         </div>
 
