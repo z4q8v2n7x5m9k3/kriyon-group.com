@@ -1,19 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Plus,
-  Minus,
-  CheckCircle2,
-  ArrowRight,
-  Sparkles,
-  Layers,
-  Globe,
-  Zap,
-  Film,
-  QrCode,
-  Palette,
-  ExternalLink,
-} from 'lucide-react';
+import { Plus, Minus, ArrowRight, CheckCircle2 } from 'lucide-react';
 import PixelatedIcon from './PixelatedIcon';
 import PixelText from './PixelText';
 
@@ -23,57 +10,35 @@ const capabilities = [
     number: '01',
     title: 'Branding & Identity',
     description:
-      'For businesses that need a stronger identity, better positioning and launch-ready brand assets.',
+      'We design premium brand identities, positioning and launch assets that make your brand look credible, guide users clearly and turn visitors into customers.',
     tags: ['Brand Strategy', 'Logo Systems', 'Packaging', 'Launch Assets'],
     renderVisual: () => (
-      <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[290px] rounded-[18px] sm:rounded-[20px] overflow-hidden bg-[#101012] border border-white/10 shadow-2xl flex items-center justify-center p-4">
-        {/* Ambient Dark Image Background */}
-        <img
-          src="/assets/what-we-do/card-01-brand.jpg"
-          alt="Branding & Packaging Identity"
-          className="absolute inset-0 w-full h-full object-cover opacity-50 filter contrast-125 scale-105"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/40" />
+      <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] flex items-center justify-center">
+        {/* Soft studio back glow */}
+        <div className="absolute w-[220px] h-[220px] bg-white/[0.04] rounded-full blur-3xl pointer-events-none" />
 
-        {/* Floating Identity & Packaging Board */}
-        <div className="relative z-10 w-full max-w-[340px] bg-white/[0.08] backdrop-blur-xl border border-white/15 rounded-[16px] p-4 text-white shadow-xl">
-          <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-3">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#88EA15]" />
-              <span className="text-[11px] font-mono tracking-wider uppercase text-white/90">
-                Identity Spec
-              </span>
-            </div>
-            <span className="text-[10px] font-mono text-white/50 tracking-widest uppercase">
-              2026 Ready
-            </span>
+        {/* 2 Layered / Tilted Design Boards matching reference angle */}
+        <div className="relative w-[300px] sm:w-[350px] md:w-[380px] h-[190px] sm:h-[220px]">
+          {/* Back Tablet / Mockup */}
+          <div className="absolute left-6 top-3 w-[78%] h-[82%] rounded-[18px] sm:rounded-[22px] overflow-hidden bg-[#1A1D24] border border-white/20 shadow-2xl transform rotate-6 hover:rotate-4 transition-transform duration-500">
+            <img
+              src="/assets/what-we-do/card-01-brand.jpg"
+              alt="Brand Packaging & Identity"
+              className="w-full h-full object-cover filter contrast-110"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           </div>
 
-          <div className="grid grid-cols-3 gap-2">
-            <div className="bg-black/40 rounded-[10px] p-2 border border-white/10 text-center">
-              <span className="text-[8.5px] font-mono text-white/50 block mb-1">MONOGRAM</span>
-              <div className="w-6 h-6 rounded-[5px] bg-[#88EA15] text-black font-black text-[12px] flex items-center justify-center mx-auto">
-                K
-              </div>
-            </div>
-            <div className="bg-black/40 rounded-[10px] p-2 border border-white/10 text-center">
-              <span className="text-[8.5px] font-mono text-white/50 block mb-1">COLORWAY</span>
-              <div className="flex items-center justify-center gap-1 mt-1.5">
-                <span className="w-3 h-3 rounded-full bg-[#0A0A0A] border border-white/30" />
-                <span className="w-3 h-3 rounded-full bg-[#EBEBED]" />
-                <span className="w-3 h-3 rounded-full bg-[#88EA15]" />
-              </div>
-            </div>
-            <div className="bg-black/40 rounded-[10px] p-2 border border-white/10 text-center">
-              <span className="text-[8.5px] font-mono text-white/50 block mb-1">PACKAGING</span>
-              <span className="text-[11px] font-semibold text-white block mt-0.5">14 SKUs</span>
-            </div>
-          </div>
-
-          <div className="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-white/70">
-            <span>POSITIONING: PREMIUM</span>
-            <span className="text-[#88EA15]">ASSETS 100% READY</span>
+          {/* Front Tablet / Mockup */}
+          <div className="absolute left-0 bottom-1 w-[82%] h-[84%] rounded-[18px] sm:rounded-[22px] overflow-hidden bg-[#0D0F14] border border-white/30 shadow-[0_20px_50px_rgba(0,0,0,0.6)] transform -rotate-6 hover:-rotate-3 transition-transform duration-500">
+            <img
+              src="/assets/what-we-do/mockup-02-web.jpg"
+              alt="Brand Visual Direction"
+              className="w-full h-full object-cover filter contrast-105"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
           </div>
         </div>
       </div>
@@ -85,39 +50,30 @@ const capabilities = [
     number: '02',
     title: 'Websites & E-commerce',
     description:
-      'Websites and store experiences built to present your business clearly and convert better.',
+      'We craft high-converting websites, landing pages and online store platforms built to present your business clearly and turn visits into orders.',
     tags: ['Business Websites', 'Landing Pages', 'Online Stores', 'Redesigns'],
     renderVisual: () => (
-      <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[290px] rounded-[18px] sm:rounded-[20px] overflow-hidden bg-[#0C0E14] border border-white/10 shadow-2xl flex items-center justify-center p-3 sm:p-5">
-        {/* Angled Laptop / Desktop Mockup Frame */}
-        <div className="relative w-full max-w-[390px] rounded-[14px] overflow-hidden bg-[#16181F] border border-white/20 shadow-2xl transform -rotate-1 hover:rotate-0 transition-transform duration-500">
-          {/* Browser Top Bar */}
-          <div className="bg-[#1C1F28] px-3 py-2 flex items-center justify-between border-b border-white/10">
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#FF5F56]" />
-              <span className="w-2 h-2 rounded-full bg-[#FFBD2E]" />
-              <span className="w-2 h-2 rounded-full bg-[#27C93F]" />
-            </div>
-            <div className="bg-black/50 rounded-full px-3 py-0.5 text-[9.5px] font-mono text-white/70 flex items-center gap-1">
-              <span className="text-[#88EA15]">https://</span>store.brand.com
-            </div>
-            <span className="text-[9px] font-mono text-[#88EA15] font-semibold">99+ CVR</span>
-          </div>
-
-          {/* Actual Site Screenshot preview */}
-          <div className="relative aspect-[16/10] overflow-hidden bg-black">
+      <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] flex items-center justify-center">
+        <div className="relative w-[300px] sm:w-[350px] md:w-[380px] h-[190px] sm:h-[220px]">
+          {/* Back Tablet: Angled Store Layout */}
+          <div className="absolute left-8 top-2 w-[76%] h-[82%] rounded-[18px] sm:rounded-[22px] overflow-hidden bg-[#161820] border border-white/20 shadow-2xl transform rotate-8 hover:rotate-5 transition-transform duration-500">
             <img
-              src="/assets/what-we-do/mockup-02-web.jpg"
-              alt="E-commerce Store UI"
-              className="w-full h-full object-cover object-top filter contrast-105"
+              src="/assets/what-we-do/mockup-03-app.jpg"
+              alt="Store Platform UI"
+              className="w-full h-full object-cover filter contrast-110"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
-              <div className="flex items-center justify-between w-full text-white text-[10.5px]">
-                <span className="font-semibold tracking-tight">Direct Consumer Ordering Platform</span>
-                <span className="font-mono text-[#88EA15] text-[9.5px]">Sub-Second Checkout</span>
-              </div>
-            </div>
+          </div>
+
+          {/* Front Tablet: Main Store Landing */}
+          <div className="absolute left-1 bottom-1 w-[82%] h-[84%] rounded-[18px] sm:rounded-[22px] overflow-hidden bg-[#0A0C10] border border-white/30 shadow-[0_20px_50px_rgba(0,0,0,0.6)] transform -rotate-5 hover:-rotate-2 transition-transform duration-500">
+            <img
+              src="/assets/what-we-do/mockup-02-web.jpg"
+              alt="Website and E-commerce Design"
+              className="w-full h-full object-cover filter contrast-105"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           </div>
         </div>
       </div>
@@ -129,37 +85,30 @@ const capabilities = [
     number: '03',
     title: 'Apps, SaaS & Platforms',
     description:
-      'Custom digital products, portals and platforms designed for real business use.',
+      'Custom digital products, dashboards, role-based portals and scalable software platforms engineered for real enterprise workflows.',
     tags: ['Web Apps', 'Mobile Apps', 'SaaS Products', 'Admin Panels'],
     renderVisual: () => (
-      <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[290px] rounded-[18px] sm:rounded-[20px] overflow-hidden bg-[#0A0D15] border border-white/10 shadow-2xl flex items-center justify-center p-3 sm:p-5">
-        <div className="relative w-full max-w-[390px] rounded-[14px] overflow-hidden bg-[#141824] border border-white/20 shadow-2xl">
-          {/* App / Dashboard Top Header */}
-          <div className="bg-[#1A2030] px-3 py-2 flex items-center justify-between border-b border-white/10 text-white">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-[3px] bg-[#88EA15]" />
-              <span className="text-[10.5px] font-semibold tracking-tight">SaaS Admin Portal</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#88EA15] animate-pulse" />
-              <span className="text-[9px] font-mono text-[#88EA15]">LIVE PRODUCTION</span>
-            </div>
-          </div>
-
-          {/* App Screenshot Preview */}
-          <div className="relative aspect-[16/10] overflow-hidden bg-black">
+      <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] flex items-center justify-center">
+        <div className="relative w-[300px] sm:w-[350px] md:w-[380px] h-[190px] sm:h-[220px]">
+          {/* Back Tablet */}
+          <div className="absolute left-8 top-3 w-[76%] h-[80%] rounded-[18px] sm:rounded-[22px] overflow-hidden bg-[#181C26] border border-white/20 shadow-2xl transform rotate-7 hover:rotate-4 transition-transform duration-500">
             <img
-              src="/assets/what-we-do/mockup-03-app.jpg"
-              alt="Custom Business SaaS Platform"
-              className="w-full h-full object-cover object-top filter contrast-110"
+              src="/assets/what-we-do/mockup-02-web.jpg"
+              alt="App Architecture"
+              className="w-full h-full object-cover filter contrast-110"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex items-end p-3">
-              <div className="flex items-center justify-between w-full text-white">
-                <span className="text-[10px] font-mono text-white/80">Next.js · PostgreSQL · RBAC</span>
-                <span className="text-[9.5px] font-mono text-[#88EA15]">0s DOWNTIME</span>
-              </div>
-            </div>
+          </div>
+
+          {/* Front Tablet: SaaS Dashboard */}
+          <div className="absolute left-1 bottom-1 w-[82%] h-[84%] rounded-[18px] sm:rounded-[22px] overflow-hidden bg-[#0E121B] border border-white/30 shadow-[0_20px_50px_rgba(0,0,0,0.6)] transform -rotate-6 hover:-rotate-3 transition-transform duration-500">
+            <img
+              src="/assets/what-we-do/mockup-03-app.jpg"
+              alt="SaaS Platform Admin Panel"
+              className="w-full h-full object-cover filter contrast-115"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           </div>
         </div>
       </div>
@@ -171,68 +120,34 @@ const capabilities = [
     number: '04',
     title: 'Automation & Business Systems',
     description:
-      'Smart workflows that reduce manual work and improve leads, bookings and operations.',
+      'Smart workflows and connected systems that eliminate repetitive manual tasks and accelerate leads, bookings, payments and operations.',
     tags: ['AI Automation', 'Lead Funnels', 'Booking Systems', 'Integrations'],
     renderVisual: () => (
-      <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[290px] rounded-[18px] sm:rounded-[20px] overflow-hidden bg-[#0D0E12] border border-white/10 shadow-2xl flex items-center justify-center p-4">
-        {/* Connected Node Architecture Diagram */}
-        <div className="w-full max-w-[340px] bg-white/[0.06] backdrop-blur-xl border border-white/15 rounded-[16px] p-4 text-white shadow-xl">
-          <div className="flex items-center justify-between border-b border-white/10 pb-2 mb-3">
-            <div className="flex items-center gap-2">
-              <Zap className="w-3.5 h-3.5 text-[#88EA15]" />
-              <span className="text-[11px] font-mono tracking-wider uppercase text-white/90">
-                End-to-End Pipeline
-              </span>
-            </div>
-            <span className="text-[9.5px] font-mono text-[#88EA15] bg-[#88EA15]/10 px-2 py-0.5 rounded">
-              Active Flow
-            </span>
+      <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] flex items-center justify-center">
+        <div className="relative w-[300px] sm:w-[350px] md:w-[380px] h-[190px] sm:h-[220px]">
+          {/* Back Tablet */}
+          <div className="absolute left-7 top-2 w-[76%] h-[82%] rounded-[18px] sm:rounded-[22px] overflow-hidden bg-[#12151D] border border-white/20 shadow-2xl transform rotate-7 hover:rotate-4 transition-transform duration-500">
+            <img
+              src="/assets/what-we-do/mockup-03-app.jpg"
+              alt="Workflow Integration"
+              className="w-full h-full object-cover filter contrast-105"
+              loading="lazy"
+            />
           </div>
 
-          <div className="space-y-2">
-            <div className="flex items-center gap-2.5 bg-black/40 rounded-[9px] p-2 border border-white/10">
-              <span className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-mono font-bold text-white">
-                01
+          {/* Front Tablet: Automation Hub */}
+          <div className="absolute left-1 bottom-1 w-[82%] h-[84%] rounded-[18px] sm:rounded-[22px] overflow-hidden bg-[#0A0D14] border border-white/30 shadow-[0_20px_50px_rgba(0,0,0,0.6)] transform -rotate-6 hover:-rotate-3 transition-transform duration-500">
+            <img
+              src="/assets/what-we-do/card-01-brand.jpg"
+              alt="Automation Workflow System"
+              className="w-full h-full object-cover filter contrast-115"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-3">
+              <span className="text-[10px] font-mono text-[#88EA15]">
+                ● End-to-End Automated Pipeline
               </span>
-              <div className="flex-1 min-w-0">
-                <span className="text-[11px] font-semibold text-white block truncate">
-                  Inbound Lead &amp; Booking
-                </span>
-                <span className="text-[9px] font-mono text-white/50">Website, OneLink, Instagram</span>
-              </div>
-              <span className="text-[9px] font-mono text-[#88EA15]">TRIGGER</span>
             </div>
-
-            <div className="flex items-center gap-2.5 bg-[#88EA15]/10 rounded-[9px] p-2 border border-[#88EA15]/20">
-              <span className="w-5 h-5 rounded-full bg-[#88EA15] text-black flex items-center justify-center text-[10px] font-mono font-black">
-                AI
-              </span>
-              <div className="flex-1 min-w-0">
-                <span className="text-[11px] font-semibold text-white block truncate">
-                  AI Qualification &amp; CRM Sync
-                </span>
-                <span className="text-[9px] font-mono text-white/60">Instant WhatsApp routing</span>
-              </div>
-              <span className="text-[9px] font-mono text-[#88EA15]">0.2s</span>
-            </div>
-
-            <div className="flex items-center gap-2.5 bg-black/40 rounded-[9px] p-2 border border-white/10">
-              <span className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-mono font-bold text-white">
-                03
-              </span>
-              <div className="flex-1 min-w-0">
-                <span className="text-[11px] font-semibold text-white block truncate">
-                  Payment, Contract &amp; Onboard
-                </span>
-                <span className="text-[9px] font-mono text-white/50">Zero manual intervention</span>
-              </div>
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#88EA15]" />
-            </div>
-          </div>
-
-          <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-white/70">
-            <span>SAVED: ~24 HRS / WK</span>
-            <span className="text-[#88EA15]">100% LEAD CAPTURE</span>
           </div>
         </div>
       </div>
@@ -244,46 +159,34 @@ const capabilities = [
     number: '05',
     title: 'Content, Campaigns & Production',
     description:
-      'Creative content, campaigns and visual production that help your business communicate and grow.',
+      'Creative commercial campaigns, product photography, editorial reels and CGI that give your business a distinctive, premium visual presence.',
     tags: ['Campaigns', 'Product Shoots', 'Reels & Films', 'CGI & Visuals'],
     renderVisual: () => (
-      <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[290px] rounded-[18px] sm:rounded-[20px] overflow-hidden bg-[#0A0A0A] border border-white/10 shadow-2xl flex items-center justify-center p-3">
-        {/* Full Cinematic Campaign Image */}
-        <img
-          src="/assets/what-we-do/card-05-content.jpg"
-          alt="Creative Film and Campaign Production"
-          className="absolute inset-0 w-full h-full object-cover opacity-60 filter contrast-110 scale-105"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/60" />
-
-        <div className="relative z-10 w-full max-w-[340px] bg-black/60 backdrop-blur-xl border border-white/20 rounded-[16px] p-3.5 text-white">
-          <div className="flex items-center justify-between border-b border-white/10 pb-2 mb-2.5">
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-              <span className="text-[10px] font-mono tracking-wider text-white uppercase">
-                4K Cinema Production
-              </span>
-            </div>
-            <span className="text-[9.5px] font-mono text-white/60">9:16 &amp; 16:9 MASTER</span>
+      <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] flex items-center justify-center">
+        <div className="relative w-[300px] sm:w-[350px] md:w-[380px] h-[190px] sm:h-[220px]">
+          {/* Back Tablet */}
+          <div className="absolute left-8 top-2 w-[76%] h-[82%] rounded-[18px] sm:rounded-[22px] overflow-hidden bg-[#161618] border border-white/20 shadow-2xl transform rotate-8 hover:rotate-5 transition-transform duration-500">
+            <img
+              src="/assets/what-we-do/card-01-brand.jpg"
+              alt="Production Stills"
+              className="w-full h-full object-cover filter contrast-110"
+              loading="lazy"
+            />
           </div>
 
-          <div className="bg-white/10 rounded-[10px] p-2.5 border border-white/10 flex items-center justify-between my-2">
-            <div>
-              <span className="text-[12px] font-medium text-white block">Commercial Campaign</span>
-              <span className="text-[9.5px] font-mono text-white/60">
-                Editorial Stills · Motion Reels · 3D
+          {/* Front Tablet: Film Campaign Still */}
+          <div className="absolute left-1 bottom-1 w-[82%] h-[84%] rounded-[18px] sm:rounded-[22px] overflow-hidden bg-[#080808] border border-white/30 shadow-[0_20px_50px_rgba(0,0,0,0.6)] transform -rotate-5 hover:-rotate-2 transition-transform duration-500">
+            <img
+              src="/assets/what-we-do/card-05-content.jpg"
+              alt="Campaign Stills & Films"
+              className="w-full h-full object-cover filter contrast-115"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-3">
+              <span className="text-[10px] font-mono text-white/90">
+                4K Cinema Production · 9:16 &amp; 16:9
               </span>
             </div>
-            <div className="w-7 h-7 rounded-full bg-[#88EA15] text-black flex items-center justify-center">
-              <Film className="w-3.5 h-3.5" />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-3 gap-1.5 text-center mt-2 pt-2 border-t border-white/10 text-[9px] font-mono text-white/80">
-            <span className="bg-white/5 py-1 rounded">REELS</span>
-            <span className="bg-white/5 py-1 rounded">PRODUCT</span>
-            <span className="bg-white/5 py-1 rounded text-[#88EA15]">CGI / 3D</span>
           </div>
         </div>
       </div>
@@ -295,48 +198,34 @@ const capabilities = [
     number: '06',
     title: 'Digital Presence & Customer Experience',
     description:
-      'Everything that helps customers discover, trust, contact and take action with your business online.',
+      'Everything that helps customers discover, trust, contact and take action with your business online — from smart QR touchpoints to booking flows.',
     tags: ['OneLink Cards', 'QR Systems', 'Reviews', 'Customer Journeys'],
     renderVisual: () => (
-      <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[290px] rounded-[18px] sm:rounded-[20px] overflow-hidden bg-[#0A0E18] border border-white/10 shadow-2xl flex items-center justify-center p-4">
-        {/* Smart Hub Phone Mockup Card */}
-        <div className="w-full max-w-[340px] bg-white/[0.08] backdrop-blur-xl border border-white/20 rounded-[16px] p-4 text-white shadow-xl">
-          <div className="flex items-center justify-between border-b border-white/10 pb-2 mb-3">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-[#88EA15]" />
-              <span className="text-[11px] font-semibold tracking-tight text-white">
-                OneLink Smart Hub
+      <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] flex items-center justify-center">
+        <div className="relative w-[300px] sm:w-[350px] md:w-[380px] h-[190px] sm:h-[220px]">
+          {/* Back Tablet */}
+          <div className="absolute left-8 top-2 w-[76%] h-[82%] rounded-[18px] sm:rounded-[22px] overflow-hidden bg-[#121620] border border-white/20 shadow-2xl transform rotate-7 hover:rotate-4 transition-transform duration-500">
+            <img
+              src="/assets/what-we-do/mockup-02-web.jpg"
+              alt="Action Journeys"
+              className="w-full h-full object-cover filter contrast-110"
+              loading="lazy"
+            />
+          </div>
+
+          {/* Front Tablet: OneLink Action Hub */}
+          <div className="absolute left-1 bottom-1 w-[82%] h-[84%] rounded-[18px] sm:rounded-[22px] overflow-hidden bg-[#0A0D15] border border-white/30 shadow-[0_20px_50px_rgba(0,0,0,0.6)] transform -rotate-6 hover:-rotate-3 transition-transform duration-500">
+            <img
+              src="/assets/onelink-mockup-new.jpg"
+              alt="OneLink Smart Digital Action Hub"
+              className="w-full h-full object-cover filter contrast-115"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-3">
+              <span className="text-[10px] font-mono text-[#88EA15]">
+                NFC + QR Instant Customer Hub
               </span>
             </div>
-            <span className="text-[9.5px] font-mono text-[#88EA15] bg-[#88EA15]/10 px-2 py-0.5 rounded">
-              NFC + QR Active
-            </span>
-          </div>
-
-          <div className="flex items-center gap-3 bg-black/40 rounded-[12px] p-2.5 border border-white/10">
-            <div className="w-12 h-12 rounded-[8px] bg-white p-1 flex items-center justify-center shrink-0">
-              <QrCode className="w-10 h-10 text-black stroke-[2.2]" />
-            </div>
-
-            <div className="flex-1 space-y-1 min-w-0">
-              <div className="bg-white/10 rounded px-2 py-0.5 text-[9.5px] text-white flex items-center justify-between">
-                <span>Book Appointment</span>
-                <span className="text-[#88EA15]">→</span>
-              </div>
-              <div className="bg-white/10 rounded px-2 py-0.5 text-[9.5px] text-white flex items-center justify-between">
-                <span>Direct WhatsApp Chat</span>
-                <span className="text-[#88EA15]">→</span>
-              </div>
-              <div className="bg-white/10 rounded px-2 py-0.5 text-[9.5px] text-white flex items-center justify-between">
-                <span>5.0★ Google Reviews</span>
-                <span className="text-[#88EA15]">★</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-white/70">
-            <span>TOUCHPOINTS UNIFIED</span>
-            <span className="text-[#88EA15]">INSTANT ACTION</span>
           </div>
         </div>
       </div>
@@ -345,7 +234,7 @@ const capabilities = [
 ];
 
 export default function WhatWeDo({ onContact }) {
-  // Default to first capability expanded (Web & Product / Branding)
+  // Default first row expanded as in user reference
   const [activeId, setActiveId] = useState('01');
 
   const toggleAccordion = (id) => {
@@ -368,11 +257,11 @@ export default function WhatWeDo({ onContact }) {
   return (
     <section
       id="what-we-do"
-      className="relative w-full max-w-full overflow-hidden bg-[#EBEBED] text-[#0A0A0A] py-14 sm:py-20 lg:py-24 px-4 sm:px-8 lg:px-12 border-b border-black/[0.04]"
+      className="relative w-full max-w-full overflow-hidden bg-[#FAF9F5] text-[#0A0A0A] py-14 sm:py-20 lg:py-24 px-4 sm:px-8 lg:px-12 border-b border-black/[0.04]"
     >
-      <div className="relative w-full max-w-[1460px] mx-auto min-w-0">
+      <div className="relative w-full max-w-[1360px] mx-auto min-w-0">
         
-        {/* Section Header - Left Aligned & Editorial */}
+        {/* Section Header */}
         <div className="mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-2.5 mb-4 select-none">
             <div className="flex items-center shrink-0">
@@ -396,7 +285,7 @@ export default function WhatWeDo({ onContact }) {
           </p>
         </div>
 
-        {/* Expandable Accordion Rows System */}
+        {/* 1:1 Reference Match: Expandable Capability Rows */}
         <div className="space-y-3 sm:space-y-3.5">
           {capabilities.map((item) => {
             const isExpanded = activeId === item.id;
@@ -407,10 +296,10 @@ export default function WhatWeDo({ onContact }) {
                 layout
                 initial={false}
                 transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                className={`w-full rounded-[22px] sm:rounded-[26px] transition-all duration-300 border ${
+                className={`w-full rounded-[28px] sm:rounded-[36px] transition-all duration-300 border ${
                   isExpanded
-                    ? 'bg-[#101010] text-white border-black/80 shadow-[0_16px_40px_rgba(0,0,0,0.18)]'
-                    : 'bg-white/[0.88] hover:bg-white text-[#0A0A0A] border-white/80 shadow-[0_2px_12px_rgba(0,0,0,0.02)]'
+                    ? 'bg-[#101010] text-white border-black/80 shadow-[0_20px_50px_rgba(0,0,0,0.18)]'
+                    : 'bg-[#FCFCFA] hover:bg-white text-[#0A0A0A] border-[#E8E7E0] shadow-[0_2px_10px_rgba(0,0,0,0.02)]'
                 }`}
               >
                 {/* Header Row Bar */}
@@ -418,46 +307,46 @@ export default function WhatWeDo({ onContact }) {
                   type="button"
                   onClick={() => toggleAccordion(item.id)}
                   aria-expanded={isExpanded}
-                  className="w-full text-left px-5 sm:px-7 md:px-8 py-5 sm:py-6 flex items-center justify-between gap-4 cursor-pointer focus:outline-none select-none"
+                  className="w-full text-left px-6 sm:px-9 md:px-10 py-5 sm:py-6 flex items-center justify-between gap-4 cursor-pointer focus:outline-none select-none"
                 >
-                  {/* Left: Number + Title */}
-                  <div className="flex items-center gap-4 sm:gap-6 md:gap-8 min-w-0">
+                  {/* Left: Number + Dot + Title */}
+                  <div className="flex items-center gap-4 sm:gap-6 md:gap-7 min-w-0">
                     <span
-                      className={`text-[15px] sm:text-[17px] font-mono font-semibold tracking-tight shrink-0 transition-colors ${
-                        isExpanded ? 'text-white' : 'text-[#777777]'
+                      className={`text-[17px] sm:text-[20px] md:text-[22px] font-sans font-medium tracking-tight shrink-0 transition-colors ${
+                        isExpanded ? 'text-white' : 'text-[#333333]'
                       }`}
                     >
                       {item.number}
                     </span>
 
-                    {/* Dot indicator */}
+                    {/* Reference Dot */}
                     <span
-                      className={`w-1.5 h-1.5 rounded-full shrink-0 transition-colors ${
-                        isExpanded ? 'bg-[#88EA15]' : 'bg-black/30'
+                      className={`w-2 h-2 rounded-full shrink-0 transition-colors ${
+                        isExpanded ? 'bg-[#D2FC52]' : 'bg-transparent'
                       }`}
                     />
 
                     <h3
-                      className={`text-[18px] sm:text-[22px] md:text-[25px] font-medium tracking-[-0.025em] font-sans truncate transition-colors ${
-                        isExpanded ? 'text-white' : 'text-[#0A0A0A]'
+                      className={`text-[19px] sm:text-[23px] md:text-[26px] font-medium tracking-[-0.02em] font-sans truncate transition-colors ${
+                        isExpanded ? 'text-white' : 'text-[#111111]'
                       }`}
                     >
                       {item.title}
                     </h3>
                   </div>
 
-                  {/* Right: Round Toggle Button */}
+                  {/* Right: Round Toggle Button (Yellow-Green Pill when active, Black Circle when collapsed) */}
                   <div
                     className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
                       isExpanded
-                        ? 'bg-[#88EA15] text-black rotate-0 scale-100'
-                        : 'bg-black text-white hover:scale-105'
+                        ? 'bg-[#D2FC52] text-black rotate-0 scale-100 shadow-sm'
+                        : 'bg-[#0E0E0E] text-white hover:scale-105'
                     }`}
                   >
                     {isExpanded ? (
-                      <Minus className="w-4 h-4 stroke-[2.5]" />
+                      <Minus className="w-4 h-4 stroke-[3]" />
                     ) : (
-                      <Plus className="w-4 h-4 stroke-[2.5]" />
+                      <Plus className="w-4 h-4 stroke-[3]" />
                     )}
                   </div>
                 </button>
@@ -473,34 +362,36 @@ export default function WhatWeDo({ onContact }) {
                       transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="px-5 sm:px-7 md:px-8 pb-7 sm:pb-8 pt-1 border-t border-white/10">
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
-                          {/* Left Column: Description + Chips + Action Link */}
-                          <div className="lg:col-span-6 flex flex-col justify-between space-y-5">
-                            <div>
-                              <p className="text-[14.5px] sm:text-[16px] text-white/80 font-normal leading-[1.6] font-sans max-w-[540px]">
-                                {item.description}
-                              </p>
+                      <div className="px-6 sm:px-9 md:px-10 pb-8 sm:pb-9 pt-0">
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+                          {/* Left Column: Description + Pill Chips (Reference Match) */}
+                          <div className="lg:col-span-7 flex flex-col justify-center space-y-4 sm:space-y-5">
+                            <p className="text-[14px] sm:text-[15px] md:text-[15.5px] text-[#A0A0A0] font-normal leading-[1.6] font-sans max-w-[500px]">
+                              {item.description}
+                            </p>
 
-                              {/* Tags / Deliverables */}
-                              <div className="flex flex-wrap gap-2 mt-5">
-                                {item.tags.map((tag) => (
-                                  <span
-                                    key={tag}
-                                    className="inline-flex items-center text-[12px] font-medium text-white/90 bg-white/10 hover:bg-white/15 border border-white/15 rounded-full px-3.5 py-1.5 transition-colors"
-                                  >
-                                    {tag}
-                                  </span>
-                                ))}
-                              </div>
+                            {/* Reference-Style Dark Oval Chips */}
+                            <div className="flex flex-wrap items-center gap-2 pt-1">
+                              {item.tags.map((tag) => (
+                                <span
+                                  key={tag}
+                                  className="inline-flex items-center text-[11.5px] sm:text-[12px] font-normal text-white/90 bg-[#1E1E1E] border border-white/10 rounded-full px-4 py-1.5 transition-colors"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                              {/* Reference +2 Badge */}
+                              <span className="inline-flex items-center text-[11px] font-mono text-white/60 bg-[#1E1E1E] border border-white/10 rounded-full px-2.5 py-1.5">
+                                +2
+                              </span>
                             </div>
 
-                            {/* Direct Project Inquiry Button */}
+                            {/* Direct Project Inquiry Link */}
                             <div className="pt-2">
                               <button
                                 type="button"
                                 onClick={handleScrollToContact}
-                                className="inline-flex items-center gap-2 text-[13px] font-medium text-[#88EA15] hover:text-white transition-colors group cursor-pointer"
+                                className="inline-flex items-center gap-2 text-[12.5px] font-medium text-[#D2FC52] hover:text-white transition-colors cursor-pointer group"
                               >
                                 <span>Discuss {item.title}</span>
                                 <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
@@ -508,8 +399,8 @@ export default function WhatWeDo({ onContact }) {
                             </div>
                           </div>
 
-                          {/* Right Column: Clean Supporting Visual Mockup */}
-                          <div className="lg:col-span-6">
+                          {/* Right Column: Layered Tablet/Laptop Visual Mockup */}
+                          <div className="lg:col-span-5 flex justify-center lg:justify-end">
                             {item.renderVisual()}
                           </div>
                         </div>
@@ -528,7 +419,7 @@ export default function WhatWeDo({ onContact }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-8 sm:mt-10 rounded-[22px] sm:rounded-[26px] bg-white/[0.9] backdrop-blur-2xl border border-white p-5 sm:p-6 md:p-7 shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col lg:flex-row lg:items-center justify-between gap-6"
+          className="mt-8 sm:mt-10 rounded-[24px] sm:rounded-[30px] bg-white/[0.92] backdrop-blur-2xl border border-white p-5 sm:p-6 md:p-7 shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col lg:flex-row lg:items-center justify-between gap-6"
         >
           {/* Left: Ways to work with us */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
