@@ -4,8 +4,8 @@ import { ArrowRight, Menu, Phone, X } from 'lucide-react';
 import PixelatedIcon from './PixelatedIcon';
 
 const navItems = [
-  { label: 'What We Do', href: '#what-we-do', number: '01' },
-  { label: 'Ventures', href: '#ventures', number: '02' },
+  { label: 'Ventures', href: '#ventures', number: '01' },
+  { label: 'What We Do', href: '#what-we-do', number: '02' },
   { label: 'Why Kriyon', href: '#why-kriyon', number: '03' },
   { label: 'Contact', href: '/contact', number: '04' },
 ];

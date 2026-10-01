@@ -147,15 +147,15 @@ export default function App() {
           <main>
             {isExpertiseOnly ? (
               <>
-                <WhatWeDo onContact={handleScrollToContact} />
                 <ExpertiseVentures onContact={handleScrollToContact} />
+                <WhatWeDo onContact={handleScrollToContact} />
                 <WhyKriyon />
               </>
             ) : (
               <>
                 <Hero onContact={handleScrollToContact} isLoaded={isPageLoaded} />
-                <WhatWeDo onContact={handleScrollToContact} />
                 <ExpertiseVentures onContact={handleScrollToContact} />
+                <WhatWeDo onContact={handleScrollToContact} />
                 <WhyKriyon />
                 <ContactSection onNavigateToFullContact={() => navigateTo('/contact')} />
               </>
