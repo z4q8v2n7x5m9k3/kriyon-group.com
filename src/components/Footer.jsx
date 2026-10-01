@@ -128,8 +128,9 @@ export default function Footer({ onStartConversation, onOpenLegal }) {
             <nav className="kriyon-footer-nav" aria-label="Footer navigation">
               <strong className="kriyon-footer-nav-title">Explore</strong>
               <a href="/">Home</a>
-              <a href="/#expertise">Capabilities</a>
+              <a href="/#what-we-do">What We Do</a>
               <a href="/#ventures">Ventures</a>
+              <a href="/#why-kriyon">Why Kriyon</a>
               <a href="/contact">Contact</a>
               <a href="https://repixelx.com/" target="_blank" rel="noopener noreferrer" className="hidden sm:inline-block">Explore RepixelX ↗</a>
               <a href="https://www.kriyonmedia.com/" target="_blank" rel="noopener noreferrer" className="hidden sm:inline-block">Visit Kriyon Media ↗</a>

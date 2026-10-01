@@ -23,7 +23,7 @@ export default function WhyKriyon() {
           <div className="inline-flex items-center gap-2.5 mb-4 select-none">
             <PixelatedIcon className="w-[20px] h-[10.5px]" color="#111111" />
             <span className="text-[12px] sm:text-[13px] font-sans font-medium tracking-[0.18em] text-[#111111] uppercase">
-              <PixelText text="03 // WHY KRIYON" delay={0.06} mode="birth" />
+              <PixelText text="04 // WHY KRIYON" delay={0.06} mode="birth" />
             </span>
           </div>
           <h2 className="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans max-w-none">

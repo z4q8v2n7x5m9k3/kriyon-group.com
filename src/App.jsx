@@ -3,6 +3,7 @@ import SmoothScroll from './components/SmoothScroll';
 import PageLoader from './components/PageLoader';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import WhatWeDo from './components/WhatWeDo';
 import ExpertiseVentures from './components/ExpertiseVentures';
 import WhyKriyon from './components/WhyKriyon';
 import ContactSection from './components/ContactSection';
@@ -146,12 +147,14 @@ export default function App() {
           <main>
             {isExpertiseOnly ? (
               <>
+                <WhatWeDo onContact={handleScrollToContact} />
                 <ExpertiseVentures onContact={handleScrollToContact} />
                 <WhyKriyon />
               </>
             ) : (
               <>
                 <Hero onContact={handleScrollToContact} isLoaded={isPageLoaded} />
+                <WhatWeDo onContact={handleScrollToContact} />
                 <ExpertiseVentures onContact={handleScrollToContact} />
                 <WhyKriyon />
                 <ContactSection onNavigateToFullContact={() => navigateTo('/contact')} />

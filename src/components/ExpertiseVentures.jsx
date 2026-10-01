@@ -107,7 +107,7 @@ export default function ExpertiseVentures({ onContact }) {
                 <PixelatedIcon className="w-[20px] h-[10.5px]" color="#111111" />
               </div>
               <span className="text-[12px] sm:text-[13px] font-sans font-medium tracking-[0.18em] text-[#111111] uppercase">
-                <PixelText text="02 // CAPABILITIES & VENTURES" delay={0.06} />
+                <PixelText text="03 // SPECIALIST VENTURES" delay={0.06} />
               </span>
             </div>
 

@@ -94,7 +94,7 @@ export default function Hero({ onContact, isLoaded = true }) {
   const currentVenture = ventures[activeSlide];
 
   const handleScrollToCapabilities = () => {
-    const el = document.getElementById('expertise') || document.getElementById('ventures');
+    const el = document.getElementById('what-we-do') || document.getElementById('expertise') || document.getElementById('ventures');
     if (el) {
       if (window.__lenis) {
         window.__lenis.scrollTo(el, { duration: 1.2 });
