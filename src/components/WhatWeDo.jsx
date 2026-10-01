@@ -15,51 +15,51 @@ import PixelText from './PixelText';
 const services = [
   {
     num: '01',
-    title: 'Start or Rebuild a Brand',
+    title: 'Branding & Launch',
     description:
-      'Brand strategy, identity, logo system, packaging, launch assets and complete brand setup.',
+      'Build or refresh your business identity with strategy, design and launch-ready assets.',
     icon: Palette,
     deliverables: ['Brand Strategy', 'Logo & Identity', 'Packaging', 'Launch Assets'],
   },
   {
     num: '02',
-    title: 'Website & E-commerce',
+    title: 'Websites & E-commerce',
     description:
-      'Business websites, landing pages, online stores, booking websites, payment flows and redesigns.',
+      'Websites, landing pages and online stores built to present your business clearly and convert better.',
     icon: Globe,
-    deliverables: ['Business Sites', 'Online Stores', 'Landing Pages', 'Redesigns'],
+    deliverables: ['Business Websites', 'Landing Pages', 'Online Stores', 'Redesigns'],
   },
   {
     num: '03',
-    title: 'Apps, SaaS & Digital Products',
+    title: 'Apps & SaaS',
     description:
-      'Web apps, mobile apps, SaaS products, dashboards, portals and custom business platforms.',
+      'Custom digital products for businesses that need portals, dashboards, apps or scalable platforms.',
     icon: Layers,
-    deliverables: ['Web Apps', 'Mobile Apps', 'SaaS Platforms', 'Admin Portals'],
+    deliverables: ['Web Apps', 'Mobile Apps', 'SaaS Products', 'Admin Panels'],
   },
   {
     num: '04',
-    title: 'Automation & Customer Systems',
+    title: 'Automation & Systems',
     description:
-      'AI automation, workflows, lead funnels, enquiry systems, bookings, payments and integrations.',
+      'Smart workflows that reduce manual work and improve enquiries, bookings, payments and follow-ups.',
     icon: Zap,
-    deliverables: ['AI Automations', 'Lead Funnels', 'Payment Flows', 'Integrations'],
+    deliverables: ['AI Automation', 'Lead Funnels', 'Booking Flows', 'Integrations'],
   },
   {
     num: '05',
-    title: 'Content, Social & Campaigns',
+    title: 'Content & Campaigns',
     description:
-      'Social media management, campaigns, product photography, reels, films, CGI and creative content.',
+      'Creative content and campaigns that help your brand look better, communicate better and grow faster.',
     icon: Film,
-    deliverables: ['Campaigns', 'Product Shoots', 'Reels & Films', '3D & CGI'],
+    deliverables: ['Social Media', 'Product Shoots', 'Reels & Films', 'CGI & Visuals'],
   },
   {
     num: '06',
-    title: 'Digital Presence & Customer Experience',
+    title: 'Digital Presence & Experience',
     description:
-      'OneLink, QR systems, reviews, contact journeys, catalogues, customer actions and unified digital presence.',
+      'Everything customers need to discover, contact, trust and take action with your business online.',
     icon: QrCode,
-    deliverables: ['OneLink Cards', 'QR Systems', 'Review Flows', 'Digital Journeys'],
+    deliverables: ['OneLink Cards', 'QR Systems', 'Reviews', 'Customer Journeys'],
   },
 ];
 
@@ -67,7 +67,7 @@ const engagementModels = [
   'One-time Projects',
   'Launch Packages',
   'Monthly Retainers',
-  'Custom Packages',
+  'Custom Solutions',
 ];
 
 export default function WhatWeDo({ onContact }) {
@@ -106,13 +106,13 @@ export default function WhatWeDo({ onContact }) {
 
             {/* Main Headline */}
             <h2 className="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans">
-              <PixelText text="What do you need help with?" delay={0.12} stagger={0.06} />
+              <PixelText text="What can we help you build?" delay={0.12} stagger={0.06} />
             </h2>
 
             {/* Subtitle */}
-            <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] text-[#555555] font-normal leading-[1.55] mt-3 font-sans w-full max-w-[820px]">
+            <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] text-[#555555] font-normal leading-[1.55] mt-3 font-sans w-full max-w-[860px]">
               <PixelText
-                text="Starting something new or improving an existing business? We can handle the brand, technology, content and digital experience in one place."
+                text="From branding and websites to apps, automation, content and customer experience — Kriyon brings everything together in one place."
                 delay={0.24}
                 stagger={0.035}
               />
@@ -159,7 +159,7 @@ export default function WhatWeDo({ onContact }) {
                   </p>
                 </div>
 
-                {/* Deliverable Tags */}
+                {/* Deliverable Tags (4 chips each) */}
                 <div className="pt-4 mt-5 border-t border-black/[0.05] flex flex-wrap gap-1.5">
                   {item.deliverables.map((tag) => (
                     <span
@@ -205,14 +205,14 @@ export default function WhatWeDo({ onContact }) {
           <button
             type="button"
             onClick={handleScrollToContact}
-            className="group inline-flex items-center justify-between gap-3 bg-[#111111] hover:bg-black text-white px-5 sm:px-6 py-3.5 rounded-[16px] transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 cursor-pointer text-left shrink-0"
+            className="group inline-flex items-center justify-between gap-4 bg-[#111111] hover:bg-black text-white px-5 sm:px-6 py-3.5 rounded-[16px] transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 cursor-pointer text-left shrink-0"
           >
             <div className="flex flex-col">
               <span className="text-[11px] uppercase tracking-[0.14em] text-white/60 font-medium">
-                Not sure what you need?
+                Not sure where to start?
               </span>
               <span className="text-[13.5px] sm:text-[14px] font-medium text-white tracking-tight">
-                Tell us about your business
+                Tell us what you need
               </span>
             </div>
             <div className="w-8 h-8 rounded-[10px] bg-white/10 flex items-center justify-center transition-transform group-hover:translate-x-1">
