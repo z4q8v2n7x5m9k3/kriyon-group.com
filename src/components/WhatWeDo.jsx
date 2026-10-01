@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-  Palette,
+  Sparkles,
   Globe,
   Layers,
-  Zap,
-  Film,
+  Cpu,
+  Video,
   QrCode,
   ArrowRight,
   CheckCircle2,
@@ -14,11 +14,37 @@ import PixelatedIcon from './PixelatedIcon';
 import PixelText from './PixelText';
 
 const reveal = (delay = 0) => ({
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 16 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: '-40px' },
-  transition: { duration: 0.75, delay, ease: [0.16, 1, 0.3, 1] },
+  transition: { duration: 0.65, delay, ease: [0.16, 1, 0.3, 1] },
 });
+
+// Clean SVGs for exact brand icons matching reference aesthetic
+function BrandPenIcon({ className = 'w-4 h-4' }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 19l7-7 3 3-7 7-3-3z" />
+      <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+      <path d="M2 2l7.586 7.586" />
+      <circle cx="11" cy="11" r="2" />
+    </svg>
+  );
+}
+
+function SocialFilmIcon({ className = 'w-4 h-4' }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="3" width="20" height="18" rx="4" />
+      <line x1="8" y1="3" x2="8" y2="21" />
+      <line x1="16" y1="3" x2="16" y2="21" />
+      <line x1="2" y1="9" x2="8" y2="9" />
+      <line x1="2" y1="15" x2="8" y2="15" />
+      <line x1="16" y1="9" x2="22" y2="9" />
+      <line x1="16" y1="15" x2="22" y2="15" />
+    </svg>
+  );
+}
 
 const services = [
   {
@@ -26,7 +52,7 @@ const services = [
     title: 'Branding & Launch',
     description:
       'Build or refresh your business identity with strategy, design and launch-ready assets.',
-    icon: Palette,
+    icon: BrandPenIcon,
     deliverables: ['Brand Strategy', 'Logo & Identity', 'Packaging', 'Launch Assets'],
   },
   {
@@ -50,7 +76,7 @@ const services = [
     title: 'Automation & Systems',
     description:
       'Smart workflows that reduce manual work and improve enquiries, bookings, payments and follow-ups.',
-    icon: Zap,
+    icon: Cpu,
     deliverables: ['AI Automation', 'Lead Funnels', 'Booking Flows', 'Integrations'],
   },
   {
@@ -58,7 +84,7 @@ const services = [
     title: 'Content & Campaigns',
     description:
       'Creative content and campaigns that help your brand look better, communicate better and grow faster.',
-    icon: Film,
+    icon: SocialFilmIcon,
     deliverables: ['Social Media', 'Product Shoots', 'Reels & Films', 'CGI & Visuals'],
   },
   {
@@ -97,18 +123,18 @@ export default function WhatWeDo({ onContact }) {
   return (
     <section
       id="what-we-do"
-      className="relative w-full max-w-full overflow-hidden bg-[#EBEBED] text-[#0A0A0A] py-14 sm:py-18 lg:py-22 px-4 sm:px-8 lg:px-12 border-b border-black/[0.04]"
+      className="relative w-full max-w-full overflow-hidden bg-[#EBEBED] text-[#0A0A0A] py-14 sm:py-18 lg:py-20 px-4 sm:px-8 lg:px-12 border-b border-black/[0.04]"
     >
       <div className="relative w-full max-w-[1460px] mx-auto min-w-0">
         
         {/* Top Header Section */}
-        <motion.div {...reveal(0)} className="mb-8 sm:mb-10">
-          {/* Eyebrow Badge — Same size & weight as Section 02 & Section 04 */}
-          <div className="inline-flex items-center gap-2.5 mb-3 select-none">
+        <motion.div {...reveal(0)} className="mb-7 sm:mb-9">
+          {/* Eyebrow Badge */}
+          <div className="inline-flex items-center gap-2 mb-2.5 select-none">
             <div className="flex items-center shrink-0">
-              <PixelatedIcon className="w-[20px] h-[10.5px]" color="#111111" />
+              <PixelatedIcon className="w-[18px] sm:w-[20px] h-[9.5px] sm:h-[10.5px]" color="#111111" />
             </div>
-            <span className="text-[12px] sm:text-[13px] font-sans font-medium tracking-[0.18em] text-[#111111] uppercase">
+            <span className="text-[11.5px] sm:text-[12.5px] font-sans font-medium tracking-[0.16em] text-[#111111] uppercase">
               <PixelText text="03 // WHAT WE DO" delay={0.06} />
             </span>
           </div>
@@ -119,16 +145,16 @@ export default function WhatWeDo({ onContact }) {
           </h2>
 
           {/* Subtitle — Single clean line on desktop */}
-          <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] text-[#555555] font-normal leading-[1.55] mt-2.5 font-sans w-full max-w-none whitespace-normal lg:whitespace-nowrap">
+          <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] text-[#555555] font-normal leading-[1.5] mt-2 font-sans w-full max-w-none whitespace-normal lg:whitespace-nowrap">
             <PixelText
               text="From branding and websites to apps, automation, content and customer experience — Kriyon brings everything together in one place."
-              delay={0.24}
+              delay={0.22}
               stagger={0.03}
             />
           </p>
         </motion.div>
 
-        {/* 6 Clean Apple Glass Boxes Grid — Compact, tight spacing, balanced typography */}
+        {/* 6 Clean Apple Glass Boxes Grid — Proportioned sizing, tight & balanced spacing */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
           {services.map((item, idx) => {
             const IconComponent = item.icon;
@@ -136,41 +162,42 @@ export default function WhatWeDo({ onContact }) {
             return (
               <motion.article
                 key={item.num}
-                {...reveal(0.04 + idx * 0.04)}
+                {...reveal(0.03 + idx * 0.04)}
                 onMouseEnter={() => setHoveredCard(item.num)}
                 onMouseLeave={() => setHoveredCard(null)}
-                className="group relative isolate overflow-hidden rounded-[20px] sm:rounded-[22px] p-5 sm:p-5.5 flex flex-col justify-between min-h-[220px] sm:min-h-[235px] transition-all duration-300 ease-out cursor-default
-                  bg-white/[0.82] hover:bg-white/[0.96]
+                className="group relative isolate overflow-hidden rounded-[20px] sm:rounded-[22px] p-5 sm:p-5.5 flex flex-col justify-between transition-all duration-300 ease-out cursor-default
+                  bg-white/[0.84] hover:bg-white/[0.97]
                   backdrop-blur-2xl
                   border border-white/95 hover:border-white
-                  shadow-[0_4px_20px_rgba(0,0,0,0.025),inset_0_1px_1px_rgba(255,255,255,1)]
-                  hover:shadow-[0_12px_32px_rgba(0,0,0,0.06),inset_0_1px_1px_rgba(255,255,255,1)]
+                  shadow-[0_4px_18px_rgba(0,0,0,0.025),inset_0_1px_1px_rgba(255,255,255,1)]
+                  hover:shadow-[0_12px_30px_rgba(0,0,0,0.055),inset_0_1px_1px_rgba(255,255,255,1)]
                   hover:-translate-y-0.5"
               >
                 {/* Top Section: Icon, Number, Title & Compact Description */}
                 <div>
                   {/* Row: Icon + Number */}
                   <div className="flex items-center justify-between mb-3.5">
-                    <div className="w-8.5 h-8.5 rounded-[10px] bg-[#111111] flex items-center justify-center text-white shadow-sm transition-transform duration-300 group-hover:scale-105">
-                      <IconComponent className="w-4 h-4 text-white stroke-[2]" />
+                    {/* Modern Clean Rounded Dark Icon Tile */}
+                    <div className="w-9 h-9 rounded-[11px] bg-[#111111] flex items-center justify-center text-white shadow-sm transition-transform duration-300 group-hover:scale-105">
+                      <IconComponent className="w-[18px] h-[18px] text-white stroke-[1.8]" />
                     </div>
-                    <span className="text-[11.5px] font-mono font-medium tracking-wider text-[#888888]">
+                    <span className="text-[12px] font-mono font-medium tracking-wider text-[#888888]">
                       {item.num}
                     </span>
                   </div>
 
-                  {/* Service Title — Clean font-medium, not way too bold */}
-                  <h3 className="text-[16.5px] sm:text-[17.5px] font-medium text-[#0A0A0A] tracking-[-0.02em] leading-snug font-sans group-hover:text-black transition-colors">
+                  {/* Service Title — Clean font-medium with elegant spacing */}
+                  <h3 className="text-[17px] sm:text-[18px] font-medium text-[#0A0A0A] tracking-[-0.02em] leading-snug font-sans group-hover:text-black transition-colors">
                     {item.title}
                   </h3>
 
                   {/* Description — Close to title, no awkward gap */}
-                  <p className="text-[13px] sm:text-[13.5px] text-[#555555] font-normal leading-[1.5] font-sans mt-1.5">
+                  <p className="text-[13px] sm:text-[13.5px] text-[#555555] font-normal leading-[1.48] font-sans mt-1.5">
                     {item.description}
                   </p>
                 </div>
 
-                {/* Bottom Section: Deliverable Tags Chips — Compact, no huge border gap */}
+                {/* Bottom Section: Deliverable Tags Chips */}
                 <div className="pt-3.5 mt-3.5 flex flex-wrap gap-1.5 border-t border-black/[0.04]">
                   {item.deliverables.map((tag) => (
                     <span
@@ -188,8 +215,8 @@ export default function WhatWeDo({ onContact }) {
 
         {/* Bottom Apple Glass Banner: Engagement Models + CTA */}
         <motion.div
-          {...reveal(0.28)}
-          className="mt-5 sm:mt-6 rounded-[20px] sm:rounded-[22px] bg-white/[0.85] hover:bg-white/[0.95] backdrop-blur-2xl border border-white/95 p-4 sm:p-5 shadow-[0_8px_28px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,1)] flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 transition-all duration-300"
+          {...reveal(0.25)}
+          className="mt-5 sm:mt-6 rounded-[20px] sm:rounded-[22px] bg-white/[0.86] hover:bg-white/[0.96] backdrop-blur-2xl border border-white/95 p-4 sm:p-5 shadow-[0_8px_26px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,1)] flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 transition-all duration-300"
         >
           {/* Left: Ways to work with us */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-4">
