@@ -74,7 +74,6 @@ export default function WhatWeDo({ onContact }) {
   const toggleService = (serviceId) => {
     setOpenServices((current) => {
       const next = new Set();
-      // Single expand accordion: if already open, toggle off, else open selected
       if (!current.has(serviceId)) {
         next.add(serviceId);
       }
@@ -96,87 +95,96 @@ export default function WhatWeDo({ onContact }) {
   };
 
   return (
-    <section className="bragit-services-section" id="what-we-do">
-      <div className="bragit-services-container">
-        {/* Top Header Section - Exact same-to-same as Section 03 */}
-        <div className="mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2.5 mb-4 select-none">
-            <div className="flex items-center shrink-0">
-              <PixelatedIcon className="w-[20px] h-[10.5px]" color="#111111" />
+    <section
+      id="what-we-do"
+      className="relative w-full max-w-full overflow-hidden bg-[#EBEBED] text-[#0A0A0A] py-14 sm:py-18 lg:py-20 px-4 sm:px-8 lg:px-12 border-b border-black/[0.04]"
+    >
+      <div className="relative w-full max-w-[1460px] mx-auto min-w-0">
+        
+        {/* Top Header Section - Exact Placement & Sizing matching Section 03 & Section 04 */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8 mb-10 sm:mb-12">
+          <div className="max-w-none w-full">
+            {/* Clean Section Indicator: Pixel arrow + uppercase tag */}
+            <div className="inline-flex items-center gap-2.5 mb-4 select-none">
+              <div className="flex items-center shrink-0">
+                <PixelatedIcon className="w-[20px] h-[10.5px]" color="#111111" />
+              </div>
+              <span className="text-[12px] sm:text-[13px] font-sans font-medium tracking-[0.18em] text-[#111111] uppercase">
+                <PixelText text="02 // CAPABILITIES" delay={0.06} />
+              </span>
             </div>
-            <span className="text-[12px] sm:text-[13px] font-sans font-medium tracking-[0.18em] text-[#111111] uppercase">
-              <PixelText text="02 // CAPABILITIES" delay={0.06} />
-            </span>
+
+            {/* Main Headline matching Section 03/04 font and size */}
+            <h2 className="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans">
+              <PixelText text="Everything your brand needs to be remembered." delay={0.12} stagger={0.06} />
+            </h2>
+
+            {/* Subtitle matching Section 03/04 font and size */}
+            <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] text-[#555555] font-normal leading-[1.55] mt-3 font-sans w-full max-w-none whitespace-normal lg:whitespace-nowrap">
+              <PixelText
+                text="From identity and campaigns to content, production and digital products, every capability is engineered under one group."
+                delay={0.3}
+                stagger={0.04}
+              />
+            </p>
           </div>
-
-          <h2 className="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans">
-            <PixelText text="Everything your brand needs to be remembered." delay={0.12} stagger={0.05} />
-          </h2>
-
-          <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] text-[#555555] font-normal leading-[1.55] mt-3 font-sans w-full max-w-none whitespace-normal lg:whitespace-nowrap">
-            <PixelText
-              text="From identity and campaigns to content, production and digital products, every capability is engineered under one group."
-              delay={0.28}
-              stagger={0.03}
-            />
-          </p>
         </div>
 
-        {/* Services Accordion List */}
-        <div className="bragit-services-accordion">
+        {/* Services Accordion List - Slimmer, Compact Boxes aligned with Kriyon brand */}
+        <div className="kriyon-services-accordion">
           {services.map((service, index) => {
             const isOpen = openServices.has(service.id);
             return (
               <motion.article
                 key={service.id}
-                className={`bragit-service-item ${isOpen ? 'is-open' : ''}`}
-                initial={{ opacity: 0, y: 16 }}
+                className={`kriyon-service-item ${isOpen ? 'is-open' : ''}`}
+                initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-45px' }}
                 transition={{
-                  duration: 0.55,
-                  delay: index * 0.06,
+                  duration: 0.5,
+                  delay: index * 0.05,
                   ease: [0.16, 1, 0.3, 1],
                 }}
               >
                 {/* Trigger Button */}
                 <button
-                  className="bragit-service-trigger"
+                  className="kriyon-service-trigger"
                   type="button"
                   aria-expanded={isOpen}
                   aria-controls={`service-panel-${service.id}`}
                   onClick={() => toggleService(service.id)}
                 >
-                  <span className="bragit-service-index">{service.id}</span>
-                  <span className="bragit-service-spark" aria-hidden="true" />
-                  <span className="bragit-service-title">{service.title}</span>
-                  <span className="bragit-service-toggle" aria-hidden="true">
-                    <span className="bragit-toggle-line bragit-toggle-line-horizontal" />
-                    <span className="bragit-toggle-line bragit-toggle-line-vertical" />
+                  <span className="kriyon-service-index">{service.id}</span>
+                  <span className="kriyon-service-spark" aria-hidden="true" />
+                  <span className="kriyon-service-title">{service.title}</span>
+                  <span className="kriyon-service-toggle" aria-hidden="true">
+                    <span className="kriyon-toggle-line kriyon-toggle-line-horizontal" />
+                    <span className="kriyon-toggle-line kriyon-toggle-line-vertical" />
                   </span>
                 </button>
 
                 {/* Panel Drawer */}
                 <div
-                  className={`bragit-service-shell ${isOpen ? 'is-visible' : ''}`}
+                  className={`kriyon-service-shell ${isOpen ? 'is-visible' : ''}`}
                   aria-hidden={!isOpen}
                 >
-                  <div className="bragit-service-clip">
-                    <div id={`service-panel-${service.id}`} className="bragit-service-panel">
+                  <div className="kriyon-service-clip">
+                    <div id={`service-panel-${service.id}`} className="kriyon-service-panel">
                       {/* Left: Copy, Tags & Discuss Action */}
-                      <div className="bragit-service-copy">
+                      <div className="kriyon-service-copy">
                         <p>{service.desc}</p>
-                        <div className="bragit-service-tags">
+                        <div className="kriyon-service-tags">
                           {service.tags.map((tag) => (
                             <span key={tag}>{tag}</span>
                           ))}
-                          <span className="bragit-tag-count">+2</span>
+                          <span className="kriyon-tag-count">+2</span>
                         </div>
-                        <div className="bragit-service-action">
+                        <div className="kriyon-service-action">
                           <button
                             type="button"
                             onClick={handleScrollToContact}
-                            className="bragit-service-discuss-link"
+                            className="kriyon-service-discuss-link"
                           >
                             <span>Discuss {service.title}</span>
                             <ArrowUpRight size={13} />
@@ -184,15 +192,15 @@ export default function WhatWeDo({ onContact }) {
                         </div>
                       </div>
 
-                      {/* Right: Exact 2-Image Angled Collage Mockup */}
+                      {/* Right: Compact 2-Image Angled Collage Mockup */}
                       <motion.div
-                        className="bragit-service-visual"
-                        animate={{ opacity: isOpen ? 1 : 0, scale: isOpen ? 1 : 0.97 }}
-                        transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
+                        className="kriyon-service-visual"
+                        animate={{ opacity: isOpen ? 1 : 0, scale: isOpen ? 1 : 0.98 }}
+                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                       >
                         {service.images.map((image, imageIndex) => (
                           <img
-                            className={`bragit-collage-image bragit-collage-image-${imageIndex + 1}`}
+                            className={`kriyon-collage-image kriyon-collage-image-${imageIndex + 1}`}
                             src={image}
                             alt=""
                             key={image}
@@ -200,7 +208,7 @@ export default function WhatWeDo({ onContact }) {
                           />
                         ))}
                       </motion.div>
-                      <h3 className="bragit-service-mobile-title">{service.title}</h3>
+                      <h3 className="kriyon-service-mobile-title">{service.title}</h3>
                     </div>
                   </div>
                 </div>
