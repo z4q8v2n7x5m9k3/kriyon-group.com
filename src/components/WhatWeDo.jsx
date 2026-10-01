@@ -101,20 +101,29 @@ export default function WhatWeDo({ onContact }) {
         {/* Top Header Grid */}
         <div className="bragit-services-header-grid">
           <div className="bragit-services-header-left">
-            <div className="bragit-services-badge">
+            <div className="inline-flex items-center gap-2.5 mb-4 select-none">
               <div className="flex items-center shrink-0">
-                <PixelatedIcon className="w-[18px] h-[9px]" color="#111111" />
+                <PixelatedIcon className="w-[20px] h-[10.5px]" color="#111111" />
               </div>
-              <span>02 // CAPABILITIES</span>
+              <span className="text-[12px] sm:text-[13px] font-sans font-medium tracking-[0.18em] text-[#111111] uppercase">
+                <PixelText text="02 // CAPABILITIES" delay={0.06} />
+              </span>
             </div>
-            <h2 className="bragit-services-title">
-              Everything your brand<br />needs to be remembered.
+
+            <h2 className="text-[34px] sm:text-[44px] md:text-[50px] lg:text-[56px] font-medium tracking-[-0.035em] text-[#0A0A0A] leading-[1.08] font-sans">
+              <PixelText text="Everything your brand" delay={0.12} stagger={0.05} />
+              <br />
+              <PixelText text="needs to be remembered." delay={0.2} stagger={0.05} />
             </h2>
           </div>
 
           <div className="bragit-services-header-right">
-            <p className="bragit-services-desc">
-              From identity and campaigns to content, production, and digital products, every capability is engineered under one group to help businesses scale with impact.
+            <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] text-[#444444] font-normal leading-[1.6] font-sans max-w-[480px]">
+              <PixelText
+                text="From identity and campaigns to content, production, and digital products, every capability is engineered under one group to help businesses scale with impact."
+                delay={0.28}
+                stagger={0.025}
+              />
             </p>
             <div>
               <button
