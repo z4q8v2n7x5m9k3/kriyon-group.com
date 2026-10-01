@@ -98,46 +98,28 @@ export default function WhatWeDo({ onContact }) {
   return (
     <section className="bragit-services-section" id="what-we-do">
       <div className="bragit-services-container">
-        {/* Top Header Grid */}
-        <div className="bragit-services-header-grid">
-          <div className="bragit-services-header-left">
-            <div className="inline-flex items-center gap-2.5 mb-4 select-none">
-              <div className="flex items-center shrink-0">
-                <PixelatedIcon className="w-[20px] h-[10.5px]" color="#111111" />
-              </div>
-              <span className="text-[12px] sm:text-[13px] font-sans font-medium tracking-[0.18em] text-[#111111] uppercase">
-                <PixelText text="02 // CAPABILITIES" delay={0.06} />
-              </span>
+        {/* Top Header Section - Exact same-to-same as Section 03 */}
+        <div className="mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-2.5 mb-4 select-none">
+            <div className="flex items-center shrink-0">
+              <PixelatedIcon className="w-[20px] h-[10.5px]" color="#111111" />
             </div>
-
-            <h2 className="text-[34px] sm:text-[44px] md:text-[50px] lg:text-[56px] font-medium tracking-[-0.035em] text-[#0A0A0A] leading-[1.08] font-sans">
-              <PixelText text="Everything your brand" delay={0.12} stagger={0.05} />
-              <br />
-              <PixelText text="needs to be remembered." delay={0.2} stagger={0.05} />
-            </h2>
+            <span className="text-[12px] sm:text-[13px] font-sans font-medium tracking-[0.18em] text-[#111111] uppercase">
+              <PixelText text="02 // CAPABILITIES" delay={0.06} />
+            </span>
           </div>
 
-          <div className="bragit-services-header-right">
-            <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] text-[#444444] font-normal leading-[1.6] font-sans max-w-[480px]">
-              <PixelText
-                text="From identity and campaigns to content, production, and digital products, every capability is engineered under one group to help businesses scale with impact."
-                delay={0.28}
-                stagger={0.025}
-              />
-            </p>
-            <div>
-              <button
-                type="button"
-                onClick={handleScrollToContact}
-                className="bragit-btn-pill-services"
-              >
-                <span>Contact us</span>
-                <span className="bragit-btn-pill-icon">
-                  <ArrowUpRight size={15} />
-                </span>
-              </button>
-            </div>
-          </div>
+          <h2 className="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans">
+            <PixelText text="Everything your brand needs to be remembered." delay={0.12} stagger={0.05} />
+          </h2>
+
+          <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] text-[#555555] font-normal leading-[1.55] mt-3 font-sans w-full max-w-none whitespace-normal lg:whitespace-nowrap">
+            <PixelText
+              text="From identity and campaigns to content, production and digital products, every capability is engineered under one group."
+              delay={0.28}
+              stagger={0.03}
+            />
+          </p>
         </div>
 
         {/* Services Accordion List */}
