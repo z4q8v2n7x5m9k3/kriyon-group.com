@@ -8,10 +8,10 @@ const capabilities = [
   {
     id: '01',
     number: '01',
-    title: 'Branding & Identity',
+    title: 'Web & Product Design',
     description:
-      'We design premium brand identities, positioning and launch assets that make your brand look credible, guide users clearly and turn visitors into customers.',
-    tags: ['Brand Strategy', 'Logo Systems', 'Packaging', 'Launch Assets'],
+      'We design premium digital experiences that make your brand look credible, guide users clearly and turn visitors into customers.',
+    tags: ['Landing Pages', 'Product Interfaces', 'E-commerce Platforms'],
     renderVisual: () => (
       <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] flex items-center justify-center">
         {/* Soft studio back glow */}
@@ -48,10 +48,10 @@ const capabilities = [
   {
     id: '02',
     number: '02',
-    title: 'Websites & E-commerce',
+    title: 'Website & App Development',
     description:
-      'We craft high-converting websites, landing pages and online store platforms built to present your business clearly and turn visits into orders.',
-    tags: ['Business Websites', 'Landing Pages', 'Online Stores', 'Redesigns'],
+      'We engineer ultra-fast websites, modern web applications, and custom digital infrastructure built for performance, security, and scalability.',
+    tags: ['Web Development', 'Mobile Apps', 'Custom Portals'],
     renderVisual: () => (
       <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] flex items-center justify-center">
         <div className="relative w-[300px] sm:w-[350px] md:w-[380px] h-[190px] sm:h-[220px]">
@@ -83,10 +83,10 @@ const capabilities = [
   {
     id: '03',
     number: '03',
-    title: 'Apps, SaaS & Platforms',
+    title: 'Branding & Identity',
     description:
-      'Custom digital products, dashboards, role-based portals and scalable software platforms engineered for real enterprise workflows.',
-    tags: ['Web Apps', 'Mobile Apps', 'SaaS Products', 'Admin Panels'],
+      'We craft iconic brand systems, design language, guidelines, and tactile packaging that give your business unmatched authority.',
+    tags: ['Brand Strategy', 'Visual Identity', 'Packaging Design'],
     renderVisual: () => (
       <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] flex items-center justify-center">
         <div className="relative w-[300px] sm:w-[350px] md:w-[380px] h-[190px] sm:h-[220px]">
@@ -121,7 +121,7 @@ const capabilities = [
     title: 'Automation & Business Systems',
     description:
       'Smart workflows and connected systems that eliminate repetitive manual tasks and accelerate leads, bookings, payments and operations.',
-    tags: ['AI Automation', 'Lead Funnels', 'Booking Systems', 'Integrations'],
+    tags: ['AI Automation', 'Lead Funnels', 'Booking Systems'],
     renderVisual: () => (
       <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] flex items-center justify-center">
         <div className="relative w-[300px] sm:w-[350px] md:w-[380px] h-[190px] sm:h-[220px]">
@@ -160,7 +160,7 @@ const capabilities = [
     title: 'Content, Campaigns & Production',
     description:
       'Creative commercial campaigns, product photography, editorial reels and CGI that give your business a distinctive, premium visual presence.',
-    tags: ['Campaigns', 'Product Shoots', 'Reels & Films', 'CGI & Visuals'],
+    tags: ['Campaigns', 'Product Shoots', 'Reels & Films'],
     renderVisual: () => (
       <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] flex items-center justify-center">
         <div className="relative w-[300px] sm:w-[350px] md:w-[380px] h-[190px] sm:h-[220px]">
@@ -199,7 +199,7 @@ const capabilities = [
     title: 'Digital Presence & Customer Experience',
     description:
       'Everything that helps customers discover, trust, contact and take action with your business online — from smart QR touchpoints to booking flows.',
-    tags: ['OneLink Cards', 'QR Systems', 'Reviews', 'Customer Journeys'],
+    tags: ['OneLink Cards', 'QR Systems', 'Reviews'],
     renderVisual: () => (
       <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] flex items-center justify-center">
         <div className="relative w-[300px] sm:w-[350px] md:w-[380px] h-[190px] sm:h-[220px]">
@@ -257,32 +257,56 @@ export default function WhatWeDo({ onContact }) {
   return (
     <section
       id="what-we-do"
-      className="relative w-full max-w-full overflow-hidden bg-[#FAF9F5] text-[#0A0A0A] py-14 sm:py-20 lg:py-24 px-4 sm:px-8 lg:px-12 border-b border-black/[0.04]"
+      className="relative w-full max-w-full overflow-hidden bg-[#FCFBF7] text-[#0A0A0A] py-14 sm:py-20 lg:py-24 px-4 sm:px-8 lg:px-12 border-b border-black/[0.04]"
     >
-      <div className="relative w-full max-w-[1360px] mx-auto min-w-0">
+      <div className="relative w-full max-w-[1380px] mx-auto min-w-0">
         
-        {/* Section Header */}
-        <div className="mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2.5 mb-4 select-none">
-            <div className="flex items-center shrink-0">
-              <PixelatedIcon className="w-[20px] h-[10.5px]" color="#111111" />
+        {/* Exact Reference Header Layout */}
+        <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8 sm:gap-10 mb-12 sm:mb-16">
+          {/* Left: Badge + Large Stacked Title "OUR SERVICES." */}
+          <div className="flex flex-col items-start">
+            {/* Pill Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-black/10 shadow-[0_1px_3px_rgba(0,0,0,0.04)] mb-5 select-none">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#D2FC52] flex items-center justify-center">
+                <span className="w-1.5 h-1.5 rounded-full bg-black/80" />
+              </span>
+              <span className="text-[11.5px] font-mono font-semibold tracking-wider text-[#111111] uppercase">
+                REPIXELX × KRIYON
+              </span>
             </div>
-            <span className="text-[12px] sm:text-[13px] font-sans font-medium tracking-[0.18em] text-[#111111] uppercase">
-              <PixelText text="02 // CAPABILITIES" delay={0.06} />
-            </span>
+
+            {/* Stacked Heading matching Reference exact typography */}
+            <div className="leading-[0.88] select-none">
+              <span className="block text-[42px] sm:text-[56px] md:text-[68px] lg:text-[76px] font-bold text-[#A8A7A1] tracking-[-0.04em] font-sans uppercase">
+                OUR
+              </span>
+              <h2 className="block text-[48px] sm:text-[64px] md:text-[78px] lg:text-[88px] font-black text-[#0A0A0A] tracking-[-0.045em] font-sans uppercase">
+                SERVICES.
+              </h2>
+            </div>
           </div>
 
-          <h2 className="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans">
-            <PixelText text="What we help build" delay={0.12} stagger={0.06} />
-          </h2>
+          {/* Right: Explanatory Subtitle & Pill CTA */}
+          <div className="lg:max-w-[440px] flex flex-col items-start lg:items-start lg:pt-6">
+            <p className="text-[13.5px] sm:text-[14.5px] text-[#444444] font-normal leading-[1.65] font-sans">
+              We&apos;re a team of designers, developers, and strategists building brands that perform. Every project we create blends creativity, technology, and growth strategy to{' '}
+              <strong className="text-[#0A0A0A] font-semibold">help businesses scale with impact.</strong>
+            </p>
 
-          <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] text-[#555555] font-normal leading-[1.55] mt-3 font-sans w-full max-w-[880px]">
-            <PixelText
-              text="From branding and websites to apps, automation, content and digital customer experience — Kriyon brings the right capabilities together under one group."
-              delay={0.24}
-              stagger={0.03}
-            />
-          </p>
+            {/* Reference-Style "WORK WITH US >" Black Pill Button */}
+            <button
+              type="button"
+              onClick={handleScrollToContact}
+              className="mt-5 inline-flex items-center gap-2.5 bg-[#0E0E0E] hover:bg-black text-white pl-4 pr-1.5 py-1.5 rounded-full transition-all duration-200 shadow-sm hover:scale-[1.02] active:scale-95 cursor-pointer group"
+            >
+              <span className="text-[11px] font-mono font-bold tracking-[0.14em] uppercase text-white/95">
+                WORK WITH US
+              </span>
+              <div className="w-6 h-6 rounded-full bg-[#D2FC52] text-black flex items-center justify-center transition-transform group-hover:translate-x-0.5">
+                <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
+              </div>
+            </button>
+          </div>
         </div>
 
         {/* 1:1 Reference Match: Expandable Capability Rows */}
@@ -302,18 +326,18 @@ export default function WhatWeDo({ onContact }) {
                     : 'bg-[#FCFCFA] hover:bg-white text-[#0A0A0A] border-[#E8E7E0] shadow-[0_2px_10px_rgba(0,0,0,0.02)]'
                 }`}
               >
-                {/* Header Row Bar */}
+                {/* Header Row Bar - Exact Spacing, Sizing, and Left Alignment */}
                 <button
                   type="button"
                   onClick={() => toggleAccordion(item.id)}
                   aria-expanded={isExpanded}
                   className="w-full text-left px-6 sm:px-9 md:px-10 py-5 sm:py-6 flex items-center justify-between gap-4 cursor-pointer focus:outline-none select-none"
                 >
-                  {/* Left: Number + Dot + Title */}
-                  <div className="flex items-center gap-4 sm:gap-6 md:gap-7 min-w-0">
+                  {/* Left: Number + Spaced Dot + Title with matching sizing & weighting */}
+                  <div className="flex items-center gap-5 sm:gap-7 md:gap-9 min-w-0">
                     <span
-                      className={`text-[17px] sm:text-[20px] md:text-[22px] font-sans font-medium tracking-tight shrink-0 transition-colors ${
-                        isExpanded ? 'text-white' : 'text-[#333333]'
+                      className={`text-[20px] sm:text-[23px] md:text-[25px] font-medium tracking-tight shrink-0 transition-colors font-sans ${
+                        isExpanded ? 'text-white' : 'text-[#222222]'
                       }`}
                     >
                       {item.number}
@@ -322,13 +346,13 @@ export default function WhatWeDo({ onContact }) {
                     {/* Reference Dot */}
                     <span
                       className={`w-2 h-2 rounded-full shrink-0 transition-colors ${
-                        isExpanded ? 'bg-[#D2FC52]' : 'bg-transparent'
+                        isExpanded ? 'bg-[#D2FC52]' : 'bg-[#777777]'
                       }`}
                     />
 
                     <h3
-                      className={`text-[19px] sm:text-[23px] md:text-[26px] font-medium tracking-[-0.02em] font-sans truncate transition-colors ${
-                        isExpanded ? 'text-white' : 'text-[#111111]'
+                      className={`text-[20px] sm:text-[24px] md:text-[28px] font-medium tracking-[-0.02em] font-sans truncate transition-colors ${
+                        isExpanded ? 'text-white' : 'text-[#1A1A1A]'
                       }`}
                     >
                       {item.title}
@@ -363,10 +387,11 @@ export default function WhatWeDo({ onContact }) {
                       className="overflow-hidden"
                     >
                       <div className="px-6 sm:px-9 md:px-10 pb-8 sm:pb-9 pt-0">
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+                        {/* Internal Left Indentation matching the Header text column (Number + Dot offset) */}
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center lg:pl-[68px]">
                           {/* Left Column: Description + Pill Chips (Reference Match) */}
                           <div className="lg:col-span-7 flex flex-col justify-center space-y-4 sm:space-y-5">
-                            <p className="text-[14px] sm:text-[15px] md:text-[15.5px] text-[#A0A0A0] font-normal leading-[1.6] font-sans max-w-[500px]">
+                            <p className="text-[13.5px] sm:text-[14.5px] md:text-[15px] text-[#A0A0A0] font-normal leading-[1.65] font-sans max-w-[500px]">
                               {item.description}
                             </p>
 
