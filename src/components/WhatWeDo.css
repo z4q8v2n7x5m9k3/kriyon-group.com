@@ -1,4 +1,4 @@
-/* Kriyon Capabilities Accordion - Perfectly Slim, Compact & Matched to Site Design */
+/* Kriyon Capabilities Accordion - Sizing, Spacing & Proportions Matched to Reference */
 
 .kriyon-services-accordion {
   display: flex;
@@ -35,15 +35,15 @@
   box-shadow: 0 16px 45px rgba(0, 0, 0, 0.16);
 }
 
-/* Compact Trigger Button */
+/* Compact Trigger Button with Exact Left Gapping & Alignment */
 .kriyon-service-trigger {
   display: grid;
-  grid-template-columns: 50px 10px minmax(0, 1fr) 38px;
-  gap: 16px;
+  grid-template-columns: 46px 12px minmax(0, 1fr) 38px;
+  gap: 24px;
   align-items: center;
   width: 100%;
-  min-height: 62px;
-  padding: 8px 20px 8px 26px;
+  min-height: 64px;
+  padding: 8px 24px 8px 36px;
   border: 0;
   background: transparent;
   color: inherit;
@@ -54,19 +54,19 @@
 
 .kriyon-service-item.is-open .kriyon-service-trigger {
   min-height: 0;
-  padding: 20px 22px 6px 26px;
+  padding: 22px 26px 6px 36px;
 }
 
 .kriyon-service-index {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 600;
   letter-spacing: -0.02em;
   font-family: inherit;
 }
 
 .kriyon-service-spark {
-  width: 6.5px;
-  height: 6.5px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: currentColor;
   opacity: 0.35;
@@ -81,7 +81,7 @@
 }
 
 .kriyon-service-title {
-  font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+  font-size: clamp(1.3rem, 1.85vw, 1.7rem);
   font-weight: 500;
   line-height: 1.12;
   letter-spacing: -0.025em;
@@ -92,8 +92,8 @@
   position: relative;
   display: grid;
   place-items: center;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: #111111;
   color: #88EA15;
@@ -145,12 +145,13 @@
   overflow: hidden;
 }
 
+/* Panel Layout: Left padding (142px) perfectly aligns content directly under the Title */
 .kriyon-service-panel {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
-  gap: clamp(18px, 3vw, 36px);
+  gap: clamp(18px, 3vw, 40px);
   align-items: center;
-  padding: 4px 26px 24px 92px;
+  padding: 4px 28px 24px 142px;
 }
 
 .kriyon-service-copy p {
@@ -250,9 +251,13 @@
 
 /* Responsive */
 @media (max-width: 1024px) {
+  .kriyon-service-trigger {
+    padding-left: 20px;
+    gap: 16px;
+  }
   .kriyon-service-panel {
     grid-template-columns: 1fr 0.9fr;
-    padding-left: 26px;
+    padding-left: 20px;
   }
 }
 
