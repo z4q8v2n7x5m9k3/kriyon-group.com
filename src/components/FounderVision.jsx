@@ -43,9 +43,9 @@ export default function FounderVision() {
           <div className="lg:col-span-4 xl:col-span-4 flex justify-center lg:justify-start">
             <div className="relative w-full max-w-[260px] sm:max-w-[280px] lg:max-w-[300px] aspect-[4/5] rounded-[20px] sm:rounded-[22px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] bg-[#111111] border border-black/[0.06] group">
               <img
-                src="/assets/founder-placeholder.webp"
-                alt="Krishang Sharma Dhar"
-                className="w-full h-full object-cover object-center grayscale contrast-[1.08] brightness-[0.98] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                src="/assets/krishang-portrait.webp"
+                alt="Krishang Sharma Dhar — Founder & CEO, Kriyon Group"
+                className="w-full h-full object-cover object-center grayscale contrast-[1.05] brightness-[1.02] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent pointer-events-none" />
