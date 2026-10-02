@@ -99,7 +99,7 @@ export default function ContactSection({ onNavigateToFullContact }) {
 
               <div className="mt-10 space-y-2.5">
                 {[
-                  { icon: Mail, label: 'kriyon@repixelx.tech', href: 'mailto:kriyon@repixelx.tech' },
+                  { icon: Mail, label: 'hello@kriyongroup.com', href: 'mailto:hello@kriyongroup.com' },
                   { icon: Phone, label: '+91 96221 21100', href: 'tel:+919622121100' },
                 ].map(({ icon: Icon, label, href }) => (
                   <a key={label} href={href} className="group flex items-center gap-3 rounded-[15px] border border-white/[0.12] bg-black/25 p-3 backdrop-blur-lg transition-colors hover:bg-black/40">

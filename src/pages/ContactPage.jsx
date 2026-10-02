@@ -148,7 +148,7 @@ export default function ContactPage() {
 
               <div className="mt-12 space-y-2.5">
                 {[
-                  { icon: Mail, label: 'Email us', value: 'kriyon@repixelx.tech', href: 'mailto:kriyon@repixelx.tech' },
+                  { icon: Mail, label: 'Email us', value: 'hello@kriyongroup.com', href: 'mailto:hello@kriyongroup.com' },
                   { icon: Phone, label: 'Call us', value: '+91 96221 21100', href: 'tel:+919622121100' },
                 ].map(({ icon: Icon, label, value, href }) => {
                   const Component = href ? 'a' : 'div';

@@ -39,29 +39,34 @@ export default function FounderVision() {
           {...reveal(0.12)}
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 xl:gap-16 items-center"
         >
-          {/* Left: Compact, Elegant Founder Portrait */}
-          <div className="lg:col-span-4 xl:col-span-4 flex justify-center lg:justify-start">
-            <div className="relative w-full max-w-[260px] sm:max-w-[280px] lg:max-w-[300px] aspect-[4/5] rounded-[20px] sm:rounded-[22px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] bg-[#111111] border border-black/[0.06] group">
+          {/* Left: Perfectly Proportioned Executive Portrait (4:3 natural framing) */}
+          <div className="lg:col-span-5 xl:col-span-5 flex justify-center lg:justify-start">
+            <div className="relative w-full max-w-[360px] sm:max-w-[400px] lg:max-w-[440px] aspect-[4/3] rounded-[22px] sm:rounded-[26px] overflow-hidden shadow-[0_12px_36px_rgba(0,0,0,0.075)] bg-[#111111] border border-black/[0.06] group">
               <img
-                src="/assets/krishang-portrait.webp"
+                src="/assets/krishang-4x3.webp"
                 alt="Krishang Sharma Dhar — Founder & CEO, Kriyon Group"
-                className="w-full h-full object-cover object-center contrast-[1.04] brightness-[1.01] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                className="w-full h-full object-cover object-center contrast-[1.04] brightness-[1.01] transition-transform duration-700 ease-out group-hover:scale-[1.025]"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent pointer-events-none" />
               
               {/* Bottom Subtle Tag over image */}
-              <div className="absolute bottom-3 left-3.5 right-3.5 flex items-center justify-between text-white pointer-events-none">
-                <span className="text-[10px] font-mono tracking-wider uppercase text-white/80">
-                  Krishang S. Dhar
+              <div className="absolute bottom-3.5 left-4 right-4 flex items-center justify-between text-white pointer-events-none">
+                <span className="text-[11px] font-sans font-medium tracking-[0.14em] uppercase text-white/90 drop-shadow-sm">
+                  Krishang Sharma Dhar
                 </span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[#88EA15] shadow-[0_0_6px_#88EA15]" />
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#88EA15] shadow-[0_0_6px_#88EA15]" />
+                  <span className="text-[10px] font-mono tracking-wider uppercase text-white/80">
+                    Founder &amp; CEO
+                  </span>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Right: Clean, Open Editorial Typography */}
-          <div className="lg:col-span-8 xl:col-span-8 flex flex-col justify-center space-y-5 sm:space-y-6">
+          <div className="lg:col-span-7 xl:col-span-7 flex flex-col justify-center space-y-5 sm:space-y-6">
             
             {/* Vision Statement */}
             <p className="text-[20px] sm:text-[23px] md:text-[26px] lg:text-[28px] font-medium text-[#0A0A0A] tracking-[-0.025em] leading-[1.28] font-sans">
@@ -73,7 +78,7 @@ export default function FounderVision() {
               Kriyon is engineered around the belief that modern enterprises need specialized depth without operational friction. We build autonomous ventures across brand, technology, education and media — connected under one shared standard of excellence.
             </p>
 
-            {/* Founder Identity Meta & Subtle CTA Row */}
+            {/* Founder Identity Meta & Actions Row */}
             <div className="pt-4 border-t border-black/[0.07] flex flex-wrap items-center justify-between gap-4">
               <div>
                 <h3 className="text-[16px] sm:text-[17px] font-semibold text-[#0A0A0A] tracking-tight font-sans">
@@ -84,16 +89,34 @@ export default function FounderVision() {
                 </p>
               </div>
 
-              {/* Minimal Text/Pill LinkedIn Link */}
-              <a
-                href="https://www.linkedin.com/in/krishang-sharma-dhar-23bb8a32a/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1.5 text-[12.5px] sm:text-[13px] font-medium text-[#111111] hover:text-black py-1.5 px-3 rounded-[10px] bg-black/[0.04] hover:bg-black/[0.08] transition-all duration-200"
-              >
-                <span>View LinkedIn</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#555555] group-hover:text-black transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
+              {/* Action Buttons: LinkedIn + Founder Email */}
+              <div className="flex items-center gap-2.5">
+                {/* Official LinkedIn Logo Button */}
+                <a
+                  href="https://www.linkedin.com/in/krishang-sharma-dhar-23bb8a32a/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 px-3.5 py-2 rounded-[11px] bg-white hover:bg-[#0A66C2] text-[#0A66C2] hover:text-white border border-black/[0.08] hover:border-[#0A66C2] shadow-[0_2px_8px_rgba(0,0,0,0.03)] transition-all duration-200 active:scale-95 text-[12.5px] font-medium"
+                >
+                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                  <span>LinkedIn</span>
+                  <ArrowUpRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
+
+                {/* Direct Founder Email Button */}
+                <a
+                  href="mailto:founder@kriyongroup.com"
+                  className="group inline-flex items-center gap-2 px-3.5 py-2 rounded-[11px] bg-black/[0.04] hover:bg-[#111111] text-[#111111] hover:text-white border border-black/[0.04] hover:border-[#111111] transition-all duration-200 active:scale-95 text-[12.5px] font-medium"
+                >
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                  <span>founder@kriyongroup.com</span>
+                </a>
+              </div>
             </div>
 
           </div>

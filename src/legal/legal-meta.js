@@ -9,6 +9,6 @@ export const COMPANY_TAN = "AMRK14910A";
 export const GRIEVANCE_OFFICER = "Krishang Sharma Dhar";
 export const GRIEVANCE_DIN = "11307171";
 export const JURISDICTION = "Jammu, Jammu & Kashmir, India";
-export const CONTACT_EMAIL = "kriyon@repixelx.tech";
+export const CONTACT_EMAIL = "hello@kriyongroup.com";
 export const CONTACT_PHONE = "+91 9622121100";
 export const REGISTERED_OFFICE = "Room No. 2, First Floor, Tawi Enclave, Vill Nandini, Gol Gujral, Jammu, J&K – 180002";

@@ -113,7 +113,7 @@ export default function Footer({ onStartConversation, onOpenLegal }) {
           >
             <p className="kriyon-footer-nav-title">Registered Office &amp; Contact</p>
             <a href="tel:+919622121100" className="kriyon-footer-text transition-colors hover:text-[#88EA15]">+91 96221 21100</a>
-            <a href="mailto:kriyon@repixelx.tech" className="kriyon-footer-text break-all transition-colors hover:text-[#88EA15]">kriyon@repixelx.tech</a>
+            <a href="mailto:hello@kriyongroup.com" className="kriyon-footer-text break-all transition-colors hover:text-[#88EA15]">hello@kriyongroup.com</a>
             <p className="kriyon-footer-address hidden sm:block">Room No. 2, First Floor, Tawi Enclave, Vill Nandini, Gol Gujral, Jammu 180002, J&amp;K</p>
             <p className="kriyon-footer-address sm:hidden">Jammu 180002, J&amp;K, India</p>
           </motion.div>

@@ -49,7 +49,7 @@ export default function FooterCTA({ onStartConversation }) {
             </p>
             <div className="pt-2">
               <a
-                href="mailto:kriyon@repixelx.tech"
+                href="mailto:hello@kriyongroup.com"
                 className="group inline-flex items-center space-x-4 text-white hover:text-[#88EA15] transition-colors"
               >
                 {/* Curved return arrow icon inside box */}
@@ -59,7 +59,7 @@ export default function FooterCTA({ onStartConversation }) {
                   </svg>
                 </div>
                 <span className="font-sans uppercase tracking-tight text-3xl sm:text-4xl md:text-5xl font-extrabold leading-none">
-                  kriyon@repixelx.tech
+                  hello@kriyongroup.com
                 </span>
               </a>
             </div>
