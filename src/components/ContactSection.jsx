@@ -62,7 +62,7 @@ export default function ContactSection({ onNavigateToFullContact }) {
           <div className="mb-4 inline-flex items-center gap-2.5">
             <PixelatedIcon className="h-[10.5px] w-[20px]" color="#111111" />
             <span className="text-[12px] font-medium uppercase tracking-[0.18em] sm:text-[13px]">
-              <PixelText text="05 // START A CONVERSATION" delay={0.06} />
+              <PixelText text="06 // START A CONVERSATION" delay={0.06} />
             </span>
           </div>
           <div className="flex flex-col mb-2">

@@ -7,7 +7,8 @@ const navItems = [
   { label: 'Ventures', href: '#ventures', number: '01' },
   { label: 'What We Do', href: '#what-we-do', number: '02' },
   { label: 'Why Kriyon', href: '#why-kriyon', number: '03' },
-  { label: 'Contact', href: '/contact', number: '04' },
+  { label: 'Vision', href: '#vision', number: '04' },
+  { label: 'Contact', href: '/contact', number: '05' },
 ];
 
 export default function Navbar({ onContact, onNavigateContact, onNavigateHome }) {

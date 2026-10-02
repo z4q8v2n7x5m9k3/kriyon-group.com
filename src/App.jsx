@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import WhatWeDo from './components/WhatWeDo';
 import ExpertiseVentures from './components/ExpertiseVentures';
 import WhyKriyon from './components/WhyKriyon';
+import FounderVision from './components/FounderVision';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import ContactPage from './pages/ContactPage';
@@ -157,6 +158,7 @@ export default function App() {
                 <ExpertiseVentures onContact={handleScrollToContact} />
                 <WhatWeDo onContact={handleScrollToContact} />
                 <WhyKriyon />
+                <FounderVision />
                 <ContactSection onNavigateToFullContact={() => navigateTo('/contact')} />
               </>
             )}
