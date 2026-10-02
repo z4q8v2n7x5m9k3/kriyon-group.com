@@ -45,7 +45,7 @@ export default function FounderVision() {
               <img
                 src="/assets/krishang-portrait.webp"
                 alt="Krishang Sharma Dhar — Founder & CEO, Kriyon Group"
-                className="w-full h-full object-cover object-center grayscale contrast-[1.05] brightness-[1.02] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                className="w-full h-full object-cover object-center contrast-[1.04] brightness-[1.01] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent pointer-events-none" />
