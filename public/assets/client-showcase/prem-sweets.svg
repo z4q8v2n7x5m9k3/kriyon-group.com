@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" fill="none" class="w-auto h-full">
+  <defs>
+    <linearGradient id="premGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B45309" />
+      <stop offset="50%" stop-color="#D97706" />
+      <stop offset="100%" stop-color="#92400E" />
+    </linearGradient>
+  </defs>
+  <!-- Subtle heritage decorative insignia icon -->
+  <g transform="translate(14, 16)">
+    <path d="M16 2L20 12L30 16L20 20L16 30L12 20L2 16L12 12Z" fill="url(#premGold)" opacity="0.95" />
+    <circle cx="16" cy="16" r="3.5" fill="#FFFBEB" />
+  </g>
+  <!-- Brand Wordmark Typography -->
+  <text x="56" y="34" font-family="'Cinzel', 'Playfair Display', 'Georgia', serif" font-size="20" font-weight="700" letter-spacing="3.5" fill="url(#premGold)">
+    PREM SWEETS
+  </text>
+  <text x="58" y="47" font-family="'PP Neue Montreal', 'Inter', -apple-system, sans-serif" font-size="8.5" font-weight="600" letter-spacing="2.8" fill="#78350F" opacity="0.85">
+    HERITAGE CONFECTIONERY
+  </text>
+</svg>

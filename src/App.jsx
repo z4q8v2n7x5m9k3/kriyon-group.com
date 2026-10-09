@@ -3,6 +3,7 @@ import SmoothScroll from './components/SmoothScroll';
 import PageLoader from './components/PageLoader';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import ClientShowcase from './components/ClientShowcase';
 import WhatWeDo from './components/WhatWeDo';
 import ExpertiseVentures from './components/ExpertiseVentures';
 import WhyKriyon from './components/WhyKriyon';
@@ -26,6 +27,7 @@ export default function App() {
   const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
   const [isPageLoaded, setIsPageLoaded] = useState(() => {
     if (typeof window !== 'undefined') {
+      if (window.location.search.includes('skip_loader')) return true;
       return !!sessionStorage.getItem('kriyon_visited');
     }
     return false;
@@ -53,6 +55,15 @@ export default function App() {
       if (window.location.search.includes('view=expertise') || window.location.hash === '#expertise') {
         setTimeout(() => {
           const el = document.getElementById('expertise');
+          if (el) {
+            el.scrollIntoView({ behavior: 'instant', block: 'start' });
+          }
+        }, 50);
+      }
+
+      if (window.location.search.includes('view=clients') || window.location.hash === '#clients') {
+        setTimeout(() => {
+          const el = document.getElementById('clients');
           if (el) {
             el.scrollIntoView({ behavior: 'instant', block: 'start' });
           }
@@ -110,6 +121,7 @@ export default function App() {
   };
 
   const isExpertiseOnly = typeof window !== 'undefined' && window.location.search.includes('view=expertise');
+  const isClientsOnly = typeof window !== 'undefined' && window.location.search.includes('view=clients');
 
   return (
     <SmoothScroll isLocked={isProjectModalOpen || legalModalState.isOpen}>
@@ -146,7 +158,11 @@ export default function App() {
         ) : (
           /* Homepage: Hero, Section 02 (Ventures), Section 03 (Why Kriyon) & Section 04 (Contact) */
           <main>
-            {isExpertiseOnly ? (
+            {isClientsOnly ? (
+              <div className="pt-24 sm:pt-28">
+                <ClientShowcase />
+              </div>
+            ) : isExpertiseOnly ? (
               <>
                 <ExpertiseVentures onContact={handleScrollToContact} />
                 <WhatWeDo onContact={handleScrollToContact} />
@@ -155,6 +171,7 @@ export default function App() {
             ) : (
               <>
                 <Hero onContact={handleScrollToContact} isLoaded={isPageLoaded} />
+                <ClientShowcase />
                 <ExpertiseVentures onContact={handleScrollToContact} />
                 <WhatWeDo onContact={handleScrollToContact} />
                 <WhyKriyon />

@@ -6,6 +6,7 @@ export default function PageLoader({ onComplete }) {
   const [isDone, setIsDone] = useState(false);
   const [isMounted, setIsMounted] = useState(() => {
     if (typeof window !== 'undefined') {
+      if (window.location.search.includes('skip_loader')) return false;
       return !sessionStorage.getItem('kriyon_visited');
     }
     return true;
