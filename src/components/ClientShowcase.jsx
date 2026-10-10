@@ -110,20 +110,20 @@ export default function ClientShowcase() {
         </div>
 
         <div className="relative w-full">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-2.5">
+          <div className="grid auto-rows-fr grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-3.5">
             {clients.map((client) => (
               <div
                 key={client.id}
-                className="group relative isolate overflow-hidden bg-white/34 hover:bg-white/58 backdrop-blur-xl transition-all duration-500 ease-out px-4 py-5 sm:px-6 sm:py-6 flex items-center justify-center rounded-[18px] sm:rounded-[20px] min-h-[116px] sm:min-h-[128px] lg:min-h-[140px] border border-white/55 hover:border-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_8px_24px_rgba(0,0,0,0.025)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_14px_34px_rgba(0,0,0,0.045)] hover:-translate-y-0.5"
+                className="group relative isolate aspect-[1.4] sm:aspect-[1.5] lg:aspect-[1.55] overflow-hidden bg-white/34 hover:bg-white/58 backdrop-blur-xl transition-all duration-500 ease-out px-4 py-5 sm:px-6 sm:py-6 flex items-center justify-center rounded-[18px] sm:rounded-[20px] border border-white/55 hover:border-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_8px_24px_rgba(0,0,0,0.025)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_14px_34px_rgba(0,0,0,0.045)] hover:-translate-y-0.5"
                 title={client.name}
               >
                 <div className="absolute -right-8 -top-10 h-24 w-24 rounded-full bg-white/70 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" aria-hidden="true" />
-                <div className="relative z-10 w-full flex items-center justify-center">
+                <div className="relative z-10 flex h-full w-full items-center justify-center">
                   <img
                     src={client.src}
                     alt={client.alt}
                     loading="lazy"
-                    className={`${client.id === 'prem-sweets' ? 'h-[96px] sm:h-[106px] lg:h-[114px] max-w-[200px] sm:max-w-[220px] lg:max-w-[235px]' : client.id === 'ara-beauty-club' ? 'h-[48px] sm:h-[54px] lg:h-[60px] max-w-[155px] sm:max-w-[175px] lg:max-w-[190px]' : client.id === 'nd-chair-parts' ? 'h-[78px] sm:h-[86px] lg:h-[92px] max-w-[180px]' : client.id === 'darzies-couture' ? 'h-[62px] sm:h-[70px] lg:h-[76px] max-w-[88px] sm:max-w-[96px]' : 'h-[48px] sm:h-[54px] lg:h-[60px] max-w-[130px] sm:max-w-[150px] lg:max-w-[170px]'} w-auto object-contain opacity-[0.88] group-hover:opacity-100 group-hover:scale-[1.035] transition-all duration-300 drop-shadow-[0_2px_6px_rgba(0,0,0,0.06)]`}
+                    className={`${client.id === 'prem-sweets' ? 'max-h-[86%] max-w-[82%]' : client.id === 'nd-chair-parts' ? 'max-h-[82%] max-w-[62%]' : client.id === 'the-seafu' ? 'max-h-[48%] max-w-[68%]' : 'max-h-[56%] max-w-[76%]'} h-auto w-auto object-contain opacity-[0.88] group-hover:opacity-100 group-hover:scale-[1.035] transition-all duration-300 drop-shadow-[0_2px_6px_rgba(0,0,0,0.06)]`}
                     style={{
                       filter: client.id === 'prem-sweets'
                         ? 'grayscale(1) contrast(1.06) brightness(0.82)'

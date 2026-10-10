@@ -1,11 +1,25 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import PixelatedIcon from './PixelatedIcon';
 
 export default function Hero({ onContact, isLoaded = true }) {
   const [isBtnHovered, setIsBtnHovered] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isSymbolNear, setIsSymbolNear] = useState(false);
+
+  const pointerX = useMotionValue(0);
+  const pointerY = useMotionValue(0);
+  const smoothX = useSpring(pointerX, { stiffness: 70, damping: 24, mass: 0.45 });
+  const smoothY = useSpring(pointerY, { stiffness: 70, damping: 24, mass: 0.45 });
+  const hillX = useTransform(smoothX, [-0.5, 0.5], [-3, 3]);
+  const hillY = useTransform(smoothY, [-0.5, 0.5], [-2, 2]);
+  const foregroundX = useTransform(smoothX, [-0.5, 0.5], [-11, 11]);
+  const foregroundY = useTransform(smoothY, [-0.5, 0.5], [-6, 6]);
+  const symbolX = useTransform(smoothX, [-0.5, 0.5], [-2, 2]);
+  const symbolY = useTransform(smoothY, [-0.5, 0.5], [-1.5, 1.5]);
+
+  const capabilityTicker = ['Brand Systems', 'AI', 'Websites', 'Creative Production', 'Digital Products', 'Growth'];
 
   const ventures = [
     {
@@ -48,63 +62,88 @@ export default function Hero({ onContact, isLoaded = true }) {
     {
       src: '/assets/client-logos/02-nimbark-organic.png',
       alt: 'Nimbark Organic',
+      service: 'Branding',
       className: 'h-[26px] sm:h-[30px] md:h-[32px]',
     },
     {
       src: '/assets/client-logos/01-mera-halwai.png',
       alt: 'Mera Halwai',
+      service: 'Packaging',
       className: 'h-[24px] sm:h-[28px] md:h-[30px]',
     },
     {
       src: '/assets/client-logos/18-burger-bazaar.png',
       alt: 'Burger Bazaar',
+      service: 'Digital',
       className: 'h-[28px] sm:h-[32px] md:h-[35px]',
     },
-    { src: '/assets/client-logos/11-house-of-nirva.png', alt: 'House of Nirva' },
-    { src: '/assets/client-logos/12-imeanddesign.png', alt: 'IME & Design' },
-    { src: '/assets/client-logos/14-swizzle.png', alt: 'Swizzle' },
+    { src: '/assets/client-logos/11-house-of-nirva.png', alt: 'House of Nirva', service: 'Brand' },
+    { src: '/assets/client-logos/12-imeanddesign.png', alt: 'IME & Design', service: 'Creative', className: 'h-[30px] sm:h-[35px] md:h-[39px]' },
+    { src: '/assets/client-logos/14-swizzle.png', alt: 'Swizzle', service: 'Web' },
     {
       src: '/assets/client-logos/05-nd-chair-parts.png',
       alt: 'ND Chair Parts',
+      service: 'Digital',
       className: 'h-[34px] sm:h-[40px] md:h-[44px]',
     },
-    { src: '/assets/client-logos/07-doua.png', alt: 'Doua' },
+    { src: '/assets/client-logos/07-doua.png', alt: 'Doua', service: 'Branding' },
     {
       src: '/assets/client-logos/the-seafu.png',
       alt: 'THE SEAFU',
-      className: 'h-[19px] sm:h-[22px] md:h-[24px]',
+      service: 'Brand',
+      className: 'h-[17px] sm:h-[19px] md:h-[21px]',
     },
     {
       src: '/assets/client-logos/04-novelle.png',
       alt: 'Novelle',
+      service: 'Packaging',
       className: 'h-[24px] sm:h-[28px] md:h-[30px]',
     },
-    { src: '/assets/client-logos/17-harvest-table-co.png', alt: 'Harvest Table Co.' },
+    { src: '/assets/client-logos/17-harvest-table-co.png', alt: 'Harvest Table Co.', service: 'Brand' },
     {
       src: '/assets/client-logos/06-ara-the-beauty-club.png',
       alt: 'Ara The Beauty Club',
+      service: 'Digital',
       className: 'h-[28px] sm:h-[32px] md:h-[35px]',
     },
-    { src: '/assets/client-logos/09-one-d.png', alt: 'One-D' },
-    { src: '/assets/client-logos/10-mango.png', alt: 'Mango' },
+    { src: '/assets/client-logos/10-mango.png', alt: 'Mango', service: 'Growth' },
     {
       src: '/assets/client-showcase/darzies-couture-clean.png',
       alt: 'Darzies Couture',
+      service: 'Branding',
       className: 'h-[36px] sm:h-[42px] md:h-[46px]',
     },
     {
       src: '/assets/client-logos/13-shaheen-express.png',
       alt: 'Shaheen Express',
+      service: 'Campaign',
       className: 'h-[24px] sm:h-[28px] md:h-[30px]',
     },
     {
       src: '/assets/client-logos/onelink-primary.png',
       alt: 'OneLink',
+      service: 'Digital',
       className: 'h-[24px] sm:h-[28px] md:h-[30px]',
     },
   ];
 
   const currentVenture = ventures[activeSlide];
+
+  const handleHeroPointerMove = (event) => {
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+    pointerX.set(x);
+    pointerY.set(y);
+    setIsSymbolNear(Math.hypot(x, y - 0.08) < 0.2);
+  };
+
+  const resetHeroPointer = () => {
+    pointerX.set(0);
+    pointerY.set(0);
+    setIsSymbolNear(false);
+  };
 
   const handleScrollToCapabilities = () => {
     const el = document.getElementById('what-we-do') || document.getElementById('expertise') || document.getElementById('ventures');
@@ -118,21 +157,58 @@ export default function Hero({ onContact, isLoaded = true }) {
   };
 
   return (
-    <section className="relative w-full max-w-full overflow-hidden p-2 sm:p-3 bg-[#EDEFEF] min-h-screen flex flex-col">
+    <section
+      onMouseMove={handleHeroPointerMove}
+      onMouseLeave={resetHeroPointer}
+      className="relative w-full max-w-full overflow-hidden p-2 sm:p-3 bg-[#EDEFEF] min-h-screen flex flex-col"
+    >
       {/* Outer Rounded Container with clean #EDEFEF and no gradient */}
       <div className="relative w-full max-w-full flex-1 rounded-[20px] sm:rounded-[24px] overflow-hidden bg-[#EDEFEF] flex flex-col justify-between pt-[11vh] sm:pt-[13vh] lg:pt-[15vh] pb-6 sm:pb-8 px-4 sm:px-10 lg:px-[5vw] min-h-[calc(100vh-20px)] shadow-[0_4px_30px_rgba(0,0,0,0.03)] border border-black/[0.04]">
         
         {/* Background Layer: Real image colours with a clean static blend */}
-        <div className="absolute inset-x-0 bottom-0 pointer-events-none z-0 overflow-hidden flex items-end justify-center w-full h-[460px] sm:h-auto [mask-image:linear-gradient(to_bottom,transparent_0%,black_16%,black_100%)]" aria-hidden="true">
+        <motion.div
+          initial={{ opacity: 0, y: 45, scale: 1.05 }}
+          animate={isLoaded ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 45, scale: 1.05 }}
+          transition={{ duration: 1.25, ease: [0.16, 1, 0.3, 1] }}
+          className="absolute inset-x-0 bottom-0 pointer-events-none z-0 overflow-hidden flex items-end justify-center w-full h-[460px] sm:h-auto [mask-image:linear-gradient(to_bottom,transparent_0%,black_16%,black_100%)]"
+          aria-hidden="true"
+        >
           <motion.img
             src="/assets/kriyon-hill-render.png"
             alt=""
-            initial={{ opacity: 0, y: 45, scale: 1.05 }}
-            animate={isLoaded ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 45, scale: 1.05 }}
-            transition={{ duration: 1.25, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full h-full sm:h-auto object-cover md:object-contain object-bottom pointer-events-none block scale-135 sm:scale-100 origin-bottom"
+            style={{ x: hillX, y: hillY }}
+            className="w-full h-full sm:h-auto object-cover md:object-contain object-bottom pointer-events-none block scale-135 sm:scale-[1.012] origin-bottom will-change-transform"
           />
-        </div>
+          <motion.img
+            src="/assets/kriyon-hill-render.png"
+            alt=""
+            style={{ x: foregroundX, y: foregroundY, maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 64%, black 82%, black 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent 64%, black 82%, black 100%)' }}
+            className="absolute inset-0 w-full h-full sm:h-auto object-cover md:object-contain object-bottom pointer-events-none block scale-135 sm:scale-[1.025] origin-bottom opacity-55 will-change-transform"
+          />
+        </motion.div>
+
+        {/* Proximity labels around the 3D Kriyon mark */}
+        <motion.div
+          style={{ x: symbolX, y: symbolY }}
+          className="pointer-events-none absolute left-1/2 top-[57%] z-[6] hidden h-[170px] w-[260px] -translate-x-1/2 -translate-y-1/2 lg:block"
+          aria-hidden="true"
+        >
+          {[
+            ['Build', 'left-0 top-4'],
+            ['Create', 'right-0 top-0'],
+            ['Scale', 'left-4 bottom-0'],
+            ['Connect', 'right-2 bottom-5'],
+          ].map(([label, position], index) => (
+            <motion.span
+              key={label}
+              animate={isSymbolNear ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.94, y: 4 }}
+              transition={{ duration: 0.28, delay: isSymbolNear ? index * 0.035 : 0 }}
+              className={`absolute ${position} rounded-full border border-white/40 bg-black/55 px-2.5 py-1 text-[9px] font-medium uppercase tracking-[0.16em] text-white shadow-sm backdrop-blur-md`}
+            >
+              {label}
+            </motion.span>
+          ))}
+        </motion.div>
 
         {/* Hero Content Grid (Left Text & Right Rotating Venture Card) */}
         <div className="relative z-10 w-full max-w-[1600px] mx-auto flex flex-col lg:flex-row items-start justify-between gap-8 sm:gap-10 lg:gap-14 min-w-0">
@@ -162,12 +238,32 @@ export default function Hero({ onContact, isLoaded = true }) {
               Bringing brand, technology, creative production and digital experience into one connected force for businesses ready to build bigger, move faster and grow further.
             </p>
 
+            {/* Quiet capability ticker */}
+            <div className="mt-3.5 w-full max-w-[620px] overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_7%,black_93%,transparent)]">
+              <motion.div
+                animate={{ x: ['0%', '-50%'] }}
+                transition={{ x: { repeat: Infinity, repeatType: 'loop', duration: 34, ease: 'linear' } }}
+                className="flex w-max items-center"
+              >
+                {[0, 1].map((copy) => (
+                  <div key={copy} aria-hidden={copy === 1} className="flex shrink-0 items-center gap-3 pr-3">
+                    {capabilityTicker.map((item) => (
+                      <span key={`${copy}-${item}`} className="inline-flex items-center gap-3 text-[9.5px] sm:text-[10px] font-medium uppercase tracking-[0.13em] text-black/44 whitespace-nowrap">
+                        {item}
+                        <span className="h-0.5 w-0.5 rounded-full bg-[#7BA60B]/65" />
+                      </span>
+                    ))}
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+
             {/* CTA Buttons: Explore Capabilities & Start a Project */}
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
               transition={{ duration: 0.8, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-6 sm:mt-8 flex items-center gap-3 sm:gap-4 w-full sm:w-auto min-w-0"
+              className="mt-5 sm:mt-7 flex items-center gap-3 sm:gap-4 w-full sm:w-auto min-w-0"
             >
               {/* Primary Button: Explore Capabilities */}
               <button
@@ -278,7 +374,7 @@ export default function Hero({ onContact, isLoaded = true }) {
                 x: {
                   repeat: Infinity,
                   repeatType: 'loop',
-                  duration: 30,
+                  duration: 42,
                   ease: 'linear',
                 },
               }}
@@ -290,22 +386,19 @@ export default function Hero({ onContact, isLoaded = true }) {
                   aria-hidden={copy === 1}
                   className="flex shrink-0 items-center gap-8 pr-8 sm:gap-10 sm:pr-10 md:gap-12 md:pr-12"
                 >
-                  {clientLogos.map((logo) => logo.text ? (
-                    <span
-                      key={`${copy}-${logo.alt}`}
-                      className="shrink-0 text-[19px] sm:text-[22px] md:text-[24px] font-black tracking-[0.14em] text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]"
-                    >
-                      {logo.text}
-                    </span>
-                  ) : (
-                    <img
-                      key={`${copy}-${logo.alt}`}
-                      src={logo.src}
-                      alt={copy === 0 ? logo.alt : ''}
-                      className={`${
-                        logo.className || 'h-[24px] sm:h-[28px] md:h-[30px]'
-                      } w-auto max-w-[130px] object-contain opacity-95 hover:opacity-100 transition-opacity duration-300 filter brightness-0 invert drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] flex-shrink-0`}
-                    />
+                  {clientLogos.map((logo) => (
+                    <div key={`${copy}-${logo.alt}`} className="group/logo relative flex h-[50px] shrink-0 items-center justify-center pb-2">
+                      <img
+                        src={logo.src}
+                        alt={copy === 0 ? logo.alt : ''}
+                        className={`${
+                          logo.className || 'h-[24px] sm:h-[28px] md:h-[30px]'
+                        } w-auto max-w-[130px] object-contain opacity-80 transition-all duration-300 group-hover/logo:scale-[1.035] group-hover/logo:opacity-100 filter brightness-0 invert drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] flex-shrink-0`}
+                      />
+                      <span className="pointer-events-none absolute bottom-0 hidden rounded-full bg-black/48 px-1.5 py-0.5 text-[8px] font-medium uppercase tracking-[0.12em] text-white/90 opacity-0 backdrop-blur-md transition-all duration-300 group-hover/logo:-translate-y-0.5 group-hover/logo:opacity-100 sm:block">
+                        {logo.service}
+                      </span>
+                    </div>
                   ))}
                 </div>
               ))}
