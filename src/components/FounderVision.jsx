@@ -29,7 +29,7 @@ export default function FounderVision() {
             </span>
           </div>
 
-          <h2 className="text-[28px] sm:text-[34px] md:text-[38px] lg:text-[42px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.14] font-sans">
+          <h2 className="text-[26px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.14] font-sans">
             <PixelText text="One vision. Many industries." delay={0.12} stagger={0.05} />
           </h2>
         </motion.div>

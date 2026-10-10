@@ -26,7 +26,7 @@ export default function WhyKriyon() {
               <PixelText text="04 // WHY KRIYON" delay={0.06} mode="birth" />
             </span>
           </div>
-          <h2 className="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans max-w-none">
+          <h2 className="text-[26px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans max-w-none">
             <PixelText text="More capability. Less complexity." delay={0.12} stagger={0.06} mode="birth" />
           </h2>
           <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] text-[#555555] font-normal leading-[1.55] mt-3 font-sans w-full max-w-none whitespace-normal lg:whitespace-nowrap">

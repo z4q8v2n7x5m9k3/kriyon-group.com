@@ -66,7 +66,7 @@ export default function ContactSection({ onNavigateToFullContact }) {
             </span>
           </div>
           <div className="flex flex-col mb-2">
-            <h2 className="text-[32px] font-medium leading-[1.08] tracking-[-0.035em] sm:text-[42px] lg:text-[48px]">
+            <h2 className="text-[28px] font-medium leading-[1.1] tracking-[-0.035em] sm:text-[36px] lg:text-[42px]">
               <PixelText text="Start a conversation." delay={0.1} /><br />
               <span className="text-black/30">
                 <PixelText text="We’ll take it from there." delay={0.24} />

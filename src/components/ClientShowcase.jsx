@@ -1,9 +1,12 @@
+import PixelatedIcon from './PixelatedIcon';
+import PixelText from './PixelText';
+
 export default function ClientShowcase() {
   const clients = [
     {
       id: 'prem-sweets',
       name: 'Prem Sweets',
-      src: '/assets/client-showcase/prem-sweets.png',
+      src: '/assets/client-showcase/prem-sweets-updated.png',
       heightClass: 'h-[50px] sm:h-[56px] md:h-[62px]',
       maxWClass: 'max-w-[150px]',
       alt: 'Prem Sweets',
@@ -49,12 +52,20 @@ export default function ClientShowcase() {
       alt: 'The Harvest Table Co.',
     },
     {
-      id: 'darzies-couture',
-      name: 'Darzies Couture',
-      src: '/assets/client-showcase/darzies-couture.png',
-      heightClass: 'h-[36px] sm:h-[42px] md:h-[46px]',
-      maxWClass: 'max-w-[85px]',
-      alt: 'Darzies Couture',
+      id: 'ara-beauty-club',
+      name: 'ARA The Beauty Club',
+      src: '/assets/client-logos/06-ara-the-beauty-club.png',
+      heightClass: 'h-[30px] sm:h-[34px] md:h-[38px]',
+      maxWClass: 'max-w-[170px]',
+      alt: 'ARA The Beauty Club',
+    },
+    {
+      id: 'nd-chair-parts',
+      name: 'ND Chair Parts',
+      src: '/assets/client-logos/05-nd-chair-parts.png',
+      heightClass: 'h-[76px] sm:h-[84px] md:h-[90px]',
+      maxWClass: 'max-w-[180px]',
+      alt: 'ND Chair Parts',
     },
     {
       id: 'burger-bazaar',
@@ -63,14 +74,6 @@ export default function ClientShowcase() {
       heightClass: 'h-[28px] sm:h-[32px] md:h-[35px]',
       maxWClass: 'max-w-[130px]',
       alt: 'Burger Bazaar',
-    },
-    {
-      id: 'mango',
-      name: 'Mango',
-      src: '/assets/client-showcase/mango.png',
-      heightClass: 'h-[22px] sm:h-[25px] md:h-[28px]',
-      maxWClass: 'max-w-[135px]',
-      alt: 'Mango',
     },
     {
       id: 'shaheen-express',
@@ -86,48 +89,50 @@ export default function ClientShowcase() {
     <section
       id="clients"
       aria-label="Client Showcase"
-      className="relative w-full max-w-full overflow-hidden bg-[#EBEBED] text-[#0A0A0A] py-12 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-12"
+      className="relative w-full max-w-full overflow-hidden bg-[#EBEBED] text-[#0A0A0A] py-10 sm:py-14 lg:py-16 px-3 sm:px-6 lg:px-10"
     >
-      <div className="w-full max-w-[1460px] mx-auto min-w-0">
-        {/* Header: All Left-Aligned Text in PP Neue Montreal font-sans */}
-        <div className="text-left max-w-[760px] mb-8 sm:mb-10 lg:mb-12">
-          <span className="text-[11px] sm:text-[12px] uppercase tracking-[0.2em] font-medium text-[#777777] font-sans block mb-2 select-none">
-            01.5 // CLIENT RELATIONSHIPS
-          </span>
-          <h2 className="text-[26px] sm:text-[32px] md:text-[38px] lg:text-[42px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.15] font-sans">
-            In Good Company
+      <div className="w-full max-w-[1500px] mx-auto min-w-0">
+        <div className="mb-7 sm:mb-9 lg:mb-10">
+          <div className="inline-flex items-center gap-2.5 mb-4 select-none">
+            <div className="flex items-center shrink-0">
+              <PixelatedIcon className="w-[20px] h-[10.5px]" color="#111111" />
+            </div>
+            <span className="text-[12px] sm:text-[13px] font-sans font-medium tracking-[0.18em] text-[#111111] uppercase">
+              <PixelText text="01 // SELECTED CLIENTS" delay={0.06} />
+            </span>
+          </div>
+          <h2 className="text-[26px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans">
+            <PixelText text="In good company." delay={0.12} stagger={0.06} />
           </h2>
-          <p className="text-[14px] sm:text-[15.5px] lg:text-[16px] text-[#555555] font-normal leading-[1.55] mt-2 sm:mt-2.5 font-sans">
-            Building meaningful experiences for brands across industries.
+          <p className="mt-2 text-[14px] sm:text-[15px] font-normal leading-[1.45] text-black/52 font-sans">
+            38+ Brand Projects.
           </p>
         </div>
 
-        {/* Minimal Swiss Grid of 10 with Thin Black Border and Square Edges */}
-        <div className="relative w-full rounded-none border border-black/[0.12] bg-black/[0.12] shadow-[0_2px_16px_rgba(0,0,0,0.02)]">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px">
-            {clients.map((client, idx) => (
+        <div className="relative w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-2.5">
+            {clients.map((client) => (
               <div
                 key={client.id}
-                className="group relative bg-[#EBEBED] hover:bg-[#F3F3F5] transition-colors duration-200 p-5 sm:p-6 lg:p-7 flex flex-col justify-between items-start rounded-none min-h-[140px] sm:min-h-[155px] lg:min-h-[165px]"
+                className="group relative isolate overflow-hidden bg-white/34 hover:bg-white/58 backdrop-blur-xl transition-all duration-500 ease-out px-4 py-5 sm:px-6 sm:py-6 flex items-center justify-center rounded-[18px] sm:rounded-[20px] min-h-[116px] sm:min-h-[128px] lg:min-h-[140px] border border-white/55 hover:border-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_8px_24px_rgba(0,0,0,0.025)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_14px_34px_rgba(0,0,0,0.045)] hover:-translate-y-0.5"
                 title={client.name}
               >
-                {/* Top-Left: Minimal Monospace Counter (Square edge aesthetic) */}
-                <span className="text-[10px] sm:text-[10.5px] font-mono text-black/35 tracking-widest uppercase select-none">
-                  {String(idx + 1).padStart(2, '0')}
-                </span>
-
-                {/* Center / Body: Pure Clean Logo */}
-                <div className="w-full flex-1 flex items-center justify-center py-2 sm:py-3">
+                <div className="absolute -right-8 -top-10 h-24 w-24 rounded-full bg-white/70 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" aria-hidden="true" />
+                <div className="relative z-10 w-full flex items-center justify-center">
                   <img
                     src={client.src}
                     alt={client.alt}
                     loading="lazy"
-                    className={`${client.heightClass} ${client.maxWClass} w-auto object-contain opacity-85 group-hover:opacity-100 group-hover:scale-[1.04] transition-all duration-200 drop-shadow-[0_1px_2px_rgba(0,0,0,0.04)]`}
+                    className={`${client.id === 'prem-sweets' ? 'h-[96px] sm:h-[106px] lg:h-[114px] max-w-[200px] sm:max-w-[220px] lg:max-w-[235px]' : client.id === 'ara-beauty-club' ? 'h-[48px] sm:h-[54px] lg:h-[60px] max-w-[155px] sm:max-w-[175px] lg:max-w-[190px]' : client.id === 'nd-chair-parts' ? 'h-[78px] sm:h-[86px] lg:h-[92px] max-w-[180px]' : client.id === 'darzies-couture' ? 'h-[62px] sm:h-[70px] lg:h-[76px] max-w-[88px] sm:max-w-[96px]' : 'h-[48px] sm:h-[54px] lg:h-[60px] max-w-[130px] sm:max-w-[150px] lg:max-w-[170px]'} w-auto object-contain opacity-[0.88] group-hover:opacity-100 group-hover:scale-[1.035] transition-all duration-300 drop-shadow-[0_2px_6px_rgba(0,0,0,0.06)]`}
+                    style={{
+                      filter: client.id === 'prem-sweets'
+                        ? 'grayscale(1) contrast(1.06) brightness(0.82)'
+                        : client.id === 'darzies-couture'
+                          ? 'grayscale(1) contrast(0.94) brightness(0.9)'
+                          : 'grayscale(1) saturate(0) contrast(0) brightness(0.72)',
+                    }}
                   />
                 </div>
-
-                {/* Subtle bottom indicator spacer */}
-                <div className="w-full h-1" />
               </div>
             ))}
           </div>

@@ -112,7 +112,7 @@ export default function ExpertiseVentures({ onContact }) {
             </div>
 
             {/* Main Headline with slow, visible, cinematic word formation */}
-            <h2 className="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans">
+            <h2 className="text-[26px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans">
               <PixelText text="Specialist capability, connected around you." delay={0.12} stagger={0.06} />
             </h2>
 
@@ -162,15 +162,16 @@ export default function ExpertiseVentures({ onContact }) {
                 delay: idx * 0.12,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="relative w-full rounded-[24px] sm:rounded-[26px] overflow-hidden bg-white/[0.76] backdrop-blur-2xl border border-white/95 shadow-[0_8px_32px_rgba(0,0,0,0.035),inset_0_1px_0_rgba(255,255,255,0.95)] hover:shadow-[0_18px_44px_rgba(0,0,0,0.065)] hover:border-white group transition-all duration-300 flex flex-col justify-between p-3 sm:p-3.5 z-10"
+              className="relative isolate w-full rounded-[22px] sm:rounded-[24px] overflow-hidden bg-white/[0.68] backdrop-blur-2xl border border-white/90 shadow-[0_10px_34px_rgba(0,0,0,0.035),inset_0_1px_0_rgba(255,255,255,0.95)] hover:shadow-[0_22px_54px_rgba(0,0,0,0.075),inset_0_1px_0_rgba(255,255,255,1)] hover:border-white group transition-all duration-500 ease-out hover:-translate-y-1 flex flex-col justify-between p-2.5 sm:p-3 z-10"
             >
+              <div className="pointer-events-none absolute -right-16 -top-16 z-0 h-44 w-44 rounded-full bg-white/80 blur-3xl opacity-35 transition-all duration-700 group-hover:opacity-70 group-hover:scale-110" aria-hidden="true" />
               {/* 1. Image Box with Film Grain Texture (Clickable link to venture) */}
               <a
                 href={card.ctaLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Visit ${card.title}`}
-                className={`relative w-full h-[214px] sm:h-[222px] xl:h-[228px] rounded-[18px] sm:rounded-[19px] overflow-hidden block ${card.imageBg} cursor-pointer group/img`}
+                className={`relative z-10 w-full h-[188px] sm:h-[196px] xl:h-[202px] rounded-[16px] sm:rounded-[17px] overflow-hidden block ${card.imageBg} cursor-pointer group/img shadow-[0_8px_24px_rgba(0,0,0,0.08)]`}
               >
                 <img
                   src={card.image}
@@ -190,14 +191,14 @@ export default function ExpertiseVentures({ onContact }) {
               </a>
 
               {/* Lower Content Body: Exactly Aligned Visual Rhythm Across All 3 Cards */}
-              <div className="flex flex-col flex-1 px-2.5 sm:px-3 pt-4 sm:pt-4.5 pb-1">
+              <div className="relative z-10 flex flex-col flex-1 px-2.5 sm:px-3 pt-4 sm:pt-4.5 pb-1">
                 {/* 2. Venture title + small 01/02/03 (Venture Name: bold/strong, clean sans-serif) */}
                 <div className="flex items-baseline justify-between gap-3">
                   <a
                     href={card.ctaLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[21px] sm:text-[23px] xl:text-[24px] font-medium text-[#0A0A0A] hover:text-[#333333] tracking-[-0.025em] leading-tight font-sans transition-colors cursor-pointer"
+                    className="text-[20px] sm:text-[21px] xl:text-[22px] font-medium text-[#0A0A0A] hover:text-[#333333] tracking-[-0.025em] leading-tight font-sans transition-colors cursor-pointer"
                   >
                     <PixelText text={card.titleRender || card.title} delay={0.06 * (idx + 1)} />
                   </a>
@@ -208,7 +209,7 @@ export default function ExpertiseVentures({ onContact }) {
 
                 {/* Title -> description: 14-16px */}
                 {/* 3. One short description (Regular, highly readable, identical min-height) */}
-                <div className="mt-2.5 min-h-[54px] sm:min-h-[56px] flex items-start">
+                <div className="mt-2 min-h-[48px] sm:min-h-[50px] flex items-start">
                   <p className="text-[13.5px] sm:text-[14px] text-[#555555] font-normal leading-[1.55] font-sans">
                     {card.body}
                   </p>
@@ -216,11 +217,11 @@ export default function ExpertiseVentures({ onContact }) {
 
                 {/* Description -> badges: 18-20px */}
                 {/* 4. Capability badges: medium weight, compact and clean, balanced height */}
-                <div className="mt-3.5 min-h-[72px] flex flex-wrap content-start items-center gap-2">
+                <div className="mt-3 min-h-[66px] flex flex-wrap content-start items-center gap-1.5 sm:gap-2">
                   {card.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 sm:px-3.5 py-1.5 sm:py-[7px] rounded-[10px] bg-white/[0.84] backdrop-blur-md hover:bg-white text-[12px] sm:text-[12.5px] font-medium text-[#252525] border border-white shadow-[0_2px_8px_rgba(0,0,0,0.035),inset_0_0_0_1px_rgba(0,0,0,0.035)] font-sans transition-colors whitespace-nowrap cursor-default"
+                      className="px-2.5 sm:px-3 py-1.5 rounded-[9px] bg-white/[0.84] backdrop-blur-md hover:bg-white text-[11.5px] sm:text-[12px] font-medium text-[#252525] border border-white shadow-[0_2px_8px_rgba(0,0,0,0.035),inset_0_0_0_1px_rgba(0,0,0,0.035)] font-sans transition-colors whitespace-nowrap cursor-default"
                     >
                       {tag}
                     </span>
@@ -232,15 +233,15 @@ export default function ExpertiseVentures({ onContact }) {
 
                 {/* Divider -> BUILD / CREATE / CONNECT block: 20-24px */}
                 {/* 6 & 7. Large action word + Short category + one support line */}
-                <div className="pt-4 flex items-center gap-3 min-h-[44px]">
-                  <span className="text-[24px] sm:text-[26px] font-bold text-[#0A0A0A] tracking-tight font-sans shrink-0 w-[110px] sm:w-[120px]">
+                <div className="pt-4 flex items-center justify-between gap-5 min-h-[44px]">
+                  <span className="text-[22px] sm:text-[24px] font-bold text-[#0A0A0A] tracking-tight font-sans shrink-0">
                     <PixelText text={card.actionWord} delay={0.1 * (idx + 1)} />
                   </span>
-                  <div className="flex flex-col justify-center min-w-0">
-                    <span className="text-[13px] sm:text-[13.5px] font-bold text-[#111111] leading-tight font-sans truncate">
+                  <div className="ml-auto flex max-w-[62%] flex-col items-end justify-center text-right min-w-0">
+                    <span className="text-[13px] sm:text-[13.5px] font-bold text-[#111111] leading-tight font-sans">
                       {card.category}
                     </span>
-                    <span className="text-[12px] sm:text-[12.5px] text-[#666666] mt-0.5 font-sans leading-tight truncate">
+                    <span className="text-[12px] sm:text-[12.5px] text-[#666666] mt-0.5 font-sans leading-tight">
                       {card.supportLine}
                     </span>
                   </div>

@@ -56,19 +56,41 @@ export default function Hero({ onContact, isLoaded = true }) {
       className: 'h-[24px] sm:h-[28px] md:h-[30px]',
     },
     {
-      src: '/assets/client-logos/04-novelle.png',
-      alt: 'Novelle',
-      className: 'h-[24px] sm:h-[28px] md:h-[30px]',
-    },
-    {
       src: '/assets/client-logos/18-burger-bazaar.png',
       alt: 'Burger Bazaar',
       className: 'h-[28px] sm:h-[32px] md:h-[35px]',
     },
+    { src: '/assets/client-logos/11-house-of-nirva.png', alt: 'House of Nirva' },
+    { src: '/assets/client-logos/12-imeanddesign.png', alt: 'IME & Design' },
+    { src: '/assets/client-logos/14-swizzle.png', alt: 'Swizzle' },
     {
       src: '/assets/client-logos/05-nd-chair-parts.png',
       alt: 'ND Chair Parts',
       className: 'h-[34px] sm:h-[40px] md:h-[44px]',
+    },
+    { src: '/assets/client-logos/07-doua.png', alt: 'Doua' },
+    {
+      src: '/assets/client-logos/the-seafu.png',
+      alt: 'THE SEAFU',
+      className: 'h-[19px] sm:h-[22px] md:h-[24px]',
+    },
+    {
+      src: '/assets/client-logos/04-novelle.png',
+      alt: 'Novelle',
+      className: 'h-[24px] sm:h-[28px] md:h-[30px]',
+    },
+    { src: '/assets/client-logos/17-harvest-table-co.png', alt: 'Harvest Table Co.' },
+    {
+      src: '/assets/client-logos/06-ara-the-beauty-club.png',
+      alt: 'Ara The Beauty Club',
+      className: 'h-[28px] sm:h-[32px] md:h-[35px]',
+    },
+    { src: '/assets/client-logos/09-one-d.png', alt: 'One-D' },
+    { src: '/assets/client-logos/10-mango.png', alt: 'Mango' },
+    {
+      src: '/assets/client-showcase/darzies-couture-clean.png',
+      alt: 'Darzies Couture',
+      className: 'h-[36px] sm:h-[42px] md:h-[46px]',
     },
     {
       src: '/assets/client-logos/13-shaheen-express.png',
@@ -76,19 +98,10 @@ export default function Hero({ onContact, isLoaded = true }) {
       className: 'h-[24px] sm:h-[28px] md:h-[30px]',
     },
     {
-      src: '/assets/client-logos/06-ara-the-beauty-club.png',
-      alt: 'Ara The Beauty Club',
-      className: 'h-[28px] sm:h-[32px] md:h-[35px]',
+      src: '/assets/client-logos/onelink-primary.png',
+      alt: 'OneLink',
+      className: 'h-[24px] sm:h-[28px] md:h-[30px]',
     },
-    { src: '/assets/client-logos/11-house-of-nirva.png', alt: 'House of Nirva' },
-    { src: '/assets/client-logos/12-imeanddesign.png', alt: 'IME & Design' },
-    { src: '/assets/client-logos/14-swizzle.png', alt: 'Swizzle' },
-    { src: '/assets/client-logos/15-the-bark-yard.png', alt: 'The Bark Yard' },
-    { src: '/assets/client-logos/16-gulabchand-kirni-wala.png', alt: 'Gulabchand Kirni Wala' },
-    { src: '/assets/client-logos/17-harvest-table-co.png', alt: 'Harvest Table Co.' },
-    { src: '/assets/client-logos/07-doua.png', alt: 'Doua' },
-    { src: '/assets/client-logos/09-one-d.png', alt: 'One-D' },
-    { src: '/assets/client-logos/10-mango.png', alt: 'Mango' },
   ];
 
   const currentVenture = ventures[activeSlide];
@@ -109,7 +122,7 @@ export default function Hero({ onContact, isLoaded = true }) {
       {/* Outer Rounded Container with clean #EDEFEF and no gradient */}
       <div className="relative w-full max-w-full flex-1 rounded-[20px] sm:rounded-[24px] overflow-hidden bg-[#EDEFEF] flex flex-col justify-between pt-[11vh] sm:pt-[13vh] lg:pt-[15vh] pb-6 sm:pb-8 px-4 sm:px-10 lg:px-[5vw] min-h-[calc(100vh-20px)] shadow-[0_4px_30px_rgba(0,0,0,0.03)] border border-black/[0.04]">
         
-        {/* Background Layer: Real Image Colours with embedded gradient blend & moving shine */}
+        {/* Background Layer: Real image colours with a clean static blend */}
         <div className="absolute inset-x-0 bottom-0 pointer-events-none z-0 overflow-hidden flex items-end justify-center w-full h-[460px] sm:h-auto [mask-image:linear-gradient(to_bottom,transparent_0%,black_16%,black_100%)]" aria-hidden="true">
           <motion.img
             src="/assets/kriyon-hill-render.png"
@@ -118,26 +131,6 @@ export default function Hero({ onContact, isLoaded = true }) {
             animate={isLoaded ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 45, scale: 1.05 }}
             transition={{ duration: 1.25, ease: [0.16, 1, 0.3, 1] }}
             className="w-full h-full sm:h-auto object-cover md:object-contain object-bottom pointer-events-none block scale-135 sm:scale-100 origin-bottom"
-          />
-
-          {/* Embedded Moving Gradient Shine / Sheen across the Hero Landscape (100% GPU compositor friendly) */}
-          <motion.div
-            initial={{ x: '-130%', opacity: 0 }}
-            animate={
-              isLoaded
-                ? {
-                    x: ['-130%', '160%'],
-                    opacity: [0, 0.35, 0.5, 0.35, 0],
-                  }
-                : { x: '-130%', opacity: 0 }
-            }
-            transition={{
-              duration: 4.5,
-              repeat: Infinity,
-              repeatDelay: 5.5,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-            className="absolute inset-y-0 w-[45%] pointer-events-none z-[1] -skew-x-12 bg-gradient-to-r from-transparent via-white/30 to-transparent"
           />
         </div>
 
@@ -197,9 +190,9 @@ export default function Hero({ onContact, isLoaded = true }) {
               {/* Secondary Button: Start a Project */}
               <button
                 onClick={onContact}
-                className="h-[50px] sm:h-[52px] flex-1 sm:flex-initial sm:w-[190px] px-5 sm:px-6 inline-flex items-center justify-between bg-white hover:bg-[#F9FAF9] rounded-[18px] sm:rounded-[20px] border border-black/[0.09] shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:border-black/20 hover:shadow-md transition-all duration-200 cursor-pointer group active:scale-95 focus:outline-none"
+                className="h-[50px] sm:h-[52px] flex-1 sm:flex-initial sm:w-[220px] px-5 sm:px-6 inline-flex items-center justify-between bg-white hover:bg-[#F9FAF9] rounded-[18px] sm:rounded-[20px] border border-black/[0.09] shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:border-black/20 hover:shadow-md transition-all duration-200 cursor-pointer group active:scale-95 focus:outline-none"
               >
-                <span className="text-[13px] sm:text-[13.5px] font-medium text-[#111111] tracking-tight whitespace-nowrap">
+                <span className="text-[13.5px] sm:text-[14px] font-medium text-[#111111] tracking-tight whitespace-nowrap">
                   Start a Project
                 </span>
                 <ArrowRight className="w-4 h-4 stroke-[1.6] text-[#222222] group-hover:text-black group-hover:translate-x-0.5 transition-transform duration-200 flex-shrink-0" />
@@ -270,7 +263,7 @@ export default function Hero({ onContact, isLoaded = true }) {
           {/* Bottom-Left Trust Proof Block with clean drop-shadow */}
           <div className="flex flex-col text-left w-fit max-w-[440px] lg:max-w-[460px] shrink-0 min-w-0 rounded-[16px] border border-white/10 bg-black/[0.64] px-4 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.16)] sm:border-transparent sm:bg-transparent sm:px-0 sm:py-0 sm:shadow-none">
             <h4 className="text-[14.5px] sm:text-[16px] md:text-[17px] font-medium text-white tracking-tight leading-[1.3]">
-              45+ client relationships across the group
+              38+ brands across the group
             </h4>
             <p className="text-[13px] sm:text-[14px] md:text-[14.5px] font-normal leading-[1.45] text-white/75 mt-1 sm:mt-1.5 font-sans">
               Across brand, technology, creative production and digital presence.
@@ -285,21 +278,36 @@ export default function Hero({ onContact, isLoaded = true }) {
                 x: {
                   repeat: Infinity,
                   repeatType: 'loop',
-                  duration: 40,
+                  duration: 30,
                   ease: 'linear',
                 },
               }}
-              className="flex items-center space-x-11 sm:space-x-14 md:space-x-16 whitespace-nowrap py-1.5"
+              className="flex w-max items-center whitespace-nowrap py-1.5"
             >
-              {[...clientLogos, ...clientLogos].map((logo, idx) => (
-                <img
-                  key={idx}
-                  src={logo.src}
-                  alt={logo.alt}
-                  className={`${
-                    logo.className || 'h-[24px] sm:h-[28px] md:h-[30px]'
-                  } w-auto max-w-[130px] object-contain opacity-95 hover:opacity-100 transition-opacity duration-300 filter brightness-0 invert drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] flex-shrink-0`}
-                />
+              {[0, 1].map((copy) => (
+                <div
+                  key={copy}
+                  aria-hidden={copy === 1}
+                  className="flex shrink-0 items-center gap-8 pr-8 sm:gap-10 sm:pr-10 md:gap-12 md:pr-12"
+                >
+                  {clientLogos.map((logo) => logo.text ? (
+                    <span
+                      key={`${copy}-${logo.alt}`}
+                      className="shrink-0 text-[19px] sm:text-[22px] md:text-[24px] font-black tracking-[0.14em] text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]"
+                    >
+                      {logo.text}
+                    </span>
+                  ) : (
+                    <img
+                      key={`${copy}-${logo.alt}`}
+                      src={logo.src}
+                      alt={copy === 0 ? logo.alt : ''}
+                      className={`${
+                        logo.className || 'h-[24px] sm:h-[28px] md:h-[30px]'
+                      } w-auto max-w-[130px] object-contain opacity-95 hover:opacity-100 transition-opacity duration-300 filter brightness-0 invert drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] flex-shrink-0`}
+                    />
+                  ))}
+                </div>
               ))}
             </motion.div>
           </div>

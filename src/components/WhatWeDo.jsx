@@ -53,6 +53,7 @@ const services = [
     description:
       'Build or refresh your business identity with strategy, design and launch-ready assets.',
     icon: BrandPenIcon,
+    image: '/assets/ai-capabilities/brand-systems.jpg',
     deliverables: ['Brand Strategy', 'Logo & Identity', 'Packaging', 'Launch Assets'],
   },
   {
@@ -61,6 +62,7 @@ const services = [
     description:
       'Websites, landing pages and online stores built to present your business clearly and convert better.',
     icon: Globe,
+    image: '/assets/ai-capabilities/brand-systems.jpg',
     deliverables: ['Business Websites', 'Landing Pages', 'Online Stores', 'Redesigns'],
   },
   {
@@ -69,6 +71,7 @@ const services = [
     description:
       'Custom digital products for businesses that need portals, dashboards, apps or scalable platforms.',
     icon: Layers,
+    image: '/assets/ai-capabilities/digital-systems.jpg',
     deliverables: ['Web Apps', 'Mobile Apps', 'SaaS Products', 'Admin Panels'],
   },
   {
@@ -77,6 +80,7 @@ const services = [
     description:
       'Smart workflows that reduce manual work and improve enquiries, bookings, payments and follow-ups.',
     icon: Cpu,
+    image: '/assets/ai-capabilities/digital-systems.jpg',
     deliverables: ['AI Automation', 'Lead Funnels', 'Booking Flows', 'Integrations'],
   },
   {
@@ -85,6 +89,7 @@ const services = [
     description:
       'Creative content and campaigns that help your brand look better, communicate better and grow faster.',
     icon: SocialFilmIcon,
+    image: '/assets/ai-capabilities/creative-presence.jpg',
     deliverables: ['Social Media', 'Product Shoots', 'Reels & Films', 'CGI & Visuals'],
   },
   {
@@ -93,6 +98,7 @@ const services = [
     description:
       'Everything customers need to discover, contact, trust and take action with your business online.',
     icon: QrCode,
+    image: '/assets/ai-capabilities/creative-presence.jpg',
     deliverables: ['OneLink Cards', 'QR Systems', 'Reviews', 'Customer Journeys'],
   },
 ];
@@ -140,7 +146,7 @@ export default function WhatWeDo({ onContact }) {
           </div>
 
           {/* Main Headline */}
-          <h2 className="text-[28px] sm:text-[34px] md:text-[38px] lg:text-[42px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.14] font-sans max-w-none">
+          <h2 className="text-[26px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.14] font-sans max-w-none">
             <PixelText text="What can we help you build?" delay={0.12} stagger={0.05} />
           </h2>
 
@@ -173,8 +179,17 @@ export default function WhatWeDo({ onContact }) {
                   hover:shadow-[0_12px_30px_rgba(0,0,0,0.055),inset_0_1px_1px_rgba(255,255,255,1)]
                   hover:-translate-y-0.5"
               >
+                <img
+                  src={item.image}
+                  alt=""
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-right opacity-[0.20] saturate-[0.52] contrast-[0.94] transition-all duration-700 ease-out group-hover:scale-[1.025] group-hover:opacity-[0.28]"
+                  loading="lazy"
+                />
+                <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(145deg,rgba(255,255,255,0.92)_0%,rgba(255,255,255,0.84)_52%,rgba(255,255,255,0.91)_100%)] backdrop-blur-[0.75px]" aria-hidden="true" />
+                <div className="pointer-events-none absolute -right-12 -top-14 z-[2] h-40 w-40 rounded-full bg-white/65 blur-3xl" aria-hidden="true" />
                 {/* Top Section: Icon, Number, Title & Compact Description */}
-                <div>
+                <div className="relative z-10">
                   {/* Row: Icon + Number */}
                   <div className="flex items-center justify-between mb-3.5">
                     {/* Modern Clean Rounded Dark Icon Tile */}
@@ -198,7 +213,7 @@ export default function WhatWeDo({ onContact }) {
                 </div>
 
                 {/* Bottom Section: Deliverable Tags Chips */}
-                <div className="pt-3.5 mt-3.5 flex flex-wrap gap-1.5 border-t border-black/[0.04]">
+                <div className="relative z-10 pt-3.5 mt-3.5 flex flex-wrap gap-1.5 border-t border-black/[0.05]">
                   {item.deliverables.map((tag) => (
                     <span
                       key={tag}
