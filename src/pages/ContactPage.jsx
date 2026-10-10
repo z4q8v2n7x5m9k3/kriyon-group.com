@@ -78,6 +78,41 @@ export default function ContactPage() {
     else window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
 
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.id = 'kriyon-contact-schema';
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'ContactPage',
+          '@id': 'https://www.kriyongroup.com/contact#webpage',
+          url: 'https://www.kriyongroup.com/contact',
+          name: 'Contact Kriyon Group',
+          description: 'Start a project with Kriyon Group across brand, technology, creative production and digital presence.',
+          isPartOf: { '@id': 'https://www.kriyongroup.com/#website' },
+          about: { '@id': 'https://www.kriyongroup.com/#organization' },
+        },
+        {
+          '@type': 'FAQPage',
+          '@id': 'https://www.kriyongroup.com/contact#faq',
+          mainEntity: FAQS.map((faq) => ({
+            '@type': 'Question',
+            name: faq.q,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: faq.a,
+            },
+          })),
+        },
+      ],
+    });
+    document.head.appendChild(script);
+
+    return () => script.remove();
+  }, []);
+
   const updateField = (field) => (event) => {
     setFormData((current) => ({ ...current, [field]: event.target.value }));
   };

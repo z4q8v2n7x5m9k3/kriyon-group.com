@@ -14,6 +14,29 @@ import ContactPage from './pages/ContactPage';
 import StartProjectModal from './components/StartProjectModal';
 import LegalCentreModal from './components/LegalCentreModal';
 
+const PAGE_META = {
+  home: {
+    title: 'Kriyon Group | Brand, Technology & Creative Production',
+    description: 'Kriyon Group brings together RepixelX, Kriyon Media and OneLink across brand, technology, creative production and digital presence.',
+    url: 'https://www.kriyongroup.com/',
+  },
+  contact: {
+    title: 'Contact Kriyon Group | Start a Project',
+    description: 'Start a project with Kriyon Group. Discuss branding, websites, apps, campaigns, creative production or digital presence with the right specialist team.',
+    url: 'https://www.kriyongroup.com/contact',
+  },
+  legal: {
+    title: 'Legal Centre | Kriyon Group Private Limited',
+    description: 'Read Kriyon Group Private Limited terms, privacy policy, refund policy and statutory company information.',
+    url: 'https://www.kriyongroup.com/legal',
+  },
+};
+
+const setMetaContent = (selector, content) => {
+  const element = document.querySelector(selector);
+  if (element) element.setAttribute('content', content);
+};
+
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -32,23 +55,51 @@ export default function App() {
     }
     return false;
   });
-  const [legalModalState, setLegalModalState] = useState({
-    isOpen: false,
+  const [legalModalState, setLegalModalState] = useState(() => ({
+    isOpen: typeof window !== 'undefined' && (
+      window.location.pathname === '/legal'
+      || window.location.hash === '#legal'
+      || window.location.search.includes('view=legal')
+    ),
     tab: 'terms',
-  });
+  }));
 
   useEffect(() => {
     const handlePopState = () => {
-      if (window.location.pathname === '/contact' || window.location.hash === '#contact-page') {
+      if (window.location.pathname === '/legal') {
+        setCurrentRoute('/');
+        setLegalModalState({ isOpen: true, tab: 'terms' });
+      } else if (window.location.pathname === '/contact' || window.location.hash === '#contact-page') {
         setCurrentRoute('/contact');
+        setLegalModalState({ isOpen: false, tab: 'terms' });
       } else {
         setCurrentRoute('/');
+        setLegalModalState({ isOpen: false, tab: 'terms' });
       }
     };
 
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
+
+  useEffect(() => {
+    const meta = legalModalState.isOpen
+      ? PAGE_META.legal
+      : currentRoute === '/contact'
+        ? PAGE_META.contact
+        : PAGE_META.home;
+
+    document.title = meta.title;
+    setMetaContent('meta[name="description"]', meta.description);
+    setMetaContent('meta[property="og:title"]', meta.title);
+    setMetaContent('meta[property="og:description"]', meta.description);
+    setMetaContent('meta[property="og:url"]', meta.url);
+    setMetaContent('meta[name="twitter:title"]', meta.title);
+    setMetaContent('meta[name="twitter:description"]', meta.description);
+
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute('href', meta.url);
+  }, [currentRoute, legalModalState.isOpen]);
 
   useEffect(() => {
     if (currentRoute === '/') {
@@ -93,6 +144,7 @@ export default function App() {
     } catch {
       // In case pushState throws on restricted environments
     }
+    setLegalModalState({ isOpen: false, tab: 'terms' });
     setCurrentRoute(path);
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
@@ -113,10 +165,21 @@ export default function App() {
   };
 
   const handleOpenLegal = (tab = 'terms') => {
+    try {
+      window.history.pushState({}, '', '/legal');
+    } catch {
+      // Keep the modal available if history updates are restricted.
+    }
     setLegalModalState({ isOpen: true, tab });
   };
 
   const handleCloseLegal = () => {
+    const returnPath = currentRoute === '/contact' ? '/contact' : '/';
+    try {
+      window.history.pushState({}, '', returnPath);
+    } catch {
+      // The page state still restores correctly without a history update.
+    }
     setLegalModalState({ isOpen: false, tab: 'terms' });
   };
 

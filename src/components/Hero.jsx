@@ -6,7 +6,6 @@ import PixelatedIcon from './PixelatedIcon';
 export default function Hero({ onContact, isLoaded = true }) {
   const [isBtnHovered, setIsBtnHovered] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
-  const [isSymbolNear, setIsSymbolNear] = useState(false);
 
   const pointerX = useMotionValue(0);
   const pointerY = useMotionValue(0);
@@ -16,8 +15,6 @@ export default function Hero({ onContact, isLoaded = true }) {
   const hillY = useTransform(smoothY, [-0.5, 0.5], [-2, 2]);
   const foregroundX = useTransform(smoothX, [-0.5, 0.5], [-11, 11]);
   const foregroundY = useTransform(smoothY, [-0.5, 0.5], [-6, 6]);
-  const symbolX = useTransform(smoothX, [-0.5, 0.5], [-2, 2]);
-  const symbolY = useTransform(smoothY, [-0.5, 0.5], [-1.5, 1.5]);
 
   const capabilityTicker = ['Brand Systems', 'AI', 'Websites', 'Creative Production', 'Digital Products', 'Growth'];
 
@@ -108,12 +105,6 @@ export default function Hero({ onContact, isLoaded = true }) {
     },
     { src: '/assets/client-logos/10-mango.png', alt: 'Mango', service: 'Growth' },
     {
-      src: '/assets/client-showcase/darzies-couture-clean.png',
-      alt: 'Darzies Couture',
-      service: 'Branding',
-      className: 'h-[36px] sm:h-[42px] md:h-[46px]',
-    },
-    {
       src: '/assets/client-logos/13-shaheen-express.png',
       alt: 'Shaheen Express',
       service: 'Campaign',
@@ -136,13 +127,11 @@ export default function Hero({ onContact, isLoaded = true }) {
     const y = (event.clientY - rect.top) / rect.height - 0.5;
     pointerX.set(x);
     pointerY.set(y);
-    setIsSymbolNear(Math.hypot(x, y - 0.08) < 0.2);
   };
 
   const resetHeroPointer = () => {
     pointerX.set(0);
     pointerY.set(0);
-    setIsSymbolNear(false);
   };
 
   const handleScrollToCapabilities = () => {
@@ -187,29 +176,6 @@ export default function Hero({ onContact, isLoaded = true }) {
           />
         </motion.div>
 
-        {/* Proximity labels around the 3D Kriyon mark */}
-        <motion.div
-          style={{ x: symbolX, y: symbolY }}
-          className="pointer-events-none absolute left-1/2 top-[57%] z-[6] hidden h-[170px] w-[260px] -translate-x-1/2 -translate-y-1/2 lg:block"
-          aria-hidden="true"
-        >
-          {[
-            ['Build', 'left-0 top-4'],
-            ['Create', 'right-0 top-0'],
-            ['Scale', 'left-4 bottom-0'],
-            ['Connect', 'right-2 bottom-5'],
-          ].map(([label, position], index) => (
-            <motion.span
-              key={label}
-              animate={isSymbolNear ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.94, y: 4 }}
-              transition={{ duration: 0.28, delay: isSymbolNear ? index * 0.035 : 0 }}
-              className={`absolute ${position} rounded-full border border-white/40 bg-black/55 px-2.5 py-1 text-[9px] font-medium uppercase tracking-[0.16em] text-white shadow-sm backdrop-blur-md`}
-            >
-              {label}
-            </motion.span>
-          ))}
-        </motion.div>
-
         {/* Hero Content Grid (Left Text & Right Rotating Venture Card) */}
         <div className="relative z-10 w-full max-w-[1600px] mx-auto flex flex-col lg:flex-row items-start justify-between gap-8 sm:gap-10 lg:gap-14 min-w-0">
           
@@ -238,32 +204,12 @@ export default function Hero({ onContact, isLoaded = true }) {
               Bringing brand, technology, creative production and digital experience into one connected force for businesses ready to build bigger, move faster and grow further.
             </p>
 
-            {/* Quiet capability ticker */}
-            <div className="mt-3.5 w-full max-w-[620px] overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_7%,black_93%,transparent)]">
-              <motion.div
-                animate={{ x: ['0%', '-50%'] }}
-                transition={{ x: { repeat: Infinity, repeatType: 'loop', duration: 34, ease: 'linear' } }}
-                className="flex w-max items-center"
-              >
-                {[0, 1].map((copy) => (
-                  <div key={copy} aria-hidden={copy === 1} className="flex shrink-0 items-center gap-3 pr-3">
-                    {capabilityTicker.map((item) => (
-                      <span key={`${copy}-${item}`} className="inline-flex items-center gap-3 text-[9.5px] sm:text-[10px] font-medium uppercase tracking-[0.13em] text-black/44 whitespace-nowrap">
-                        {item}
-                        <span className="h-0.5 w-0.5 rounded-full bg-[#7BA60B]/65" />
-                      </span>
-                    ))}
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-
             {/* CTA Buttons: Explore Capabilities & Start a Project */}
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
               transition={{ duration: 0.8, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-5 sm:mt-7 flex items-center gap-3 sm:gap-4 w-full sm:w-auto min-w-0"
+              className="mt-6 sm:mt-8 flex items-center gap-3 sm:gap-4 w-full sm:w-auto min-w-0"
             >
               {/* Primary Button: Explore Capabilities */}
               <button
@@ -294,6 +240,26 @@ export default function Hero({ onContact, isLoaded = true }) {
                 <ArrowRight className="w-4 h-4 stroke-[1.6] text-[#222222] group-hover:text-black group-hover:translate-x-0.5 transition-transform duration-200 flex-shrink-0" />
               </button>
             </motion.div>
+
+            {/* Quiet capability ticker, intentionally secondary to the CTAs */}
+            <div className="mt-3 w-full max-w-[456px] overflow-hidden rounded-full border border-black/[0.045] bg-white/30 px-3 py-1.5 backdrop-blur-sm [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+              <motion.div
+                animate={{ x: ['0%', '-50%'] }}
+                transition={{ x: { repeat: Infinity, repeatType: 'loop', duration: 42, ease: 'linear' } }}
+                className="flex w-max items-center"
+              >
+                {[0, 1].map((copy) => (
+                  <div key={copy} aria-hidden={copy === 1} className="flex shrink-0 items-center gap-3 pr-3">
+                    {capabilityTicker.map((item) => (
+                      <span key={`${copy}-${item}`} className="inline-flex items-center gap-3 whitespace-nowrap text-[9px] font-medium uppercase tracking-[0.12em] text-black/36 sm:text-[9.5px]">
+                        {item}
+                        <span className="h-0.5 w-0.5 rounded-full bg-black/20" />
+                      </span>
+                    ))}
+                  </div>
+                ))}
+              </motion.div>
+            </div>
           </div>
 
           {/* Right Column: Controlled Floating Venture Card */}
