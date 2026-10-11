@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-  Sparkles,
   Globe,
   Layers,
   Cpu,
-  Video,
   QrCode,
   ArrowRight,
   CheckCircle2,
@@ -53,7 +51,6 @@ const services = [
     description:
       'Build or refresh your business identity with strategy, design and launch-ready assets.',
     icon: BrandPenIcon,
-    image: '/assets/ai-capabilities/brand-systems.jpg',
     deliverables: ['Brand Strategy', 'Logo & Identity', 'Packaging', 'Launch Assets'],
   },
   {
@@ -62,7 +59,6 @@ const services = [
     description:
       'Websites, landing pages and online stores built to present your business clearly and convert better.',
     icon: Globe,
-    image: '/assets/ai-capabilities/brand-systems.jpg',
     deliverables: ['Business Websites', 'Landing Pages', 'Online Stores', 'Redesigns'],
   },
   {
@@ -71,7 +67,6 @@ const services = [
     description:
       'Custom digital products for businesses that need portals, dashboards, apps or scalable platforms.',
     icon: Layers,
-    image: '/assets/ai-capabilities/digital-systems.jpg',
     deliverables: ['Web Apps', 'Mobile Apps', 'SaaS Products', 'Admin Panels'],
   },
   {
@@ -80,7 +75,6 @@ const services = [
     description:
       'Smart workflows that reduce manual work and improve enquiries, bookings, payments and follow-ups.',
     icon: Cpu,
-    image: '/assets/ai-capabilities/digital-systems.jpg',
     deliverables: ['AI Automation', 'Lead Funnels', 'Booking Flows', 'Integrations'],
   },
   {
@@ -89,7 +83,6 @@ const services = [
     description:
       'Creative content and campaigns that help your brand look better, communicate better and grow faster.',
     icon: SocialFilmIcon,
-    image: '/assets/ai-capabilities/creative-presence.jpg',
     deliverables: ['Social Media', 'Product Shoots', 'Reels & Films', 'CGI & Visuals'],
   },
   {
@@ -98,7 +91,6 @@ const services = [
     description:
       'Everything customers need to discover, contact, trust and take action with your business online.',
     icon: QrCode,
-    image: '/assets/ai-capabilities/creative-presence.jpg',
     deliverables: ['OneLink Cards', 'QR Systems', 'Reviews', 'Customer Journeys'],
   },
 ];
@@ -129,12 +121,12 @@ export default function WhatWeDo({ onContact }) {
   return (
     <section
       id="what-we-do"
-      className="relative w-full max-w-full overflow-hidden bg-[#EBEBED] text-[#0A0A0A] py-14 sm:py-18 lg:py-20 px-4 sm:px-8 lg:px-12 border-b border-black/[0.04]"
+      className="relative w-full max-w-full overflow-hidden bg-[#EBEBED] text-[#0A0A0A] py-14 sm:py-18 lg:py-22 px-4 sm:px-8 lg:px-12 border-b border-black/[0.04]"
     >
       <div className="relative w-full max-w-[1460px] mx-auto min-w-0">
         
         {/* Top Header Section */}
-        <motion.div {...reveal(0)} className="mb-7 sm:mb-9">
+        <motion.div {...reveal(0)} className="mb-8 sm:mb-10 lg:mb-12">
           {/* Eyebrow Badge */}
           <div className="inline-flex items-center gap-2 mb-2.5 select-none">
             <div className="flex items-center shrink-0">
@@ -146,12 +138,12 @@ export default function WhatWeDo({ onContact }) {
           </div>
 
           {/* Main Headline */}
-          <h2 className="text-[26px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.14] font-sans max-w-none">
+          <h2 className="text-[28px] sm:text-[34px] md:text-[38px] lg:text-[42px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans max-w-none">
             <PixelText text="What can we help you build?" delay={0.12} stagger={0.05} />
           </h2>
 
-          {/* Subtitle — Single clean line on desktop */}
-          <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] text-[#555555] font-normal leading-[1.5] mt-2 font-sans w-full max-w-none whitespace-normal lg:whitespace-nowrap">
+          {/* Subtitle */}
+          <p className="text-[14px] sm:text-[15px] lg:text-[16px] text-[#555555] font-normal leading-[1.5] mt-2 font-sans w-full max-w-none whitespace-normal lg:whitespace-nowrap">
             <PixelText
               text="From branding and websites to apps, automation, content and customer experience — Kriyon brings everything together in one place."
               delay={0.22}
@@ -160,7 +152,7 @@ export default function WhatWeDo({ onContact }) {
           </p>
         </motion.div>
 
-        {/* 6 Clean Apple Glass Boxes Grid — Proportioned sizing, tight & balanced spacing */}
+        {/* 6 Premium Cards Grid — Styled with Blueprint Grid Lines & Crisp Architectural Polish */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
           {services.map((item, idx) => {
             const IconComponent = item.icon;
@@ -171,53 +163,55 @@ export default function WhatWeDo({ onContact }) {
                 {...reveal(0.03 + idx * 0.04)}
                 onMouseEnter={() => setHoveredCard(item.num)}
                 onMouseLeave={() => setHoveredCard(null)}
-                className="group relative isolate overflow-hidden rounded-[20px] sm:rounded-[22px] p-5 sm:p-5.5 flex flex-col justify-between transition-all duration-300 ease-out cursor-default
-                  bg-white/[0.84] hover:bg-white/[0.97]
-                  backdrop-blur-2xl
-                  border border-white/95 hover:border-white
-                  shadow-[0_4px_18px_rgba(0,0,0,0.025),inset_0_1px_1px_rgba(255,255,255,1)]
-                  hover:shadow-[0_12px_30px_rgba(0,0,0,0.055),inset_0_1px_1px_rgba(255,255,255,1)]
-                  hover:-translate-y-0.5"
+                className="group relative isolate overflow-hidden rounded-[22px] sm:rounded-[24px] p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 ease-out cursor-default
+                  bg-[#FAFAFA] hover:bg-white
+                  border border-black/[0.07] hover:border-black/[0.14]
+                  shadow-[0_4px_20px_rgba(0,0,0,0.025),inset_0_1px_1px_rgba(255,255,255,0.9)]
+                  hover:shadow-[0_16px_36px_rgba(0,0,0,0.055)]
+                  hover:-translate-y-1"
               >
-                <img
-                  src={item.image}
-                  alt=""
+                {/* Blueprint Architectural Grid Lines (From Reference Design) */}
+                <div
+                  className="pointer-events-none absolute inset-0 z-0 opacity-[0.55] [background-image:linear-gradient(to_right,rgba(0,0,0,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.04)_1px,transparent_1px)] [background-size:28px_28px]"
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-right opacity-[0.20] saturate-[0.52] contrast-[0.94] transition-all duration-700 ease-out group-hover:scale-[1.025] group-hover:opacity-[0.28]"
-                  loading="lazy"
                 />
-                <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(145deg,rgba(255,255,255,0.92)_0%,rgba(255,255,255,0.84)_52%,rgba(255,255,255,0.91)_100%)] backdrop-blur-[0.75px]" aria-hidden="true" />
-                <div className="pointer-events-none absolute -right-12 -top-14 z-[2] h-40 w-40 rounded-full bg-white/65 blur-3xl" aria-hidden="true" />
-                {/* Top Section: Icon, Number, Title & Compact Description */}
+
+                {/* Subtle Hover Ambient Glow */}
+                <div
+                  className="pointer-events-none absolute -right-10 -top-10 z-[1] h-32 w-32 rounded-full bg-black/[0.02] group-hover:bg-black/[0.04] blur-2xl transition-all duration-500"
+                  aria-hidden="true"
+                />
+
+                {/* Top Section: Icon Tile + Number + Title & Description */}
                 <div className="relative z-10">
                   {/* Row: Icon + Number */}
-                  <div className="flex items-center justify-between mb-3.5">
-                    {/* Modern Clean Rounded Dark Icon Tile */}
-                    <div className="w-9 h-9 rounded-[11px] bg-[#111111] flex items-center justify-center text-white shadow-sm transition-transform duration-300 group-hover:scale-105">
-                      <IconComponent className="w-[18px] h-[18px] text-white stroke-[1.8]" />
+                  <div className="flex items-center justify-between mb-4">
+                    {/* Modern Dark Icon Tile with Subtle Hover Lift */}
+                    <div className="w-10 h-10 rounded-[12px] bg-[#111111] group-hover:bg-black flex items-center justify-center text-white shadow-sm transition-transform duration-300 group-hover:scale-105">
+                      <IconComponent className="w-[19px] h-[19px] text-white stroke-[1.8]" />
                     </div>
-                    <span className="text-[12px] font-mono font-medium tracking-wider text-[#888888]">
-                      {item.num}
+                    <span className="text-[11.5px] font-mono font-medium tracking-wider text-[#777777] uppercase">
+                      / {item.num}
                     </span>
                   </div>
 
-                  {/* Service Title — Clean font-medium with elegant spacing */}
-                  <h3 className="text-[17px] sm:text-[18px] font-medium text-[#0A0A0A] tracking-[-0.02em] leading-snug font-sans group-hover:text-black transition-colors">
+                  {/* Service Title */}
+                  <h3 className="text-[18px] sm:text-[19px] font-medium text-[#0A0A0A] tracking-[-0.02em] leading-snug font-sans group-hover:text-black transition-colors">
                     {item.title}
                   </h3>
 
-                  {/* Description — Close to title, no awkward gap */}
-                  <p className="text-[13px] sm:text-[13.5px] text-[#555555] font-normal leading-[1.48] font-sans mt-1.5">
+                  {/* Description */}
+                  <p className="text-[13.5px] sm:text-[14px] text-[#555555] font-normal leading-[1.5] font-sans mt-2">
                     {item.description}
                   </p>
                 </div>
 
                 {/* Bottom Section: Deliverable Tags Chips */}
-                <div className="relative z-10 pt-3.5 mt-3.5 flex flex-wrap gap-1.5 border-t border-black/[0.05]">
+                <div className="relative z-10 pt-4 mt-4 flex flex-wrap gap-1.5 border-t border-black/[0.06]">
                   {item.deliverables.map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center text-[10.5px] sm:text-[11px] font-normal text-[#555555] bg-black/[0.03] hover:bg-black/[0.055] rounded-[7px] px-2 py-0.5 tracking-tight transition-colors duration-200"
+                      className="inline-flex items-center text-[11px] font-normal text-[#444444] bg-black/[0.035] hover:bg-black/[0.06] rounded-[7px] px-2.5 py-1 tracking-tight transition-colors duration-200"
                     >
                       {tag}
                     </span>
@@ -231,10 +225,16 @@ export default function WhatWeDo({ onContact }) {
         {/* Bottom Apple Glass Banner: Engagement Models + CTA */}
         <motion.div
           {...reveal(0.25)}
-          className="mt-5 sm:mt-6 rounded-[20px] sm:rounded-[22px] bg-white/[0.86] hover:bg-white/[0.96] backdrop-blur-2xl border border-white/95 p-4 sm:p-5 shadow-[0_8px_26px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,1)] flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 transition-all duration-300"
+          className="mt-6 sm:mt-7 rounded-[22px] sm:rounded-[24px] bg-[#FAFAFA] hover:bg-white border border-black/[0.07] p-4 sm:p-5 shadow-[0_4px_20px_rgba(0,0,0,0.025),inset_0_1px_1px_rgba(255,255,255,0.9)] flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 transition-all duration-300 relative overflow-hidden"
         >
+          {/* Subtle Blueprint Grid Pattern */}
+          <div
+            className="pointer-events-none absolute inset-0 z-0 opacity-[0.45] [background-image:linear-gradient(to_right,rgba(0,0,0,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.04)_1px,transparent_1px)] [background-size:28px_28px]"
+            aria-hidden="true"
+          />
+
           {/* Left: Ways to work with us */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-4">
+          <div className="relative z-10 flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-4">
             <span className="text-[12px] sm:text-[12.5px] font-semibold text-[#111111] uppercase tracking-[0.08em] whitespace-nowrap">
               Ways to work with us:
             </span>
@@ -242,7 +242,7 @@ export default function WhatWeDo({ onContact }) {
               {engagementModels.map((model) => (
                 <span
                   key={model}
-                  className="inline-flex items-center gap-1.5 text-[11.5px] sm:text-[12px] font-normal text-[#222222] bg-[#F5F5F7] rounded-[9px] px-2.5 py-1 border border-black/[0.04]"
+                  className="inline-flex items-center gap-1.5 text-[11.5px] sm:text-[12px] font-normal text-[#222222] bg-[#EBEBED] rounded-[9px] px-2.5 py-1 border border-black/[0.04]"
                 >
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#111111] stroke-[2]" />
                   {model}
@@ -255,7 +255,7 @@ export default function WhatWeDo({ onContact }) {
           <button
             type="button"
             onClick={handleScrollToContact}
-            className="group inline-flex items-center justify-between gap-3.5 bg-[#111111] hover:bg-black text-white px-4 sm:px-5 py-2.5 sm:py-3 rounded-[14px] transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 cursor-pointer text-left shrink-0"
+            className="relative z-10 group inline-flex items-center justify-between gap-3.5 bg-[#111111] hover:bg-black text-white px-4 sm:px-5 py-2.5 sm:py-3 rounded-[14px] transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 cursor-pointer text-left shrink-0"
           >
             <div className="flex flex-col">
               <span className="text-[10px] uppercase tracking-[0.14em] text-white/60 font-medium">
