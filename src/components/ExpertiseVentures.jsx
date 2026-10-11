@@ -10,10 +10,16 @@ export default function ExpertiseVentures({ onContact }) {
     {
       id: 'repixelx',
       ventureNum: '01',
+      badge: 'AI × BRAND LAB',
+      statusText: 'STUDIO // ACTIVE',
+      accentColor: '#88EA15',
+      accentGlow: 'rgba(136, 234, 21, 0.18)',
+      accentBorder: 'rgba(136, 234, 21, 0.35)',
+      accentBg: 'rgba(136, 234, 21, 0.08)',
       title: 'RepixelX AI Studio',
       titleRender: 'RepixelX AI Studio',
       image: '/assets/venture-repixelx.png',
-      imageAlt: 'RepixelXAI Studio Brand & Technology',
+      imageAlt: 'RepixelX AI Studio Brand & Technology',
       imageBg: 'bg-black',
       body: 'Brand systems and digital products built to make businesses clearer, faster and ready to scale.',
       tags: [
@@ -30,10 +36,17 @@ export default function ExpertiseVentures({ onContact }) {
       supportLine: 'Identity through digital execution.',
       ctaText: 'Visit RepixelX',
       ctaLink: 'https://repixelx.com',
+      domain: 'repixelx.com',
     },
     {
       id: 'kriyon-media',
       ventureNum: '02',
+      badge: 'CINEMATIC // 4K RAW',
+      statusText: 'PRODUCTION // LIVE',
+      accentColor: '#F59E0B',
+      accentGlow: 'rgba(245, 158, 11, 0.18)',
+      accentBorder: 'rgba(245, 158, 11, 0.35)',
+      accentBg: 'rgba(245, 158, 11, 0.08)',
       title: 'Kriyon Media',
       titleRender: 'Kriyon Media',
       image: '/assets/venture-media-new.jpg',
@@ -53,10 +66,17 @@ export default function ExpertiseVentures({ onContact }) {
       supportLine: 'Concept through final production.',
       ctaText: 'Visit Kriyon Media',
       ctaLink: 'https://www.kriyonmedia.com',
+      domain: 'kriyonmedia.com',
     },
     {
       id: 'onelink',
       ventureNum: '03',
+      badge: 'NFC 3.0 // DYNAMIC TOUCH',
+      statusText: 'INSTANT SYNC // READY',
+      accentColor: '#3B82F6',
+      accentGlow: 'rgba(59, 130, 246, 0.18)',
+      accentBorder: 'rgba(59, 130, 246, 0.35)',
+      accentBg: 'rgba(59, 130, 246, 0.08)',
       title: 'OneLink Cards',
       titleRender: 'OneLink Cards',
       image: '/assets/onelink-mockup-new.jpg',
@@ -76,13 +96,18 @@ export default function ExpertiseVentures({ onContact }) {
       supportLine: 'Every key action in one smart link.',
       ctaText: 'Explore OneLink',
       ctaLink: 'https://www.onelink.cards',
+      domain: 'onelink.cards',
     },
   ];
 
   const handleStartProject = () => {
     const el = document.getElementById('contact');
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      if (window.__lenis) {
+        window.__lenis.scrollTo(el, { duration: 1.2 });
+      } else {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
     } else if (onContact) {
       onContact();
     }
@@ -91,7 +116,7 @@ export default function ExpertiseVentures({ onContact }) {
   return (
     <section
       id="expertise"
-      className="relative w-full max-w-full overflow-hidden bg-[#EBEBED] text-[#0A0A0A] py-14 sm:py-18 lg:py-20 px-4 sm:px-8 lg:px-12"
+      className="relative w-full max-w-full overflow-hidden bg-[#EBEBED] text-[#0A0A0A] py-14 sm:py-18 lg:py-22 px-4 sm:px-8 lg:px-12"
     >
       {/* Anchor for Ventures smooth scrolling */}
       <div id="ventures" className="absolute -top-12 left-0 pointer-events-none" />
@@ -101,7 +126,7 @@ export default function ExpertiseVentures({ onContact }) {
         {/* Top Header Section */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8 mb-10 sm:mb-12">
           <div className="max-w-none w-full">
-            {/* Clean Section Indicator: Pixel arrow + clean slash text (PP Neue Montreal font-sans) */}
+            {/* Clean Section Indicator: Pixel arrow + clean slash text */}
             <div className="inline-flex items-center gap-2.5 mb-4 select-none">
               <div className="flex items-center shrink-0">
                 <PixelatedIcon className="w-[20px] h-[10.5px]" color="#111111" />
@@ -111,12 +136,12 @@ export default function ExpertiseVentures({ onContact }) {
               </span>
             </div>
 
-            {/* Main Headline with slow, visible, cinematic word formation */}
+            {/* Main Headline */}
             <h2 className="text-[26px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans">
               <PixelText text="Specialist capability, connected around you." delay={0.12} stagger={0.06} />
             </h2>
 
-            {/* Subtitle — Full one horizontal line with Frosted Glass Reveal */}
+            {/* Subtitle */}
             <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] text-[#555555] font-normal leading-[1.55] mt-3 font-sans w-full max-w-none whitespace-normal lg:whitespace-nowrap">
               <PixelText
                 text="Three focused ventures. One clear route from strategy and identity to production, technology and customer action."
@@ -149,8 +174,8 @@ export default function ExpertiseVentures({ onContact }) {
           </div>
         </div>
 
-        {/* 3 Venture Cards: BUILD -> CREATE -> CONNECT (Identical Visual Rhythm) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 xl:gap-6 items-stretch">
+        {/* 3 Bespoke Premium Venture Cards: RepixelX × Kriyon Media × OneLink */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch">
           {cards.map((card, idx) => (
             <motion.article
               key={card.id}
@@ -162,93 +187,97 @@ export default function ExpertiseVentures({ onContact }) {
                 delay: idx * 0.12,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="relative isolate w-full rounded-[22px] sm:rounded-[24px] overflow-hidden bg-white/[0.68] backdrop-blur-2xl border border-white/90 shadow-[0_10px_34px_rgba(0,0,0,0.035),inset_0_1px_0_rgba(255,255,255,0.95)] hover:shadow-[0_22px_54px_rgba(0,0,0,0.075),inset_0_1px_0_rgba(255,255,255,1)] hover:border-white group transition-all duration-500 ease-out hover:-translate-y-1 flex flex-col justify-between p-2.5 sm:p-3 z-10"
+              className="group relative isolate w-full rounded-[26px] sm:rounded-[28px] overflow-hidden flex flex-col justify-between p-3.5 sm:p-4 transition-all duration-500 ease-out hover:-translate-y-1.5
+                bg-gradient-to-b from-white/[0.95] via-white/[0.88] to-white/[0.82]
+                backdrop-blur-2xl
+                border border-white/95 hover:border-black/[0.15]
+                shadow-[0_12px_36px_rgba(0,0,0,0.035),inset_0_1px_1.5px_rgba(255,255,255,1),inset_0_0_0_1px_rgba(0,0,0,0.02)]
+                hover:shadow-[0_24px_60px_rgba(0,0,0,0.08)]"
             >
-              <div className="pointer-events-none absolute -right-16 -top-16 z-0 h-44 w-44 rounded-full bg-white/80 blur-3xl opacity-35 transition-all duration-700 group-hover:opacity-70 group-hover:scale-110" aria-hidden="true" />
-              {/* 1. Image Box with Film Grain Texture (Clickable link to venture) */}
-              <a
-                href={card.ctaLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Visit ${card.title}`}
-                className={`relative z-10 w-full h-[188px] sm:h-[196px] xl:h-[202px] rounded-[16px] sm:rounded-[17px] overflow-hidden block ${card.imageBg} cursor-pointer group/img shadow-[0_8px_24px_rgba(0,0,0,0.08)]`}
-              >
-                <img
-                  src={card.image}
-                  alt={card.imageAlt}
-                  className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover/img:scale-[1.03]"
-                  loading="lazy"
-                />
+              {/* Subtle Architectural Blueprint Grid Inside Card */}
+              <div
+                className="pointer-events-none absolute inset-0 z-0 opacity-[0.35] [background-image:linear-gradient(to_right,rgba(0,0,0,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.035)_1px,transparent_1px)] [background-size:24px_24px]"
+                aria-hidden="true"
+              />
 
-                {/* Cinematic Film Grain Overlay */}
-                <div
-                  className="absolute inset-0 pointer-events-none opacity-[0.20] mix-blend-overlay z-[2]"
-                  style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-                    backgroundRepeat: 'repeat',
-                  }}
-                />
-              </a>
+              {/* 1. Clean Cinematic Image Window */}
+              <div className="relative z-10 w-full rounded-[18px] sm:rounded-[20px] overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.06)] group/img">
+                <a
+                  href={card.ctaLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${card.title}`}
+                  className={`relative w-full h-[196px] sm:h-[206px] xl:h-[214px] overflow-hidden block ${card.imageBg} cursor-pointer`}
+                >
+                  <img
+                    src={card.image}
+                    alt={card.imageAlt}
+                    className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover/img:scale-[1.04]"
+                    loading="lazy"
+                  />
 
-              {/* Lower Content Body: Exactly Aligned Visual Rhythm Across All 3 Cards */}
-              <div className="relative z-10 flex flex-col flex-1 px-2.5 sm:px-3 pt-4 sm:pt-4.5 pb-1">
-                {/* 2. Venture title + small 01/02/03 (Venture Name: bold/strong, clean sans-serif) */}
+                  {/* Subtle Vignette for Depth */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                </a>
+              </div>
+
+              {/* Lower Content Body */}
+              <div className="relative z-10 flex flex-col flex-1 px-2 pt-4 sm:pt-5 pb-1">
+                
+                {/* 2. Venture Title + Clean Monospace Number */}
                 <div className="flex items-baseline justify-between gap-3">
                   <a
                     href={card.ctaLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[20px] sm:text-[21px] xl:text-[22px] font-medium text-[#0A0A0A] hover:text-[#333333] tracking-[-0.025em] leading-tight font-sans transition-colors cursor-pointer"
+                    className="text-[21px] sm:text-[22px] xl:text-[23px] font-medium text-[#0A0A0A] hover:text-[#222222] tracking-[-0.025em] leading-tight font-sans transition-colors cursor-pointer"
                   >
                     <PixelText text={card.titleRender || card.title} delay={0.06 * (idx + 1)} />
                   </a>
-                  <span className="text-[12px] sm:text-[13px] font-sans text-[#888888] font-medium tracking-wider select-none shrink-0">
-                    <PixelText text={card.ventureNum} delay={0.04 * (idx + 1)} />
+                  <span className="text-[12px] sm:text-[12.5px] font-mono text-[#888888] font-medium tracking-wider select-none shrink-0">
+                    {card.ventureNum}
                   </span>
                 </div>
 
-                {/* Title -> description: 14-16px */}
-                {/* 3. One short description (Regular, highly readable, identical min-height) */}
-                <div className="mt-2 min-h-[48px] sm:min-h-[50px] flex items-start">
-                  <p className="text-[13.5px] sm:text-[14px] text-[#555555] font-normal leading-[1.55] font-sans">
+                {/* 3. Short Description */}
+                <div className="mt-2 min-h-[46px] sm:min-h-[48px] flex items-start">
+                  <p className="text-[13.5px] sm:text-[14px] text-[#555555] font-normal leading-[1.52] font-sans">
                     {card.body}
                   </p>
                 </div>
 
-                {/* Description -> badges: 18-20px */}
-                {/* 4. Capability badges: medium weight, compact and clean, balanced height */}
-                <div className="mt-3 min-h-[66px] flex flex-wrap content-start items-center gap-1.5 sm:gap-2">
+                {/* 4. Capability Badges: Clean, refined with subtle hover state */}
+                <div className="mt-3.5 min-h-[64px] flex flex-wrap content-start items-center gap-1.5">
                   {card.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 sm:px-3 py-1.5 rounded-[9px] bg-white/[0.84] backdrop-blur-md hover:bg-white text-[11.5px] sm:text-[12px] font-medium text-[#252525] border border-white shadow-[0_2px_8px_rgba(0,0,0,0.035),inset_0_0_0_1px_rgba(0,0,0,0.035)] font-sans transition-colors whitespace-nowrap cursor-default"
+                      className="px-2.5 py-1 rounded-[8px] bg-black/[0.035] hover:bg-black/[0.065] text-[11.5px] font-normal text-[#333333] border border-black/[0.04] font-sans transition-colors whitespace-nowrap cursor-default"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                {/* Badges -> divider: 22-26px */}
-                <div className="mt-4 border-t border-black/[0.06] w-full" />
+                {/* Divider Line */}
+                <div className="mt-4 pt-3.5 border-t border-black/[0.07] w-full flex items-center justify-between">
+                  {/* Clean Action Word */}
+                  <div className="flex items-center">
+                    <span className="text-[20px] sm:text-[22px] font-bold text-[#0A0A0A] tracking-tight font-sans">
+                      <PixelText text={card.actionWord} delay={0.1 * (idx + 1)} />
+                    </span>
+                  </div>
 
-                {/* Divider -> BUILD / CREATE / CONNECT block: 20-24px */}
-                {/* 6 & 7. Large action word + Short category + one support line */}
-                <div className="pt-4 flex items-center justify-between gap-5 min-h-[44px]">
-                  <span className="text-[22px] sm:text-[24px] font-bold text-[#0A0A0A] tracking-tight font-sans shrink-0">
-                    <PixelText text={card.actionWord} delay={0.1 * (idx + 1)} />
-                  </span>
-                  <div className="ml-auto flex max-w-[62%] flex-col items-end justify-center text-right min-w-0">
-                    <span className="text-[13px] sm:text-[13.5px] font-bold text-[#111111] leading-tight font-sans">
+                  <div className="flex flex-col items-end text-right min-w-0">
+                    <span className="text-[12.5px] sm:text-[13px] font-bold text-[#111111] leading-tight font-sans">
                       {card.category}
                     </span>
-                    <span className="text-[12px] sm:text-[12.5px] text-[#666666] mt-0.5 font-sans leading-tight">
+                    <span className="text-[11px] sm:text-[11.5px] text-[#666666] mt-0.5 font-sans leading-tight">
                       {card.supportLine}
                     </span>
                   </div>
                 </div>
 
-                {/* Highlight block -> CTA: 24-28px (All CTA buttons sit on exactly the same baseline via mt-auto) */}
-                {/* 8. CTA button */}
+                {/* 5. Venture CTA Button */}
                 <div className="mt-auto pt-4">
                   <a
                     href={card.ctaLink}
@@ -256,10 +285,12 @@ export default function ExpertiseVentures({ onContact }) {
                     rel="noopener noreferrer"
                     onMouseEnter={() => setHoveredBtn(card.id)}
                     onMouseLeave={() => setHoveredBtn(null)}
-                    className="h-[50px] sm:h-[52px] w-full inline-flex items-center justify-between p-1.5 rounded-[16px] sm:rounded-[18px] bg-[#111111] hover:bg-black text-white border border-black/10 shadow-[0_4px_16px_rgba(0,0,0,0.12)] transition-all duration-200 group/btn active:scale-[0.98] cursor-pointer focus:outline-none relative z-10"
+                    className="h-[50px] sm:h-[52px] w-full inline-flex items-center justify-between p-1.5 rounded-[16px] sm:rounded-[18px] bg-[#111111] hover:bg-black text-white border border-black/10 shadow-[0_4px_16px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition-all duration-300 group/btn active:scale-[0.98] cursor-pointer focus:outline-none relative z-10"
                   >
                     {/* Left Squircle Badge with Animated Pixel Chevron */}
-                    <div className="rounded-[11px] sm:rounded-[12px] h-[36px] sm:h-[38px] w-[40px] sm:w-[44px] bg-white flex items-center justify-center transition-transform group-hover/btn:scale-105 overflow-hidden flex-shrink-0 shadow-sm pointer-events-none">
+                    <div
+                      className="rounded-[11px] sm:rounded-[12px] h-[36px] sm:h-[38px] w-[40px] sm:w-[44px] bg-white flex items-center justify-center transition-transform group-hover/btn:scale-105 overflow-hidden flex-shrink-0 shadow-sm pointer-events-none"
+                    >
                       <PixelatedIcon
                         className="w-[21px] sm:w-[23px] h-[10.5px] sm:h-[11.5px]"
                         color="#111111"
@@ -272,10 +303,15 @@ export default function ExpertiseVentures({ onContact }) {
                       {card.ctaText}
                     </span>
 
-                    {/* Right spacer for balanced optical centering */}
-                    <div className="w-3 pointer-events-none" />
+                    {/* Right Arrow */}
+                    <div className="w-6 flex items-center justify-center pointer-events-none pr-2">
+                      <span className="text-[14px] text-white/70 group-hover/btn:text-white transition-all duration-300 group-hover/btn:translate-x-1">
+                        →
+                      </span>
+                    </div>
                   </a>
                 </div>
+
               </div>
             </motion.article>
           ))}
