@@ -139,20 +139,20 @@ export default function ContactPage() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#EBEBED] text-[#0A0A0A] font-sans selection:bg-black selection:text-white">
-      <section className="relative px-4 pb-10 pt-28 sm:px-8 sm:pb-14 sm:pt-36 lg:px-12 lg:pt-40">
+      <section className="relative px-4 pb-7 pt-28 sm:px-8 sm:pb-9 sm:pt-32 lg:px-12 lg:pt-36">
         <div className="mx-auto max-w-[1460px]">
-          <motion.div {...reveal(0)} className="mb-7 inline-flex items-center gap-2.5">
+          <motion.div {...reveal(0)} className="mb-5 inline-flex items-center gap-2.5">
             <PixelatedIcon className="h-[10.5px] w-[20px]" color="#111111" />
             <span className="text-[11px] font-medium uppercase tracking-[0.2em] sm:text-[12px]">04 // START A CONVERSATION</span>
           </motion.div>
 
           <div className="grid items-end gap-6 lg:grid-cols-[1.35fr_0.75fr]">
-            <motion.h1 {...reveal(0.04)} className="max-w-[820px] text-[42px] font-medium leading-[1.02] tracking-[-0.045em] sm:text-[56px] md:text-[64px] lg:text-[72px]">
+            <motion.h1 {...reveal(0.04)} className="max-w-[820px] text-[40px] font-medium leading-[1.04] tracking-[-0.045em] sm:text-[52px] md:text-[58px] lg:text-[64px]">
               Start with <span className="text-black/30">Kriyon.</span>
             </motion.h1>
             <motion.div {...reveal(0.1)} className="max-w-[420px] pb-2 lg:justify-self-end">
               <p className="text-[14px] leading-[1.65] text-black/55 sm:text-[15.5px]">Share the ambition, challenge or opportunity. We’ll bring the right people, technology and creative capability together.</p>
-              <div className="mt-5 flex items-center gap-2.5 text-[12px] font-medium text-black/55">
+              <div className="mt-4 flex items-center gap-2.5 text-[12px] font-medium text-black/55">
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#88EA15] opacity-60" />
                   <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#70D800]" />
@@ -164,24 +164,24 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="relative px-4 pb-16 sm:px-8 sm:pb-[88px] lg:px-12">
+      <section className="relative px-4 pb-14 sm:px-8 sm:pb-16 lg:px-12">
         <div className="mx-auto grid max-w-[1460px] gap-4 lg:grid-cols-[0.72fr_1.28fr] lg:gap-5">
-          <motion.aside {...reveal(0.04)} className="relative overflow-hidden rounded-[28px] bg-[#101010] p-7 text-white shadow-[0_24px_70px_rgba(0,0,0,0.14)] sm:p-9 lg:min-h-[625px]">
+          <motion.aside {...reveal(0.04)} className="relative overflow-hidden rounded-[26px] bg-[#101010] p-7 text-white shadow-[0_20px_56px_rgba(0,0,0,0.13)] sm:p-8 lg:min-h-[540px]">
             <img src="/assets/kriyon-og.png" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-center" />
             <div className="absolute inset-0 bg-black/[0.62]" aria-hidden="true" />
             <div className="relative flex h-full flex-col justify-between">
               <div>
-                <div className="mb-10 flex items-center justify-between">
+                <div className="mb-8 flex items-center justify-between">
                   <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-[14px] border border-white/15 bg-black/30 backdrop-blur-xl">
                     <PixelatedIcon className="h-[10px] w-[20px]" color="#FFFFFF" />
                   </div>
                   <span className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-[10px] uppercase tracking-[0.16em] text-white/60 backdrop-blur-xl">Open for business</span>
                 </div>
-                <h2 className="max-w-[390px] text-[31px] font-medium leading-[1.06] tracking-[-0.04em] sm:text-[40px]">One conversation. The right capability.</h2>
-                <p className="mt-5 max-w-[370px] text-[14px] leading-[1.7] text-white/[0.66]">You don’t need to know the solution or which venture to choose. Tell us the outcome you want and we’ll make the path clear.</p>
+                <h2 className="max-w-[390px] text-[30px] font-medium leading-[1.07] tracking-[-0.04em] sm:text-[37px]">One conversation. The right capability.</h2>
+                <p className="mt-4 max-w-[370px] text-[13.5px] leading-[1.65] text-white/[0.66]">You don’t need to know the solution or which venture to choose. Tell us the outcome you want and we’ll make the path clear.</p>
               </div>
 
-              <div className="mt-12 space-y-2.5">
+              <div className="mt-9 space-y-2.5">
                 {[
                   { icon: Mail, label: 'Email us', value: 'hello@kriyongroup.com', href: 'mailto:hello@kriyongroup.com' },
                   { icon: Phone, label: 'Call us', value: '+91 96221 21100', href: 'tel:+919622121100' },
@@ -207,10 +207,10 @@ export default function ContactPage() {
             </div>
           </motion.aside>
 
-          <motion.div {...reveal(0.1)} className="rounded-[28px] border border-white/80 bg-white/[0.78] p-5 shadow-[0_20px_60px_rgba(22,22,22,0.06),inset_0_1px_0_rgba(255,255,255,0.95)] backdrop-blur-2xl sm:p-8 lg:p-9">
+          <motion.div {...reveal(0.1)} className="rounded-[26px] border border-white/80 bg-white/[0.78] p-5 shadow-[0_16px_44px_rgba(22,22,22,0.05),inset_0_1px_0_rgba(255,255,255,0.95)] backdrop-blur-xl sm:p-7 lg:p-8">
             <AnimatePresence mode="wait">
               {submitted ? (
-                <motion.div key="sent" initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="flex min-h-[620px] flex-col items-center justify-center text-center">
+                <motion.div key="sent" initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="flex min-h-[500px] flex-col items-center justify-center text-center">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-black text-white"><Check className="h-7 w-7 stroke-[2.5]" /></div>
                   <h2 className="mt-7 text-[32px] font-medium tracking-[-0.04em]">Your details are ready.</h2>
                   <p className="mt-3 max-w-[360px] text-[14px] leading-relaxed text-black/50">WhatsApp should be opening with your contact details. If it didn’t, use the button below.</p>
@@ -221,7 +221,7 @@ export default function ContactPage() {
                 </motion.div>
               ) : (
                 <motion.form key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} onSubmit={handleSubmit}>
-                  <div className="mb-7 flex items-start justify-between gap-6">
+                  <div className="mb-5 flex items-start justify-between gap-6">
                     <div>
                       <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-black/45">Quick contact</span>
                       <h2 className="mt-2 text-[25px] font-medium tracking-[-0.035em] sm:text-[32px]">Leave the basics. We’ll call.</h2>
@@ -257,7 +257,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="relative bg-[#EBEBED] px-4 py-16 sm:px-8 sm:py-[88px] lg:px-12">
+      <section className="relative bg-[#EBEBED] px-4 py-14 sm:px-8 sm:py-16 lg:px-12">
         <div className="mx-auto max-w-[1460px]">
           <motion.div {...reveal(0)} className="grid gap-8 border-b border-black/[0.08] pb-12 lg:grid-cols-2 lg:items-end">
             <div>

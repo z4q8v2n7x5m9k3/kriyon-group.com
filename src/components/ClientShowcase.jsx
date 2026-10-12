@@ -104,8 +104,9 @@ export default function ClientShowcase() {
           <h2 className="text-[26px] sm:text-[30px] md:text-[34px] lg:text-[36px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.14] font-sans">
             <PixelText text="In good company." delay={0.12} stagger={0.06} />
           </h2>
-          <p className="mt-2 text-[13.5px] sm:text-[14px] font-normal leading-[1.45] text-black/55 font-sans">
-            38+ Brand Projects.
+          <p className="mt-2 flex items-baseline gap-1.5 text-[13.5px] sm:text-[14px] font-normal leading-[1.45] text-black/50 font-sans">
+            <span className="text-[17px] sm:text-[18px] font-semibold tracking-[-0.025em] text-black">38+</span>
+            <span>brands we’ve helped bring to life.</span>
           </p>
         </div>
 
@@ -114,16 +115,9 @@ export default function ClientShowcase() {
             {clients.map((client) => (
               <div
                 key={client.id}
-                className="group relative isolate aspect-[1.4] sm:aspect-[1.5] lg:aspect-[1.55] overflow-hidden bg-gradient-to-b from-white/[0.62] via-white/[0.48] to-white/[0.38] hover:from-white/[0.72] hover:via-white/[0.58] hover:to-white/[0.48] backdrop-blur-2xl transition-all duration-500 ease-out px-4 py-5 sm:px-6 sm:py-6 flex items-center justify-center rounded-[18px] sm:rounded-[20px] border border-white/75 hover:border-white shadow-[0_10px_32px_rgba(0,0,0,0.035),inset_0_1.5px_1px_rgba(255,255,255,0.95),inset_0_0_0_1px_rgba(255,255,255,0.4)] hover:shadow-[0_18px_45px_rgba(0,0,0,0.07),inset_0_2px_1.5px_rgba(255,255,255,1),inset_0_0_0_1px_rgba(255,255,255,0.55)] hover:-translate-y-1"
+                className="group relative isolate aspect-[1.4] sm:aspect-[1.5] lg:aspect-[1.55] overflow-hidden bg-white/[0.22] hover:bg-white/[0.34] transition-all duration-500 ease-out px-4 py-5 sm:px-6 sm:py-6 flex items-center justify-center rounded-[18px] sm:rounded-[20px] border border-white/75 hover:border-white shadow-[0_6px_20px_rgba(0,0,0,0.018)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.035)] hover:-translate-y-0.5"
                 title={client.name}
               >
-                {/* Apple 3D Glass Ambient Depth Spheres */}
-                <div className="absolute -right-8 -top-10 h-28 w-28 rounded-full bg-white/80 blur-2xl opacity-50 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" aria-hidden="true" />
-                <div className="absolute -left-8 -bottom-10 h-24 w-24 rounded-full bg-white/40 blur-xl opacity-40 transition-opacity duration-500 group-hover:opacity-80 pointer-events-none" aria-hidden="true" />
-                
-                {/* Diagonal Glass Sheen */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-black/[0.015] pointer-events-none" aria-hidden="true" />
-
                 <div className="relative z-10 flex h-full w-full items-center justify-center">
                   <img
                     src={client.src}
@@ -132,8 +126,8 @@ export default function ClientShowcase() {
                     className={`${client.id === 'prem-sweets' ? 'max-h-[86%] max-w-[82%]' : client.id === 'nd-chair-parts' ? 'max-h-[82%] max-w-[62%]' : client.id === 'the-seafu' ? 'max-h-[48%] max-w-[68%]' : 'max-h-[56%] max-w-[76%]'} h-auto w-auto object-contain opacity-[0.88] group-hover:opacity-100 group-hover:scale-[1.035] transition-all duration-300 drop-shadow-[0_2px_6px_rgba(0,0,0,0.06)]`}
                     style={{
                       filter: client.id === 'prem-sweets'
-                        ? 'grayscale(1) contrast(1.06) brightness(0.82)'
-                        : 'grayscale(1) saturate(0) contrast(0) brightness(0.72)',
+                        ? 'grayscale(1) contrast(1.03) brightness(0.93)'
+                        : 'grayscale(1) saturate(0) contrast(0) brightness(0.87)',
                     }}
                   />
                 </div>

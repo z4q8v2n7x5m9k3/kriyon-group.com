@@ -124,7 +124,7 @@ export default function ExpertiseVentures({ onContact }) {
       <div className="relative w-full max-w-[1460px] mx-auto min-w-0">
         
         {/* Top Header Section */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8 mb-8 sm:mb-10">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8 mb-7 sm:mb-8">
           <div className="max-w-none w-full">
             {/* Clean Section Indicator: Pixel arrow + clean slash text */}
             <div className="inline-flex items-center gap-2.5 mb-3.5 select-none">
@@ -142,7 +142,7 @@ export default function ExpertiseVentures({ onContact }) {
             </h2>
 
             {/* Subtitle */}
-            <p className="text-[13.5px] sm:text-[14.5px] lg:text-[15px] text-[#555555] font-normal leading-[1.55] mt-2.5 font-sans w-full max-w-[740px]">
+            <p className="text-[13.5px] sm:text-[14.5px] lg:text-[15px] text-[#555555] font-normal leading-[1.5] mt-2.5 font-sans w-full max-w-none xl:whitespace-nowrap">
               <PixelText
                 text="Three focused ventures. One clear route from strategy and identity to production, technology and customer action."
                 delay={0.25}
@@ -175,7 +175,7 @@ export default function ExpertiseVentures({ onContact }) {
         </div>
 
         {/* 3 Bespoke Premium Venture Cards: RepixelX × Kriyon Media × OneLink */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
           {cards.map((card, idx) => (
             <motion.article
               key={card.id}
@@ -187,35 +187,28 @@ export default function ExpertiseVentures({ onContact }) {
                 delay: idx * 0.12,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="group relative isolate w-full rounded-[26px] sm:rounded-[28px] overflow-hidden flex flex-col justify-between p-3.5 sm:p-4 transition-all duration-500 ease-out hover:-translate-y-1.5
-                bg-gradient-to-b from-white/[0.65] via-white/[0.50] to-white/[0.42]
-                hover:from-white/[0.76] hover:via-white/[0.62] hover:to-white/[0.52]
-                backdrop-blur-3xl
-                border border-white/80 hover:border-white
-                shadow-[0_16px_45px_rgba(0,0,0,0.045),0_1px_3px_rgba(0,0,0,0.02),inset_0_1.5px_1px_rgba(255,255,255,0.95),inset_0_0_0_1px_rgba(255,255,255,0.4)]
-                hover:shadow-[0_28px_70px_rgba(0,0,0,0.085),0_4px_12px_rgba(0,0,0,0.03),inset_0_2px_1.5px_rgba(255,255,255,1),inset_0_0_0_1px_rgba(255,255,255,0.55)]"
+              className="group relative isolate w-full rounded-[24px] sm:rounded-[26px] overflow-hidden flex flex-col p-4 sm:p-[18px] transition-all duration-500 ease-out hover:-translate-y-0.5
+                bg-gradient-to-b from-white/[0.52] via-white/[0.40] to-white/[0.34]
+                hover:from-white/[0.64] hover:via-white/[0.50] hover:to-white/[0.43]
+                backdrop-blur-2xl
+                border border-white/75 hover:border-white/95
+                shadow-[0_10px_30px_rgba(0,0,0,0.035),inset_0_1px_0_rgba(255,255,255,0.85)]
+                hover:shadow-[0_18px_42px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.98)]"
             >
               {/* Apple 3D Glass Ambient Depth Spheres */}
-              <div className="pointer-events-none absolute -right-12 -top-12 z-0 h-52 w-52 rounded-full bg-white/85 blur-3xl opacity-50 group-hover:opacity-95 transition-opacity duration-700" aria-hidden="true" />
-              <div className="pointer-events-none absolute -left-12 -bottom-12 z-0 h-48 w-48 rounded-full bg-white/50 blur-3xl opacity-40 group-hover:opacity-80 transition-opacity duration-700" aria-hidden="true" />
+              <div className="pointer-events-none absolute -right-12 -top-12 z-0 h-44 w-44 rounded-full bg-white/75 blur-3xl opacity-40 group-hover:opacity-75 transition-opacity duration-700" aria-hidden="true" />
 
               {/* Apple Diagonal Glass Reflection Sheen */}
               <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-br from-white/35 via-transparent to-black/[0.015]" aria-hidden="true" />
 
-              {/* Subtle Architectural Blueprint Grid Inside Card */}
-              <div
-                className="pointer-events-none absolute inset-0 z-0 opacity-[0.3] [background-image:linear-gradient(to_right,rgba(0,0,0,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.035)_1px,transparent_1px)] [background-size:24px_24px]"
-                aria-hidden="true"
-              />
-
               {/* 1. Clean Cinematic Image Window */}
-              <div className="relative z-10 w-full rounded-[18px] sm:rounded-[20px] overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.06)] group/img">
+              <div className="relative z-10 w-full rounded-[16px] sm:rounded-[18px] overflow-hidden shadow-[0_5px_18px_rgba(0,0,0,0.055)] group/img">
                 <a
                   href={card.ctaLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Visit ${card.title}`}
-                  className={`relative w-full h-[196px] sm:h-[206px] xl:h-[214px] overflow-hidden block ${card.imageBg} cursor-pointer`}
+                  className={`relative w-full h-[202px] sm:h-[212px] xl:h-[220px] overflow-hidden block ${card.imageBg} cursor-pointer`}
                 >
                   <img
                     src={card.image}
@@ -230,7 +223,7 @@ export default function ExpertiseVentures({ onContact }) {
               </div>
 
               {/* Lower Content Body */}
-              <div className="relative z-10 flex flex-col flex-1 px-2 pt-4 sm:pt-5 pb-1">
+              <div className="relative z-10 flex flex-col flex-1 px-2 pt-4 sm:pt-[18px] pb-1">
                 
                 {/* 2. Venture Title + Clean Monospace Number */}
                 <div className="flex items-baseline justify-between gap-3">
@@ -249,17 +242,17 @@ export default function ExpertiseVentures({ onContact }) {
 
                 {/* 3. Short Description */}
                 <div className="mt-2 min-h-[46px] sm:min-h-[48px] flex items-start">
-                  <p className="text-[13.5px] sm:text-[14px] text-[#555555] font-normal leading-[1.52] font-sans">
+                  <p className="text-[13.5px] sm:text-[14px] text-[#585858] font-normal leading-[1.5] font-sans">
                     {card.body}
                   </p>
                 </div>
 
                 {/* 4. Capability Badges: Refined Apple Glass Pills */}
-                <div className="mt-3.5 min-h-[64px] flex flex-wrap content-start items-center gap-1.5">
+                <div className="mt-4 min-h-[66px] flex flex-wrap content-start items-center gap-2">
                   {card.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-1 rounded-[8px] bg-white/60 hover:bg-white/90 backdrop-blur-md text-[11.5px] font-normal text-[#222222] border border-white/80 shadow-[0_1px_3px_rgba(0,0,0,0.02)] font-sans transition-all duration-200 whitespace-nowrap cursor-default"
+                      className="px-3 py-1.5 rounded-[9px] bg-white/48 hover:bg-white/78 backdrop-blur-md text-[11.5px] sm:text-[12px] font-normal text-[#292929] border border-white/75 font-sans leading-none transition-all duration-300 whitespace-nowrap cursor-default"
                     >
                       {tag}
                     </span>
@@ -267,26 +260,26 @@ export default function ExpertiseVentures({ onContact }) {
                 </div>
 
                 {/* Divider Line */}
-                <div className="mt-4 pt-3.5 border-t border-black/[0.06] w-full flex items-center justify-between">
+                <div className="mt-4 pt-3.5 border-t border-black/[0.06] w-full flex items-center justify-between gap-4">
                   {/* Clean Action Word */}
                   <div className="flex items-center">
-                    <span className="text-[20px] sm:text-[22px] font-bold text-[#0A0A0A] tracking-tight font-sans">
+                    <span className="text-[19px] sm:text-[20px] font-bold text-[#0A0A0A] tracking-tight font-sans">
                       <PixelText text={card.actionWord} delay={0.1 * (idx + 1)} />
                     </span>
                   </div>
 
-                  <div className="flex flex-col items-end text-right min-w-0">
+                  <div className="ml-auto flex min-w-0 flex-col items-end text-right">
                     <span className="text-[12.5px] sm:text-[13px] font-bold text-[#111111] leading-tight font-sans">
                       {card.category}
                     </span>
-                    <span className="text-[11px] sm:text-[11.5px] text-[#666666] mt-0.5 font-sans leading-tight">
+                    <span className="mt-0.5 text-[11px] sm:text-[11.5px] text-[#666666] font-sans leading-tight">
                       {card.supportLine}
                     </span>
                   </div>
                 </div>
 
                 {/* 5. Venture CTA Button */}
-                <div className="mt-auto pt-4">
+                <div className="pt-3.5">
                   <a
                     href={card.ctaLink}
                     target="_blank"

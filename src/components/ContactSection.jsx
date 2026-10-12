@@ -55,10 +55,10 @@ export default function ContactSection({ onNavigateToFullContact }) {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-white px-4 py-14 text-[#0A0A0A] sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+    <section id="contact" className="relative overflow-hidden bg-white px-4 py-14 text-[#0A0A0A] sm:px-8 sm:py-18 lg:px-12 lg:py-20">
       <div id="start-a-project" className="pointer-events-none absolute -top-12 left-0" />
       <div className="relative z-10 mx-auto w-full max-w-[1460px]">
-        <motion.div {...headerReveal} className="mb-10 sm:mb-12">
+        <motion.div {...headerReveal} className="mb-8 sm:mb-9">
           <div className="mb-4 inline-flex items-center gap-2.5">
             <PixelatedIcon className="h-[10.5px] w-[20px]" color="#111111" />
             <span className="text-[12px] font-medium uppercase tracking-[0.18em] sm:text-[13px]">
@@ -82,22 +82,22 @@ export default function ContactSection({ onNavigateToFullContact }) {
           </div>
         </motion.div>
 
-        <motion.div {...cardContainerReveal} className="relative isolate overflow-hidden rounded-[28px] border border-black/[0.06] bg-[#111111] p-3 shadow-[0_18px_55px_rgba(0,0,0,0.12)] sm:p-4 lg:min-h-[540px]">
+        <motion.div {...cardContainerReveal} className="relative isolate overflow-hidden rounded-[26px] border border-black/[0.06] bg-[#111111] p-3 shadow-[0_16px_46px_rgba(0,0,0,0.11)] sm:p-4 lg:min-h-[500px]">
           <img src="/assets/kriyon-og.png" alt="" aria-hidden="true" className="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
           <div className="absolute inset-0 -z-10 bg-black/[0.56]" aria-hidden="true" />
 
           <div className="grid h-full gap-3 lg:grid-cols-12 lg:gap-4">
-            <motion.div {...leftColReveal} className="flex min-h-[360px] flex-col justify-between p-5 text-white lg:col-span-5 lg:min-h-full lg:p-7">
+            <motion.div {...leftColReveal} className="flex min-h-[330px] flex-col justify-between p-5 text-white lg:col-span-5 lg:min-h-full lg:p-7">
               <div>
                 <div className="mb-8 flex items-center justify-between gap-3">
                   <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-[14px] border border-white/15 bg-black/35 backdrop-blur-xl"><PixelatedIcon className="h-[10px] w-[20px]" color="#FFFFFF" /></span>
                   <span className="rounded-full border border-white/15 bg-black/30 px-3 py-1.5 text-[10px] uppercase tracking-[0.15em] text-white/65 backdrop-blur-lg">Replies within 24h</span>
                 </div>
-                <h3 className="max-w-[430px] text-[30px] font-medium leading-[1.05] tracking-[-0.04em] sm:text-[40px]">Start with the outcome, not the specification.</h3>
+                <h3 className="max-w-[430px] text-[29px] font-medium leading-[1.07] tracking-[-0.04em] sm:text-[37px]">Start with the outcome, not the specification.</h3>
                 <p className="mt-4 max-w-[390px] text-[13.5px] leading-[1.7] text-white/65">Tell us what needs to change. We’ll define the right path, team and next step.</p>
               </div>
 
-              <div className="mt-10 space-y-2.5">
+              <div className="mt-8 space-y-2.5">
                 {[
                   { icon: Mail, label: 'hello@kriyongroup.com', href: 'mailto:hello@kriyongroup.com' },
                   { icon: Phone, label: '+91 96221 21100', href: 'tel:+919622121100' },
@@ -116,9 +116,9 @@ export default function ContactSection({ onNavigateToFullContact }) {
               </div>
             </motion.div>
 
-            <motion.div {...formCardReveal} className="rounded-[22px] border border-white bg-white/[0.94] p-5 backdrop-blur-2xl lg:col-span-7 sm:p-8">
+            <motion.div {...formCardReveal} className="rounded-[21px] border border-white bg-white/[0.96] p-5 lg:col-span-7 sm:p-7">
               {submitted ? (
-                <div className="flex min-h-[500px] flex-col items-center justify-center text-center">
+                <div className="flex min-h-[440px] flex-col items-center justify-center text-center">
                   <span className="flex h-14 w-14 items-center justify-center rounded-full bg-black text-white"><Check className="h-6 w-6" /></span>
                   <h3 className="mt-5 text-[26px] font-medium tracking-[-0.03em]">Your brief is ready.</h3>
                   <p className="mt-2 max-w-[330px] text-[13px] leading-relaxed text-black/45">WhatsApp should be opening with your project brief.</p>

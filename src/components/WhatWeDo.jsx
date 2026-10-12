@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   Globe,
@@ -6,7 +5,6 @@ import {
   Cpu,
   QrCode,
   ArrowRight,
-  CheckCircle2,
 } from 'lucide-react';
 import PixelatedIcon from './PixelatedIcon';
 import PixelText from './PixelText';
@@ -95,29 +93,7 @@ const services = [
   },
 ];
 
-const engagementModels = [
-  'One-time Projects',
-  'Launch Packages',
-  'Monthly Retainers',
-  'Custom Solutions',
-];
-
-export default function WhatWeDo({ onContact }) {
-  const [hoveredCard, setHoveredCard] = useState(null);
-
-  const handleScrollToContact = () => {
-    const el = document.getElementById('contact');
-    if (el) {
-      if (window.__lenis) {
-        window.__lenis.scrollTo(el, { duration: 1.2 });
-      } else {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else if (onContact) {
-      onContact();
-    }
-  };
-
+export default function WhatWeDo() {
   return (
     <section
       id="what-we-do"
@@ -126,7 +102,7 @@ export default function WhatWeDo({ onContact }) {
       <div className="relative w-full max-w-[1460px] mx-auto min-w-0">
         
         {/* Top Header Section */}
-        <motion.div {...reveal(0)} className="mb-8 sm:mb-10 lg:mb-12">
+        <motion.div {...reveal(0)} className="mb-7 sm:mb-8 lg:mb-9">
           {/* Eyebrow Badge */}
           <div className="inline-flex items-center gap-2 mb-2.5 select-none">
             <div className="flex items-center shrink-0">
@@ -138,12 +114,12 @@ export default function WhatWeDo({ onContact }) {
           </div>
 
           {/* Main Headline */}
-          <h2 className="text-[28px] sm:text-[34px] md:text-[38px] lg:text-[42px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans max-w-none">
+          <h2 className="text-[27px] sm:text-[31px] md:text-[34px] lg:text-[36px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans max-w-none">
             <PixelText text="What can we help you build?" delay={0.12} stagger={0.05} />
           </h2>
 
           {/* Subtitle */}
-          <p className="text-[14px] sm:text-[15px] lg:text-[16px] text-[#555555] font-normal leading-[1.5] mt-2 font-sans w-full max-w-none whitespace-normal lg:whitespace-nowrap">
+          <p className="text-[13.5px] sm:text-[14.5px] lg:text-[15px] text-[#555555] font-normal leading-[1.5] mt-2 font-sans w-full max-w-none whitespace-normal xl:whitespace-nowrap">
             <PixelText
               text="From branding and websites to apps, automation, content and customer experience — Kriyon brings everything together in one place."
               delay={0.22}
@@ -152,8 +128,10 @@ export default function WhatWeDo({ onContact }) {
           </p>
         </motion.div>
 
-        {/* 6 Premium Cards Grid — Styled with Blueprint Grid Lines & Crisp Architectural Polish */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
+        {/* One continuous capability surface: quieter and more premium than six detached cards. */}
+        <div className="relative isolate overflow-hidden rounded-[22px] sm:rounded-[24px] border border-black/[0.06] bg-white/[0.26] shadow-[0_14px_42px_rgba(0,0,0,0.025)]">
+
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {services.map((item, idx) => {
             const IconComponent = item.icon;
 
@@ -161,115 +139,45 @@ export default function WhatWeDo({ onContact }) {
               <motion.article
                 key={item.num}
                 {...reveal(0.03 + idx * 0.04)}
-                onMouseEnter={() => setHoveredCard(item.num)}
-                onMouseLeave={() => setHoveredCard(null)}
-                className="group relative isolate overflow-hidden rounded-[22px] sm:rounded-[24px] p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 ease-out cursor-default
-                  bg-[#FAFAFA] hover:bg-white
-                  border border-black/[0.07] hover:border-black/[0.14]
-                  shadow-[0_4px_20px_rgba(0,0,0,0.025),inset_0_1px_1px_rgba(255,255,255,0.9)]
-                  hover:shadow-[0_16px_36px_rgba(0,0,0,0.055)]
-                  hover:-translate-y-1"
+                className={`group relative min-h-[210px] sm:min-h-[220px] p-5 sm:p-6 lg:p-7 flex flex-col justify-between transition-colors duration-500 ease-out cursor-default hover:bg-white/[0.34]
+                  ${idx < services.length - 1 ? 'border-b border-black/[0.065]' : ''}
+                  md:border-b-0 md:border-r-0
+                  ${idx < 4 ? 'md:border-b md:border-black/[0.065]' : ''}
+                  ${idx % 2 === 0 ? 'md:border-r md:border-black/[0.065]' : ''}
+                  lg:border-b-0 lg:border-r-0
+                  ${idx < 3 ? 'lg:border-b lg:border-black/[0.065]' : ''}
+                  ${idx % 3 !== 2 ? 'lg:border-r lg:border-black/[0.065]' : ''}`}
               >
-                {/* Blueprint Architectural Grid Lines (From Reference Design) */}
-                <div
-                  className="pointer-events-none absolute inset-0 z-0 opacity-[0.55] [background-image:linear-gradient(to_right,rgba(0,0,0,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.04)_1px,transparent_1px)] [background-size:28px_28px]"
-                  aria-hidden="true"
-                />
-
-                {/* Subtle Hover Ambient Glow */}
-                <div
-                  className="pointer-events-none absolute -right-10 -top-10 z-[1] h-32 w-32 rounded-full bg-black/[0.02] group-hover:bg-black/[0.04] blur-2xl transition-all duration-500"
-                  aria-hidden="true"
-                />
-
-                {/* Top Section: Icon Tile + Number + Title & Description */}
                 <div className="relative z-10">
-                  {/* Row: Icon + Number */}
-                  <div className="flex items-center justify-between mb-4">
-                    {/* Modern Dark Icon Tile with Subtle Hover Lift */}
-                    <div className="w-10 h-10 rounded-[12px] bg-[#111111] group-hover:bg-black flex items-center justify-center text-white shadow-sm transition-transform duration-300 group-hover:scale-105">
-                      <IconComponent className="w-[19px] h-[19px] text-white stroke-[1.8]" />
+                  <div className="flex items-start justify-between mb-7 sm:mb-8">
+                    <div className="w-10 h-10 rounded-[13px] border border-black/[0.08] bg-white/60 group-hover:bg-[#111111] flex items-center justify-center text-[#111111] group-hover:text-white shadow-[0_3px_10px_rgba(0,0,0,0.025)] transition-all duration-500">
+                      <IconComponent className="w-[18px] h-[18px] stroke-[1.7]" />
                     </div>
-                    <span className="text-[11.5px] font-mono font-medium tracking-wider text-[#777777] uppercase">
-                      / {item.num}
+                    <span className="text-[12px] font-mono font-medium tracking-[0.12em] text-black/35 uppercase transition-colors duration-500 group-hover:text-black/60">
+                      {item.num}
                     </span>
                   </div>
 
-                  {/* Service Title */}
-                  <h3 className="text-[18px] sm:text-[19px] font-medium text-[#0A0A0A] tracking-[-0.02em] leading-snug font-sans group-hover:text-black transition-colors">
+                  <h3 className="text-[18px] sm:text-[19px] font-medium text-[#0A0A0A] tracking-[-0.025em] leading-snug font-sans group-hover:text-black transition-colors">
                     {item.title}
                   </h3>
 
-                  {/* Description */}
-                  <p className="text-[13.5px] sm:text-[14px] text-[#555555] font-normal leading-[1.5] font-sans mt-2">
+                  <p className="max-w-[360px] text-[13px] sm:text-[13.5px] text-[#5B5B5B] font-normal leading-[1.5] font-sans mt-2">
                     {item.description}
                   </p>
                 </div>
 
-                {/* Bottom Section: Deliverable Tags Chips */}
-                <div className="relative z-10 pt-4 mt-4 flex flex-wrap gap-1.5 border-t border-black/[0.06]">
-                  {item.deliverables.map((tag) => (
-                    <span
-                      key={tag}
-                      className="inline-flex items-center text-[11px] font-normal text-[#444444] bg-black/[0.035] hover:bg-black/[0.06] rounded-[7px] px-2.5 py-1 tracking-tight transition-colors duration-200"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div className="relative z-10 mt-5 flex items-end justify-between gap-4">
+                  <p className="text-[10px] sm:text-[10.5px] font-medium uppercase tracking-[0.09em] text-black/40 leading-[1.5]">
+                    {item.deliverables.join('  /  ')}
+                  </p>
+                  <ArrowRight className="h-4 w-4 shrink-0 -translate-x-1 text-black/25 opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:text-black/70 group-hover:opacity-100" />
                 </div>
               </motion.article>
             );
           })}
-        </div>
-
-        {/* Bottom Apple Glass Banner: Engagement Models + CTA */}
-        <motion.div
-          {...reveal(0.25)}
-          className="mt-6 sm:mt-7 rounded-[22px] sm:rounded-[24px] bg-[#FAFAFA] hover:bg-white border border-black/[0.07] p-4 sm:p-5 shadow-[0_4px_20px_rgba(0,0,0,0.025),inset_0_1px_1px_rgba(255,255,255,0.9)] flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 transition-all duration-300 relative overflow-hidden"
-        >
-          {/* Subtle Blueprint Grid Pattern */}
-          <div
-            className="pointer-events-none absolute inset-0 z-0 opacity-[0.45] [background-image:linear-gradient(to_right,rgba(0,0,0,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.04)_1px,transparent_1px)] [background-size:28px_28px]"
-            aria-hidden="true"
-          />
-
-          {/* Left: Ways to work with us */}
-          <div className="relative z-10 flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-4">
-            <span className="text-[12px] sm:text-[12.5px] font-semibold text-[#111111] uppercase tracking-[0.08em] whitespace-nowrap">
-              Ways to work with us:
-            </span>
-            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-              {engagementModels.map((model) => (
-                <span
-                  key={model}
-                  className="inline-flex items-center gap-1.5 text-[11.5px] sm:text-[12px] font-normal text-[#222222] bg-[#EBEBED] rounded-[9px] px-2.5 py-1 border border-black/[0.04]"
-                >
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#111111] stroke-[2]" />
-                  {model}
-                </span>
-              ))}
-            </div>
           </div>
-
-          {/* Right: CTA Button */}
-          <button
-            type="button"
-            onClick={handleScrollToContact}
-            className="relative z-10 group inline-flex items-center justify-between gap-3.5 bg-[#111111] hover:bg-black text-white px-4 sm:px-5 py-2.5 sm:py-3 rounded-[14px] transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 cursor-pointer text-left shrink-0"
-          >
-            <div className="flex flex-col">
-              <span className="text-[10px] uppercase tracking-[0.14em] text-white/60 font-medium">
-                Not sure where to start?
-              </span>
-              <span className="text-[13px] sm:text-[13.5px] font-medium text-white tracking-tight">
-                Tell us what you need
-              </span>
-            </div>
-            <div className="w-7 h-7 rounded-[9px] bg-white/10 flex items-center justify-center transition-transform group-hover:translate-x-1">
-              <ArrowRight className="w-3.5 h-3.5 text-white stroke-[2]" />
-            </div>
-          </button>
-        </motion.div>
+        </div>
 
       </div>
     </section>

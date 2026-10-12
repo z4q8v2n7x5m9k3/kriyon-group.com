@@ -158,7 +158,7 @@ export default function Hero({ onContact, isLoaded = true }) {
         <motion.div
           initial={{ opacity: 0, y: 45, scale: 1.05 }}
           animate={isLoaded ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 45, scale: 1.05 }}
-          transition={{ duration: 1.25, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.45, ease: [0.16, 1, 0.3, 1] }}
           className="absolute inset-x-0 bottom-0 pointer-events-none z-0 overflow-hidden flex items-end justify-center w-full h-[460px] sm:h-auto [mask-image:linear-gradient(to_bottom,transparent_0%,black_16%,black_100%)]"
           aria-hidden="true"
         >
@@ -266,11 +266,22 @@ export default function Hero({ onContact, isLoaded = true }) {
           <div className="w-full lg:w-auto flex justify-center lg:justify-end pt-3 lg:pt-0">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
-              animate={isLoaded ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              animate={isLoaded ? { opacity: 1, x: 0, y: [0, -4, 0] } : { opacity: 0, x: 20, y: 0 }}
+              transition={{
+                opacity: { duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] },
+                x: { duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] },
+                y: { duration: 6.5, delay: 1, repeat: Infinity, ease: 'easeInOut' },
+              }}
               onClick={nextSlide}
               className="relative bg-white/[0.86] backdrop-blur-2xl rounded-[18px] sm:rounded-[20px] p-1.5 shadow-[0_12px_34px_rgba(0,0,0,0.07),inset_0_1px_0_rgba(255,255,255,0.95)] border border-white w-full max-w-[350px] mx-auto lg:mx-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_rgba(0,0,0,0.1)] group cursor-pointer overflow-hidden"
             >
+              <motion.div
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-8 -z-10 rounded-[32px] bg-white/25 blur-2xl"
+                animate={isLoaded ? { opacity: [0.2, 0.42, 0.2], scale: [0.98, 1.025, 0.98] } : { opacity: 0 }}
+                transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut' }}
+              />
+
               {/* Inner Image Container */}
               <div className="relative rounded-[13px] sm:rounded-[15px] overflow-hidden aspect-[1.3] bg-white border border-black/[0.03]">
                 <AnimatePresence mode="wait">
