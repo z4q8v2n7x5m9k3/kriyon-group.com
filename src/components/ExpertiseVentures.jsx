@@ -124,29 +124,29 @@ export default function ExpertiseVentures({ onContact }) {
       <div className="relative w-full max-w-[1460px] mx-auto min-w-0">
         
         {/* Top Header Section */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8 mb-10 sm:mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8 mb-8 sm:mb-10">
           <div className="max-w-none w-full">
             {/* Clean Section Indicator: Pixel arrow + clean slash text */}
-            <div className="inline-flex items-center gap-2.5 mb-4 select-none">
+            <div className="inline-flex items-center gap-2.5 mb-3.5 select-none">
               <div className="flex items-center shrink-0">
                 <PixelatedIcon className="w-[20px] h-[10.5px]" color="#111111" />
               </div>
-              <span className="text-[12px] sm:text-[13px] font-sans font-medium tracking-[0.18em] text-[#111111] uppercase">
+              <span className="text-[11.5px] sm:text-[12px] font-sans font-medium tracking-[0.18em] text-[#111111] uppercase">
                 <PixelText text="02 // SPECIALIST VENTURES" delay={0.06} />
               </span>
             </div>
 
             {/* Main Headline */}
-            <h2 className="text-[26px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans">
+            <h2 className="text-[26px] sm:text-[30px] md:text-[34px] lg:text-[36px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.14] font-sans">
               <PixelText text="Specialist capability, connected around you." delay={0.12} stagger={0.06} />
             </h2>
 
             {/* Subtitle */}
-            <p className="text-[14px] sm:text-[15px] lg:text-[15.5px] xl:text-[16px] text-[#555555] font-normal leading-[1.55] mt-3 font-sans w-full max-w-none whitespace-normal lg:whitespace-nowrap">
+            <p className="text-[13.5px] sm:text-[14.5px] lg:text-[15px] text-[#555555] font-normal leading-[1.55] mt-2.5 font-sans w-full max-w-[740px]">
               <PixelText
                 text="Three focused ventures. One clear route from strategy and identity to production, technology and customer action."
-                delay={0.3}
-                stagger={0.04}
+                delay={0.25}
+                stagger={0.03}
               />
             </p>
           </div>
@@ -157,7 +157,7 @@ export default function ExpertiseVentures({ onContact }) {
               onClick={handleStartProject}
               onMouseEnter={() => setHoveredBtn('header-cta')}
               onMouseLeave={() => setHoveredBtn(null)}
-              className="h-[50px] sm:h-[52px] inline-flex items-center justify-between p-1.5 rounded-[18px] bg-white hover:bg-[#F5F5F7] text-[#0A0A0A] border border-black/[0.06] shadow-sm transition-all duration-200 group active:scale-95 cursor-pointer focus:outline-none relative z-10"
+              className="h-[50px] sm:h-[52px] inline-flex items-center justify-between p-1.5 rounded-[18px] bg-white/80 hover:bg-white backdrop-blur-xl text-[#0A0A0A] border border-white/90 shadow-sm transition-all duration-200 group active:scale-95 cursor-pointer focus:outline-none relative z-10"
             >
               <div className="bg-[#111111] rounded-[12px] h-[38px] w-[42px] flex items-center justify-center transition-transform group-hover:scale-105 overflow-hidden flex-shrink-0 shadow-sm pointer-events-none">
                 <PixelatedIcon
@@ -188,15 +188,23 @@ export default function ExpertiseVentures({ onContact }) {
                 ease: [0.16, 1, 0.3, 1],
               }}
               className="group relative isolate w-full rounded-[26px] sm:rounded-[28px] overflow-hidden flex flex-col justify-between p-3.5 sm:p-4 transition-all duration-500 ease-out hover:-translate-y-1.5
-                bg-gradient-to-b from-white/[0.95] via-white/[0.88] to-white/[0.82]
-                backdrop-blur-2xl
-                border border-white/95 hover:border-black/[0.15]
-                shadow-[0_12px_36px_rgba(0,0,0,0.035),inset_0_1px_1.5px_rgba(255,255,255,1),inset_0_0_0_1px_rgba(0,0,0,0.02)]
-                hover:shadow-[0_24px_60px_rgba(0,0,0,0.08)]"
+                bg-gradient-to-b from-white/[0.65] via-white/[0.50] to-white/[0.42]
+                hover:from-white/[0.76] hover:via-white/[0.62] hover:to-white/[0.52]
+                backdrop-blur-3xl
+                border border-white/80 hover:border-white
+                shadow-[0_16px_45px_rgba(0,0,0,0.045),0_1px_3px_rgba(0,0,0,0.02),inset_0_1.5px_1px_rgba(255,255,255,0.95),inset_0_0_0_1px_rgba(255,255,255,0.4)]
+                hover:shadow-[0_28px_70px_rgba(0,0,0,0.085),0_4px_12px_rgba(0,0,0,0.03),inset_0_2px_1.5px_rgba(255,255,255,1),inset_0_0_0_1px_rgba(255,255,255,0.55)]"
             >
+              {/* Apple 3D Glass Ambient Depth Spheres */}
+              <div className="pointer-events-none absolute -right-12 -top-12 z-0 h-52 w-52 rounded-full bg-white/85 blur-3xl opacity-50 group-hover:opacity-95 transition-opacity duration-700" aria-hidden="true" />
+              <div className="pointer-events-none absolute -left-12 -bottom-12 z-0 h-48 w-48 rounded-full bg-white/50 blur-3xl opacity-40 group-hover:opacity-80 transition-opacity duration-700" aria-hidden="true" />
+
+              {/* Apple Diagonal Glass Reflection Sheen */}
+              <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-br from-white/35 via-transparent to-black/[0.015]" aria-hidden="true" />
+
               {/* Subtle Architectural Blueprint Grid Inside Card */}
               <div
-                className="pointer-events-none absolute inset-0 z-0 opacity-[0.35] [background-image:linear-gradient(to_right,rgba(0,0,0,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.035)_1px,transparent_1px)] [background-size:24px_24px]"
+                className="pointer-events-none absolute inset-0 z-0 opacity-[0.3] [background-image:linear-gradient(to_right,rgba(0,0,0,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.035)_1px,transparent_1px)] [background-size:24px_24px]"
                 aria-hidden="true"
               />
 
@@ -230,7 +238,7 @@ export default function ExpertiseVentures({ onContact }) {
                     href={card.ctaLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[21px] sm:text-[22px] xl:text-[23px] font-medium text-[#0A0A0A] hover:text-[#222222] tracking-[-0.025em] leading-tight font-sans transition-colors cursor-pointer"
+                    className="text-[20px] sm:text-[21px] xl:text-[22px] font-medium text-[#0A0A0A] hover:text-[#222222] tracking-[-0.025em] leading-tight font-sans transition-colors cursor-pointer"
                   >
                     <PixelText text={card.titleRender || card.title} delay={0.06 * (idx + 1)} />
                   </a>
@@ -246,12 +254,12 @@ export default function ExpertiseVentures({ onContact }) {
                   </p>
                 </div>
 
-                {/* 4. Capability Badges: Clean, refined with subtle hover state */}
+                {/* 4. Capability Badges: Refined Apple Glass Pills */}
                 <div className="mt-3.5 min-h-[64px] flex flex-wrap content-start items-center gap-1.5">
                   {card.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-1 rounded-[8px] bg-black/[0.035] hover:bg-black/[0.065] text-[11.5px] font-normal text-[#333333] border border-black/[0.04] font-sans transition-colors whitespace-nowrap cursor-default"
+                      className="px-2.5 py-1 rounded-[8px] bg-white/60 hover:bg-white/90 backdrop-blur-md text-[11.5px] font-normal text-[#222222] border border-white/80 shadow-[0_1px_3px_rgba(0,0,0,0.02)] font-sans transition-all duration-200 whitespace-nowrap cursor-default"
                     >
                       {tag}
                     </span>
@@ -259,7 +267,7 @@ export default function ExpertiseVentures({ onContact }) {
                 </div>
 
                 {/* Divider Line */}
-                <div className="mt-4 pt-3.5 border-t border-black/[0.07] w-full flex items-center justify-between">
+                <div className="mt-4 pt-3.5 border-t border-black/[0.06] w-full flex items-center justify-between">
                   {/* Clean Action Word */}
                   <div className="flex items-center">
                     <span className="text-[20px] sm:text-[22px] font-bold text-[#0A0A0A] tracking-tight font-sans">

@@ -92,19 +92,19 @@ export default function ClientShowcase() {
       className="relative w-full max-w-full overflow-hidden bg-[#EBEBED] text-[#0A0A0A] py-10 sm:py-14 lg:py-16 px-3 sm:px-6 lg:px-10"
     >
       <div className="w-full max-w-[1500px] mx-auto min-w-0">
-        <div className="mb-7 sm:mb-9 lg:mb-10">
-          <div className="inline-flex items-center gap-2.5 mb-4 select-none">
+        <div className="mb-6 sm:mb-8">
+          <div className="inline-flex items-center gap-2.5 mb-3 select-none">
             <div className="flex items-center shrink-0">
               <PixelatedIcon className="w-[20px] h-[10.5px]" color="#111111" />
             </div>
-            <span className="text-[12px] sm:text-[13px] font-sans font-medium tracking-[0.18em] text-[#111111] uppercase">
+            <span className="text-[11.5px] sm:text-[12px] font-sans font-medium tracking-[0.18em] text-[#111111] uppercase">
               <PixelText text="01 // SELECTED CLIENTS" delay={0.06} />
             </span>
           </div>
-          <h2 className="text-[26px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.12] font-sans">
+          <h2 className="text-[26px] sm:text-[30px] md:text-[34px] lg:text-[36px] font-medium tracking-[-0.03em] text-[#0A0A0A] leading-[1.14] font-sans">
             <PixelText text="In good company." delay={0.12} stagger={0.06} />
           </h2>
-          <p className="mt-2 text-[14px] sm:text-[15px] font-normal leading-[1.45] text-black/52 font-sans">
+          <p className="mt-2 text-[13.5px] sm:text-[14px] font-normal leading-[1.45] text-black/55 font-sans">
             38+ Brand Projects.
           </p>
         </div>
@@ -114,10 +114,16 @@ export default function ClientShowcase() {
             {clients.map((client) => (
               <div
                 key={client.id}
-                className="group relative isolate aspect-[1.4] sm:aspect-[1.5] lg:aspect-[1.55] overflow-hidden bg-white/34 hover:bg-white/58 backdrop-blur-xl transition-all duration-500 ease-out px-4 py-5 sm:px-6 sm:py-6 flex items-center justify-center rounded-[18px] sm:rounded-[20px] border border-white/55 hover:border-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_8px_24px_rgba(0,0,0,0.025)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_14px_34px_rgba(0,0,0,0.045)] hover:-translate-y-0.5"
+                className="group relative isolate aspect-[1.4] sm:aspect-[1.5] lg:aspect-[1.55] overflow-hidden bg-gradient-to-b from-white/[0.62] via-white/[0.48] to-white/[0.38] hover:from-white/[0.72] hover:via-white/[0.58] hover:to-white/[0.48] backdrop-blur-2xl transition-all duration-500 ease-out px-4 py-5 sm:px-6 sm:py-6 flex items-center justify-center rounded-[18px] sm:rounded-[20px] border border-white/75 hover:border-white shadow-[0_10px_32px_rgba(0,0,0,0.035),inset_0_1.5px_1px_rgba(255,255,255,0.95),inset_0_0_0_1px_rgba(255,255,255,0.4)] hover:shadow-[0_18px_45px_rgba(0,0,0,0.07),inset_0_2px_1.5px_rgba(255,255,255,1),inset_0_0_0_1px_rgba(255,255,255,0.55)] hover:-translate-y-1"
                 title={client.name}
               >
-                <div className="absolute -right-8 -top-10 h-24 w-24 rounded-full bg-white/70 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" aria-hidden="true" />
+                {/* Apple 3D Glass Ambient Depth Spheres */}
+                <div className="absolute -right-8 -top-10 h-28 w-28 rounded-full bg-white/80 blur-2xl opacity-50 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" aria-hidden="true" />
+                <div className="absolute -left-8 -bottom-10 h-24 w-24 rounded-full bg-white/40 blur-xl opacity-40 transition-opacity duration-500 group-hover:opacity-80 pointer-events-none" aria-hidden="true" />
+                
+                {/* Diagonal Glass Sheen */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-black/[0.015] pointer-events-none" aria-hidden="true" />
+
                 <div className="relative z-10 flex h-full w-full items-center justify-center">
                   <img
                     src={client.src}
